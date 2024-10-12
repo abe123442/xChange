@@ -1,2 +1,2 @@
-# hackton
-epik hackathon
+# hack tuah
+epik hackathon <3
