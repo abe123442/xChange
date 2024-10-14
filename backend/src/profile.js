@@ -1,6 +1,10 @@
 import { getData, setData } from 'dataStore';
 import HTTPError from 'http-errors';
 
+export function createProfile() {
+    //TODO: params equal to the fields in each profile, tba
+}
+
 /**
  * Get information on the exchange profile with profileid
  * @param {int} profileid 
