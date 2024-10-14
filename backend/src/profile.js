@@ -1,5 +1,19 @@
-export function getProfiles() {
-    // ??
+import { getData, setData } from 'dataStore';
+import HTTPError from 'http-errors';
+
+/**
+ * Get information on the exchange profile with profileid
+ * @param {int} profileid 
+ */
+export function getProfile(profileid) {
+    const data = getData();
+
+    if (data.profiles.indexOf(profileid) === -1) {
+        throw HTTPError(400, 'Requested profile does not exist');
+    }
+
+    const profile = data.profiles[profileid];
+    return profile;
 }
 
 /**
@@ -11,22 +25,22 @@ export function getProfiles() {
  */
 
 export function search(keywords, criteria) {
-    const database = getData();
+    const data = getData();
     
     if (criteria !== null) {
-        database = filterCriterias(database, criteria);
+        data = filterCriterias(data, criteria);
     }
 
     // Searches by name
-    for (const profile of database) {
+    for (const profile of data) {
         profile = matchKeywords(profile, keywords);
     }
 
     // Filter and sort
-    database = database.filter(profile => profile.matchingIndices > 0);
-    database = sort(database);
+    data = data.filter(profile => profile.matchingIndices > 0);
+    data = sort(data);
 
-    return database;
+    return data;
 }
 
 function sort(database) {
