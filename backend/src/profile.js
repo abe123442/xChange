@@ -27,7 +27,6 @@ export function getProfile(profileid) {
  * @param {*} name 
  * @param {*} criteria 
  */
-
 export function search(keywords, criteria) {
     const data = getData();
     
@@ -36,44 +35,44 @@ export function search(keywords, criteria) {
     }
 
     // Searches by name
-    for (const profile of data) {
+    for (const profile of data.profiles) {
         profile = matchKeywords(profile, keywords);
     }
 
     // Filter and sort
-    data = data.filter(profile => profile.matchingIndices > 0);
-    data = sort(data);
+    let newData = data.profiles.filter(profile => profile.matchingIndices > 0);
+    newData.sort((a, b) => compare(a, b));
 
-    return data;
+    return newData;
 }
 
-function sort(database) {
-    let swapped;
-    const n = database.length;
+// function sort(data) {
+//     let swapped;
+//     const n = data.length;
 
-    for (let i = 0; i < n - 1; i++) {
-        swapped = false;
-        for (let j = 0; j < n - i - 1; j++) {
-            if (compare(database[j], database[j + 1])) {
-                database = swap(database, j, j + 1);
-                swapped = true;
-            }
-        }
+//     for (let i = 0; i < n - 1; i++) {
+//         swapped = false;
+//         for (let j = 0; j < n - i - 1; j++) {
+//             if (compare(data[j], data[j + 1])) {
+//                 data = swap(data, j, j + 1);
+//                 swapped = true;
+//             }
+//         }
 
-        if (!swapped) {
-            break;
-        }
-    }
+//         if (!swapped) {
+//             break;
+//         }
+//     }
 
-    return database;
-}
+//     return data;
+// }
 
-function swap(database, i, j) {
-    const temp = database[i];
-    database[i] = database[j];
-    database[j] = temp;
-    return database;
-}
+// function swap(data, i, j) {
+//     const temp = data[i];
+//     data[i] = data[j];
+//     data[j] = temp;
+//     return data;
+// }
 
 function compare(a, b) {
     if (a.maxConsecutive > b.maxConsecutive) {
@@ -145,35 +144,35 @@ function matchKeywords(profile, keywords) {
 }
 
 /**
- * Filters database profiles by criteria. Criteria are given as a list of potential targets
+ * Filters data profiles by criteria. Criteria are given as a list of potential targets
  * Null assumes no preference
- * @param {*} database 
+ * @param {*} data 
  * @param {*} criteria 
  */
 
-function filterCriterias(database, criteria) {
+function filterCriterias(data, criteria) {
     if (criteria.continent !== null) {
-        database = database.filter(profile => profile.matchesContinent(criteria.continent));
+        data = data.filter(profile => profile.matchesContinent(criteria.continent));
     }
     if (criteria.country !== null) {
-        database = database.filter(profile => profile.matchesCountry(criteria.country));
+        data = data.filter(profile => profile.matchesCountry(criteria.country));
     }
     if (criteria.degree !== null) {
-        database = database.filter(profile => profile.matchesDegree(criteria.degree));
+        data = data.filter(profile => profile.matchesDegree(criteria.degree));
     }
     if (criteria.category !== null) {
-        database = database.filter(profile => profile.matchesCategory(criteria.category));
+        data = data.filter(profile => profile.matchesCategory(criteria.category));
     }
     if (criteria.wam !== null) {
-        database = database.filter(profile => profile.matchesWam(criteria.wam));
+        data = data.filter(profile => profile.matchesWam(criteria.wam));
     }
     if (criteria.degreeLevel !== null) {
-        database = database.filter(profile => profile.matchesDegreeLevel(criteria.degreeLevel));
+        data = data.filter(profile => profile.matchesDegreeLevel(criteria.degreeLevel));
     }
     if (criteria.load !== null) {
-        database = database.filter(profile => profile.matchesLoad(criteria.load));
+        data = data.filter(profile => profile.matchesLoad(criteria.load));
     }
-    return database;
+    return data;
 }
 
 function matchKeyword(a, b) {
