@@ -32,12 +32,13 @@ export function getProfile(profileid) {
  * @param {*} criterion...
  */
 export function getFilteredProfiles(namePatternStr, descPatternStr, country, scope, category, minWam, degLevel, load) {
-    const splitRegex = /[\s,-/]+/
+    const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;
+
     // Double negative, !!, also checks for falsey (ie, empty strings)
     if (!!namePatternStr) {
-        profiles = profiles.filter(p => p.name.matchKeywords(namePatternStr.split(splitRegex/)));
+        profiles = profiles.filter(p => p.name.matchKeywords(namePatternStr.split(splitRegex)));
     }
     if (!!descPatternStr) {
         profiles = profiles.filter(p => p.desc.matchKeywords(descPatternStr.split(splitRegex)));
@@ -54,10 +55,10 @@ export function getFilteredProfiles(namePatternStr, descPatternStr, country, sco
     if (!!wam) {
         profiles = profiles.filter(p => p.minWam <= minWam);
     }
-    if (!!degreeLevel) {
+    if (!!degLevel) {
         profiles = profiles.filter(p => p.degLevel.matchKeywords(degLevel.split(splitRegex)));
     }
-    if (!!criteria.load) {
+    if (!!load) {
         profiles = profiles.filter(p => p.matchKeywords(load.split(splitRegex)));
     }
     return profiles;
@@ -184,39 +185,6 @@ function matchKeywords(profile, keywords) {
     profile.matchingIndices = matching;
 
     return profile;
-}
-
-/**
- * Filters data profiles by criteria. Criteria are given as a list of potential targets
- * Null assumes no preference
- * @param {*} data 
- * @param {*} criteria 
- */
-
-function filterCriteria(data, criteria) {
-    let profiles;
-    if (criteria.continent !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesContinent(criteria.continent));
-    }
-    if (criteria.country !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesCountry(criteria.country));
-    }
-    if (criteria.degree !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesDegree(criteria.degree));
-    }
-    if (criteria.category !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesCategory(criteria.category));
-    }
-    if (criteria.wam !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesWam(criteria.wam));
-    }
-    if (criteria.degreeLevel !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesDegreeLevel(criteria.degreeLevel));
-    }
-    if (criteria.load !== null) {
-        profiles = data.profiles.filter(profile => profile.matchesLoad(criteria.load));
-    }
-    return profiles;
 }
 
 function matchKeyword(a, b) {
