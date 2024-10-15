@@ -13,7 +13,7 @@ app.use(cors());
 // ====================================================================
 
 app.get('/', (req: Request, res: Response) => {
-  res.send("Server started");
+  res.redirect('/home');
 });
 
 app.get('/home', (req: Request, res: Response) => {
