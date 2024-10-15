@@ -31,17 +31,17 @@ export function getProfile(profileid) {
  * @param {*} data 
  * @param {*} criterion...
  */
-export function getFilteredProfiles(namePatternStr, descPatternStr, country, scope, category, minWam, degLevel, load) {
+export function getFilteredProfiles(name, desc, country, scope, category, minWam, degLevel, load) {
     const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;
 
     // Double negative, !!, also checks for falsey (ie, empty strings)
-    if (!!namePatternStr) {
-        profiles = profiles.filter(p => p.name.matchKeywords(namePatternStr.split(splitRegex)));
+    if (!!name) {
+        profiles = profiles.filter(p => p.name.matchKeywords(name.split(splitRegex)));
     }
-    if (!!descPatternStr) {
-        profiles = profiles.filter(p => p.desc.matchKeywords(descPatternStr.split(splitRegex)));
+    if (!!desc) {
+        profiles = profiles.filter(p => p.desc.matchKeywords(desc.split(splitRegex)));
     }
     if (!!country) {
         profiles = profiles.filter(p => p.country.matchKeywords(country.split(splitRegex)));
