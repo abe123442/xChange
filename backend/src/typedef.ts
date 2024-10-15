@@ -31,7 +31,9 @@ export interface Comment {
   id: number,
   title: string,
   desc: string,
-  rating: number
+  rating: number,
+  upvotes: number,
+  downvotes: number
 }
 
 export interface Data {
