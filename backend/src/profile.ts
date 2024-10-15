@@ -1,7 +1,20 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import { Category, DegLevel } from './typedef';
+import { Category, DegLevel, Profile } from './typedef';
 
+/**
+ * Creates new profile with input parameters
+ * @param name 
+ * @param desc 
+ * @param country 
+ * @param scope 
+ * @param degLevels 
+ * @param category 
+ * @param minWam 
+ * @param load 
+ * @param link 
+ * @param img 
+ */
 export function createProfile(
     name: string, desc: string, country: string, scope: string, degLevels: string[],
     category: string, minWam: number, load: string, link: string, img: string) {
@@ -75,16 +88,17 @@ export function createProfile(
     return {};
 }
 
-export function getAllProfiles() {
+export function getAllProfiles(): Profile[] {
     const data = getData();
     return data.profiles;
 }
 
 /**
  * Get information on the exchange profile with profileid
- * @param {number} profileid 
+ * @param profileid 
+ * @returns requested profile with that profileid
  */
-export function getProfile(profileid: number) {
+export function getProfile(profileid: number): Profile {
     const data = getData();
 
     if (profileid < 0 || profileid >= data.profiles.length) {
@@ -98,12 +112,21 @@ export function getProfile(profileid: number) {
 /**
  * Filters data profiles by criteria. Criteria are given as a list of potential targets
  * Null assumes no preference
- * @param {*} data 
- * @param {*} criterion...
+ * @param name 
+ * @param desc 
+ * @param country 
+ * @param scope 
+ * @param degLevels 
+ * @param category 
+ * @param minWam 
+ * @param load 
+ * @param link 
+ * @param img 
+ * @returns list of filtered profiles
  */
 export function getFilteredProfiles(
     name: string, desc: string, country: string, scope: string, degLevels: string[],
-    category: string, minWam: number, load: string, link: string, img: string) {
+    category: string, minWam: number, load: string, link: string, img: string): Profile[] {
     const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;
@@ -142,14 +165,13 @@ export function getFilteredProfiles(
  * @param {*} keywords 
  * @returns 
  */
-
-function matchKeywordsStr(string: string, keywords: string[]) {
+function matchKeywordsStr(string: string, keywords: string[]): boolean {
     const splitRegex = /[\s,-/]+/;
     const basewords = string.split(splitRegex);
-    matchKeywordsArr(basewords, keywords);
+    return matchKeywordsArr(basewords, keywords);
 }
 
-function matchKeywordsArr(basewords: string[], keywords: string[]) {
+function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
     for (const word of basewords) {
         for (const keyword of keywords) {
             if (word.localeCompare(keyword) === 0) {
