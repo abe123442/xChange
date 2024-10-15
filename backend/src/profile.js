@@ -38,16 +38,16 @@ export function getFilteredProfiles(name, desc, country, scope, category, minWam
 
     // Double negative, !!, also checks for falsey (ie, empty strings)
     if (!!name) {
-        profiles = profiles.filter(p => p.name.matchKeywords(name.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywords(p.name, name.split(splitRegex)));
     }
     if (!!desc) {
-        profiles = profiles.filter(p => p.desc.matchKeywords(desc.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywords(p.desc, desc.split(splitRegex)));
     }
     if (!!country) {
-        profiles = profiles.filter(p => p.country.matchKeywords(country.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywords(p.country, country.split(splitRegex)));
     }
     if (!!scope) {
-        profiles = profiles.filter(p => p.scope.matchKeywords(scope.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywords(p.scope, scope.split(splitRegex)));
     }
     if (!!category) {
         profiles = profiles.filter(p => p.category === category);
@@ -55,11 +55,11 @@ export function getFilteredProfiles(name, desc, country, scope, category, minWam
     if (!!wam) {
         profiles = profiles.filter(p => p.minWam <= minWam);
     }
-    if (!!degLevel) {
-        profiles = profiles.filter(p => p.degLevel.matchKeywords(degLevel.split(splitRegex)));
+    if (!!degreeLevel) {
+        profiles = profiles.filter(p => matchKeywords(p.degLevel, degLevel.split(splitRegex)));
     }
     if (!!load) {
-        profiles = profiles.filter(p => p.matchKeywords(load.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywords(p.load, load.split(splitRegex)));
     }
     return profiles;
 }
@@ -71,24 +71,24 @@ export function getFilteredProfiles(name, desc, country, scope, category, minWam
  * @param {*} keywords 
  * @param {*} criteria 
  */
-export function search(keywords, criteria) {
-    const data = getData();
+// export function search(keywords, criteria) {
+//     const data = getData();
     
-    if (criteria !== null) {
-        data = filterCriteria(data, criteria);
-    }
+//     if (criteria !== null) {
+//         data = filterCriteria(data, criteria);
+//     }
 
-    // Searches by name
-    for (const profile of data.profiles) {
-        profile = matchKeywords(profile, keywords);
-    }
+//     // Searches by name
+//     for (const profile of data.profiles) {
+//         profile = matchKeywords(profile, keywords);
+//     }
 
-    // Filter and sort
-    let newData = data.profiles.filter(profile => profile.matchingIndices > 0);
-    newData.sort((a, b) => compare(a, b));
+//     // Filter and sort
+//     let newData = data.profiles.filter(profile => profile.matchingIndices > 0);
+//     newData.sort((a, b) => compare(a, b));
 
-    return newData;
-}
+//     return newData;
+// }
 
 // function sort(data) {
 //     let swapped;
@@ -118,75 +118,121 @@ export function search(keywords, criteria) {
 //     return data;
 // }
 
-function compare(a, b) {
-    if (a.maxConsecutive > b.maxConsecutive) {
-        return false;
-    }
-    if (a.matchingIndices > b.matchingIndices) {
-        return false;
-    }
-    if (a.name.localeCompare(b.name) == -1) {
-        return false;
-    }
-    return true;
-}
+// function compare(a, b) {
+//     if (a.maxConsecutive > b.maxConsecutive) {
+//         return false;
+//     }
+//     if (a.matchingIndices > b.matchingIndices) {
+//         return false;
+//     }
+//     if (a.name.localeCompare(b.name) == -1) {
+//         return false;
+//     }
+//     return true;
+// }
 
 /**
- * String matching algorithm
- * Ideally prioritises:
- * - All keywords matched in order
- * - Some keywords matched in order
- * - Keywords matched not in order
- * - No matches: Removed
+ * Returns true if string contains any of the keywords
+ * @param {*} string 
  * @param {*} keywords 
- * @param {*} name 
+ * @returns 
  */
-function matchKeywords(profile, keywords) {
-    const words = profile.name.split(" ");
-    const matchingIndices = [];
 
-    for (const i in words) {
-        let found = false;
-        for (const j in keywords) {
-            if (matchKeyword(words[i], keywords[j])) {
-                matchingIndices.push(j);
-                found = true;
-                break;
+function matchKeywords(string, keywords) {
+    const splitRegex = /[\s,-/]+/;
+
+    const words = string.split(splitRegex);
+
+    for (const word of words) {
+        for (const keyword of keywords) {
+            if (word.localeCompare(keyword) === 0) {
+                return true;
             }
         }
-        if (!found) {
-            matchingIndices.push(-2);
-        }
     }
 
-    let streak = 0;
-    let maxStreak = 0;
-    let prev = -2;
-    for (const index of matchingIndices) {
-        if (index === prev + 1) {
-            streak++;
-        }
-        else {
-            streak = 1;
-        }
-        if (streak > maxStreak) {
-            maxStreak = streak;
-        }
-        prev = index;
-    }
-    profile.maxConsecutive = maxStreak;
-
-    let matching = 0;
-    for (const index of matchingIndices) {
-        if (index !== -2) {
-            matching++;
-        }
-    }
-    profile.matchingIndices = matching;
-
-    return profile;
+    return false;
 }
 
-function matchKeyword(a, b) {
-    return a.toLowerCase() === b.toLowerCase();
-}
+// function matchKeywords(string, keywords) {
+//     const words = profile.name.split(" ");
+//     const matchingIndices = [];
+
+//     for (const i in words) {
+//         let found = false;
+//         for (const j in keywords) {
+//             if (matchKeyword(words[i], keywords[j])) {
+//                 matchingIndices.push(j);
+//                 found = true;
+//                 break;
+//             }
+//         }
+//         if (!found) {
+//             matchingIndices.push(-2);
+//         }
+//     }
+
+//     let streak = 0;
+//     let maxStreak = 0;
+//     let prev = -2;
+//     for (const index of matchingIndices) {
+//         if (index === prev + 1) {
+//             streak++;
+//         }
+//         else {
+//             streak = 1;
+//         }
+//         if (streak > maxStreak) {
+//             maxStreak = streak;
+//         }
+//         prev = index;
+//     }
+//     profile.maxConsecutive = maxStreak;
+
+//     let matching = 0;
+//     for (const index of matchingIndices) {
+//         if (index !== -2) {
+//             matching++;
+//         }
+//     }
+//     profile.matchingIndices = matching;
+
+//     return profile;
+// }
+
+/**
+ * Filters data profiles by criteria. Criteria are given as a list of potential targets
+ * Null assumes no preference
+ * @param {*} data 
+ * @param {*} criteria 
+ */
+
+// function filterCriteria(data, criteria) {
+//     let profiles;
+//     if (criteria.continent !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesContinent(criteria.continent));
+//     }
+//     if (criteria.country !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesCountry(criteria.country));
+//     }
+//     if (criteria.degree !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesDegree(criteria.degree));
+//     }
+//     if (criteria.category !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesCategory(criteria.category));
+//     }
+//     if (criteria.wam !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesWam(criteria.wam));
+//     }
+//     if (criteria.degreeLevel !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesDegreeLevel(criteria.degreeLevel));
+//     }
+//     if (criteria.load !== null) {
+//         profiles = data.profiles.filter(profile => profile.matchesLoad(criteria.load));
+//     }
+//     return profiles;
+// }
+
+// function matchKeyword(a, b) {
+//     return a.toLowerCase() === b.toLowerCase();
+// }
