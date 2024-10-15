@@ -14,6 +14,15 @@ app.get('/', (req, res) => {
   res.send("Server started");
 });
 
+app.get('/test', (req, res) => {
+  try {
+    const response = getProfile(profileid);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(error.status).json({ error: error.message });
+  }
+});
+
 app.get('/:profileid', (req, res) => {
   const profileid = parseInt(req.params.profileid);
   // const token = req.header('token');

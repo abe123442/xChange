@@ -3,7 +3,10 @@
         {
             "name": "Uni name",
             "desc": "Uni desc",
-            "wamRec": 65,
+            "country": "Netherlands",
+            "scope": "Sciences & Arts",
+            "category": "Super Partner",
+            "minWam": 65,
             "link": "www.google.com",
             "img": "www.google.com",
             "rating": 5.0,
