@@ -10,6 +10,11 @@ export enum DegLevel {
   PG = 'PG'
 }
 
+// CONSTANTS
+export const CONSTANTS = {
+  MAX_CAPACITY: 10000
+}
+
 // INTERFACES
 export interface Error {
   status: number,
@@ -33,6 +38,16 @@ export interface Profile {
   comments: Array<number>
 }
 
+export interface User {
+  id: number,
+  email: string,
+  password: string,
+  nameFirst: string,
+  nameLast: string,
+  username: string,
+  tokens: number[]
+}
+
 export interface Comment {
   id: number,
   title: string,
@@ -43,5 +58,6 @@ export interface Comment {
 }
 
 export interface Data {
-  profiles: Profile[]
+  profiles: Profile[],
+  users: User[]
 }
