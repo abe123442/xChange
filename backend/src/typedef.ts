@@ -4,6 +4,11 @@ export enum category {
 }
 
 // INTERFACES
+export interface Error {
+  status: number,
+  message: string
+}
+
 export interface Profile {
 
 }

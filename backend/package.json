@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "middleware-http-errors": "^0.1.2",
     "typescript": "^5.6.3"
   }
 }
