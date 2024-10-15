@@ -172,13 +172,21 @@ function matchKeywordsStr(string: string, keywords: string[]): boolean {
 function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
     for (const word of basewords) {
         for (const keyword of keywords) {
-            if (word.localeCompare(keyword) === 0) {
+            if (matches(word, keyword)) {
                 return true;
             }
         }
     }
 
     return false;
+}
+
+function hasSubstring(main: string, sub: string): boolean {
+    return main.toLowerCase().includes(sub);
+}
+
+function matches(a: string, b: string): boolean {
+    return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
 }
 
 // function matchKeywords(string, keywords) {
