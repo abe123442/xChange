@@ -34,12 +34,10 @@ export function createProfile(
         throw HTTPError(400, 'Invalid scope provided');
     }
 
-    // TODO: change this to enum
     if (!(category in Category)) {
         throw HTTPError(400, 'Invalid category provided');
     }
 
-    // TODO: add degLevel enum check
     if (degLevels.some(d => !(d in DegLevel))) {
         throw HTTPError(400, 'Invalid degree level(s) provided');
     }
