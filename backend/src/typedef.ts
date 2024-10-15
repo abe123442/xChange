@@ -1,8 +1,13 @@
 // ENUMS
-export enum category {
-  SUPERPARTNER,
-  HIGHCAPACITY,
-  HIGHDEMAND
+export enum Category {
+  SUPER_PARTNER = 'Super Partner',
+  HIGH_CAPACITY = 'High Capacity',
+  HIGH_DEMAND = 'High Demand'
+}
+
+export enum DegLevel {
+  UG = 'UG',
+  PG = 'PG'
 }
 
 // INTERFACES
@@ -17,9 +22,10 @@ export interface Profile {
   desc: string,
   country: string,
   scope: string,
-  category: category,
+  category: string,
   minWam: number,
-  fullTimeLoad: number,
+  degLevels: string[],
+  load: string,
   link: string,
   img: string,
   rating: number,
@@ -35,5 +41,5 @@ export interface Comment {
 }
 
 export interface Data {
-  profiles: Profile;
+  profiles: Profile[];
 }

@@ -1,37 +1,41 @@
-import { getData, setData } from 'dataStore';
+import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
+import { Category, DegLevel } from './typedef';
 
-export function createProfile(uniName, uniDesc, country, scope, category, minWam, fullTimeLoad, link, imgUrl) {
-
-    if (uniName === null || uniName === undefined || uniName === "" || uniName.length > 50) {
-        throw HTTPError(400, 'Invalid university name provided');
+export function createProfile(
+    name: string, desc: string, country: string, scope: string, degLevels: string[],
+    category: string, minWam: number, load: string, link: string, img: string) {
+    if (!name || name.length > 50) {
+        throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 50 characters');
     }
 
-    if (uniDesc === null || uniDesc === undefined || uniDesc === "" || uniDesc.length > 500) {
-        throw HTTPError(400, 'Invalid university description provided');
+    if (desc.length > 500) {
+        throw HTTPError(400, 'Invalid university description provided, must be at most 500 characters');
     }
 
-    if (country === null || country === undefined || country === "" || country.length > 30) {
+    if (!country) {
         throw HTTPError(400, 'Invalid country provided');
     }
 
-    if (scope === null || scope === undefined || scope === "" || scope.length > 50) {
+    if (!scope) {
         throw HTTPError(400, 'Invalid scope provided');
     }
 
-    if (category !== "Super Partner" || category !== "High Capacity" || category !== "High Demand") {
+    // TODO: change this to enum
+    if (!(category in Category)) {
         throw HTTPError(400, 'Invalid category provided');
     }
-    
-    if (!uniName || !uniDesc || !country || !scope || !category) {
-        throw HTTPError(400, 'Not all requested data was provided');
+
+    // TODO: add degLevel enum check
+    if (degLevels.some(d => !(d in DegLevel))) {
+        throw HTTPError(400, 'Invalid degree level(s) provided');
     }
 
-    if (minWam === null || minWam === undefined || typeof minWam !== 'number' || minWam < 0 || minWam > 100) {
+    if (!minWam || minWam < 0 || minWam > 100) {
         throw HTTPError(400, 'Invalid WAM provided');
     }
 
-    if (fullTimeLoad === null || fullTimeLoad === undefined || typeof fullTimeLoad !== 'number' || fullTimeLoad < 0) {
+    if (!load) {
         throw HTTPError(400, 'Invalid full time load provided');
     }
 
@@ -40,34 +44,35 @@ export function createProfile(uniName, uniDesc, country, scope, category, minWam
     if (!link.match(urlRegex)) {
         throw HTTPError(400, 'Invalid website URL provided');
     }
-    if (!imgUrl.match(urlRegex)) {
+
+    if (!img.match(urlRegex)) {
         throw HTTPError(400, 'Invalid image URL provided');
     }
     
-    let data = getData().profiles;
+    const data = getData();
     let newId = data.profiles.length;
-    while (data.profiles.indexOf(newId) !== -1) {
-        newId = newId + 1;
-    }
 
     let newProfile = {
         id: newId,
-        name: uniName,
-        desc: uniDesc,
+        name: name,
+        desc: desc,
         country: country,
         scope: scope,
         category: category,
         minWam: minWam,
-        fullTimeLoad: fullTimeLoad,
+        load: load,
+        degLevels: degLevels,
         link: link,
-        img: imgUrl,
+        img: img,
         rating: 0,
         numRates: 0,
         comments: []
     }
 
-    data.push(newProfile);
+    data.profiles.push(newProfile);
     setData(data);
+
+    return {};
 }
 
 export function getAllProfiles() {
@@ -77,12 +82,12 @@ export function getAllProfiles() {
 
 /**
  * Get information on the exchange profile with profileid
- * @param {int} profileid 
+ * @param {number} profileid 
  */
-export function getProfile(profileid) {
+export function getProfile(profileid: number) {
     const data = getData();
 
-    if (data.profiles.indexOf(profileid) === -1) {
+    if (profileid < 0 || profileid >= data.profiles.length) {
         throw HTTPError(400, 'Requested profile does not exist');
     }
 
@@ -96,105 +101,40 @@ export function getProfile(profileid) {
  * @param {*} data 
  * @param {*} criterion...
  */
-export function getFilteredProfiles(name, desc, country, scope, category, minWam, degLevel, load) {
+export function getFilteredProfiles(
+    name: string, desc: string, country: string, scope: string, degLevels: string[],
+    category: string, minWam: number, load: string, link: string, img: string) {
     const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;
 
     // Double negative, !!, also checks for falsey (ie, empty strings)
     if (!!name) {
-        profiles = profiles.filter(p => matchKeywords(p.name, name.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywordsStr(p.name, name.split(splitRegex)));
     }
     if (!!desc) {
-        profiles = profiles.filter(p => matchKeywords(p.desc, desc.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywordsStr(p.desc, desc.split(splitRegex)));
     }
     if (!!country) {
-        profiles = profiles.filter(p => matchKeywords(p.country, country.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywordsStr(p.country, country.split(splitRegex)));
     }
     if (!!scope) {
-        profiles = profiles.filter(p => matchKeywords(p.scope, scope.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywordsStr(p.scope, scope.split(splitRegex)));
     }
     if (!!category) {
         profiles = profiles.filter(p => p.category === category);
     }
-    if (!!wam) {
+    if (!!minWam) {
         profiles = profiles.filter(p => p.minWam <= minWam);
     }
-    if (!!degreeLevel) {
-        profiles = profiles.filter(p => matchKeywords(p.degLevel, degLevel.split(splitRegex)));
+    if (!!degLevels) {
+        profiles = profiles.filter(p => matchKeywordsArr(p.degLevels, degLevels));
     }
     if (!!load) {
-        profiles = profiles.filter(p => matchKeywords(p.load, load.split(splitRegex)));
+        profiles = profiles.filter(p => matchKeywordsStr(p.load, load.split(splitRegex)));
     }
     return profiles;
 }
-
-/**
- * Search algorithm that returns a list of appropriate programs
- * Algorithm matches by name and filters using optional criteria such as region, faculty
- * Results are sorted based on name matching
- * @param {*} keywords 
- * @param {*} criteria 
- */
-// export function search(keywords, criteria) {
-//     const data = getData();
-    
-//     if (criteria !== null) {
-//         data = filterCriteria(data, criteria);
-//     }
-
-//     // Searches by name
-//     for (const profile of data.profiles) {
-//         profile = matchKeywords(profile, keywords);
-//     }
-
-//     // Filter and sort
-//     let newData = data.profiles.filter(profile => profile.matchingIndices > 0);
-//     newData.sort((a, b) => compare(a, b));
-
-//     return newData;
-// }
-
-// function sort(data) {
-//     let swapped;
-//     const n = data.length;
-
-//     for (let i = 0; i < n - 1; i++) {
-//         swapped = false;
-//         for (let j = 0; j < n - i - 1; j++) {
-//             if (compare(data[j], data[j + 1])) {
-//                 data = swap(data, j, j + 1);
-//                 swapped = true;
-//             }
-//         }
-
-//         if (!swapped) {
-//             break;
-//         }
-//     }
-
-//     return data;
-// }
-
-// function swap(data, i, j) {
-//     const temp = data[i];
-//     data[i] = data[j];
-//     data[j] = temp;
-//     return data;
-// }
-
-// function compare(a, b) {
-//     if (a.maxConsecutive > b.maxConsecutive) {
-//         return false;
-//     }
-//     if (a.matchingIndices > b.matchingIndices) {
-//         return false;
-//     }
-//     if (a.name.localeCompare(b.name) == -1) {
-//         return false;
-//     }
-//     return true;
-// }
 
 /**
  * Returns true if string contains any of the keywords
@@ -203,12 +143,14 @@ export function getFilteredProfiles(name, desc, country, scope, category, minWam
  * @returns 
  */
 
-function matchKeywords(string, keywords) {
+function matchKeywordsStr(string: string, keywords: string[]) {
     const splitRegex = /[\s,-/]+/;
+    const basewords = string.split(splitRegex);
+    matchKeywordsArr(basewords, keywords);
+}
 
-    const words = string.split(splitRegex);
-
-    for (const word of words) {
+function matchKeywordsArr(basewords: string[], keywords: string[]) {
+    for (const word of basewords) {
         for (const keyword of keywords) {
             if (word.localeCompare(keyword) === 0) {
                 return true;
@@ -263,39 +205,6 @@ function matchKeywords(string, keywords) {
 //     profile.matchingIndices = matching;
 
 //     return profile;
-// }
-
-/**
- * Filters data profiles by criteria. Criteria are given as a list of potential targets
- * Null assumes no preference
- * @param {*} data 
- * @param {*} criteria 
- */
-
-// function filterCriteria(data, criteria) {
-//     let profiles;
-//     if (criteria.continent !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesContinent(criteria.continent));
-//     }
-//     if (criteria.country !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesCountry(criteria.country));
-//     }
-//     if (criteria.degree !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesDegree(criteria.degree));
-//     }
-//     if (criteria.category !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesCategory(criteria.category));
-//     }
-//     if (criteria.wam !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesWam(criteria.wam));
-//     }
-//     if (criteria.degreeLevel !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesDegreeLevel(criteria.degreeLevel));
-//     }
-//     if (criteria.load !== null) {
-//         profiles = data.profiles.filter(profile => profile.matchesLoad(criteria.load));
-//     }
-//     return profiles;
 // }
 
 // function matchKeyword(a, b) {
