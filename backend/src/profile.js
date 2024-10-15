@@ -1,8 +1,73 @@
 import { getData, setData } from 'dataStore';
 import HTTPError from 'http-errors';
 
-export function createProfile() {
-    //TODO: params equal to the fields in each profile, tba
+export function createProfile(uniName, uniDesc, country, scope, category, minWam, fullTimeLoad, link, imgUrl) {
+
+    if (uniName === null || uniName === undefined || uniName === "" || uniName.length > 50) {
+        throw HTTPError(400, 'Invalid university name provided');
+    }
+
+    if (uniDesc === null || uniDesc === undefined || uniDesc === "" || uniDesc.length > 500) {
+        throw HTTPError(400, 'Invalid university description provided');
+    }
+
+    if (country === null || country === undefined || country === "" || country.length > 30) {
+        throw HTTPError(400, 'Invalid country provided');
+    }
+
+    if (scope === null || scope === undefined || scope === "" || scope.length > 50) {
+        throw HTTPError(400, 'Invalid scope provided');
+    }
+
+    if (category !== "Super Partner" || category !== "High Capacity" || category !== "High Demand") {
+        throw HTTPError(400, 'Invalid category provided');
+    }
+    
+    if (!uniName || !uniDesc || !country || !scope || !category) {
+        throw HTTPError(400, 'Not all requested data was provided');
+    }
+
+    if (minWam === null || minWam === undefined || typeof minWam !== 'number' || minWam < 0 || minWam > 100) {
+        throw HTTPError(400, 'Invalid WAM provided');
+    }
+
+    if (fullTimeLoad === null || fullTimeLoad === undefined || typeof fullTimeLoad !== 'number' || fullTimeLoad < 0) {
+        throw HTTPError(400, 'Invalid full time load provided');
+    }
+
+    const urlRegex = /^(http[s]{0,1}:\/\/){0,1}www\..*/
+
+    if (!link.match(urlRegex)) {
+        throw HTTPError(400, 'Invalid website URL provided');
+    }
+    if (!imgUrl.match(urlRegex)) {
+        throw HTTPError(400, 'Invalid image URL provided');
+    }
+    
+    let data = getData().profiles;
+    let newId = data.profiles.length;
+    while (data.profiles.indexOf(newId) !== -1) {
+        newId = newId + 1;
+    }
+
+    let newProfile = {
+        id: newId,
+        name: uniName,
+        desc: uniDesc,
+        country: country,
+        scope: scope,
+        category: category,
+        minWam: minWam,
+        fullTimeLoad: fullTimeLoad,
+        link: link,
+        img: imgUrl,
+        rating: 0,
+        numRates: 0,
+        comments: []
+    }
+
+    data.push(newProfile);
+    setData(data);
 }
 
 export function getAllProfiles() {
