@@ -1,12 +1,14 @@
 {
-    "profile": [
+    "profiles": [
         {
+            "id": 1,
             "name": "Uni name",
             "desc": "Uni desc",
             "country": "Netherlands",
             "scope": "Sciences & Arts",
             "category": "Super Partner",
             "minWam": 65,
+            "fullTimeLoad": 30,
             "link": "www.google.com",
             "img": "www.google.com",
             "rating": 5.0,
@@ -17,6 +19,7 @@
 
     "comments": [
         {
+            "id": 1,
             "title": "Generic comment",
             "desc": "This uni sucks!",
             "rating": 0.0
