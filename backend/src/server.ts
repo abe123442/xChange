@@ -1,7 +1,7 @@
 import express, { json, Request, Response } from 'express';
 import cors from 'cors';
 import errorHandler from 'middleware-http-errors';
-import { getAllProfiles, getProfile } from './profile';
+import { getAllProfiles, getFilteredProfiles, getProfile } from './profile';
 import { Error } from './typedef';
 
 const app = express();
@@ -27,7 +27,18 @@ app.get('/home', (req: Request, res: Response) => {
   }
 });
 
-app.get('/:profileid', (req: Request, res: Response) => {
+app.get('/home/search', (req: Request, res: Response) => {
+  // const token = req.header('token');
+  try {
+    const response = getAllProfiles();
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status).json({ error: error.message });
+  }
+});
+
+app.get('/profile/:profileid', (req: Request, res: Response) => {
   const profileid = parseInt(req.params.profileid);
   // const token = req.header('token');
 
@@ -39,7 +50,6 @@ app.get('/:profileid', (req: Request, res: Response) => {
     res.status(error.status).json({ error: error.message });
   }
 });
-
 
 // ====================================================================
 // SERVER ROUTES ABOVE ================================================

@@ -43,5 +43,5 @@ export interface Comment {
 }
 
 export interface Data {
-  profiles: Profile[];
+  profiles: Profile[]
 }

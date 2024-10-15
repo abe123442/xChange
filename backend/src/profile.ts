@@ -42,7 +42,7 @@ export function createProfile(
         throw HTTPError(400, 'Invalid degree level(s) provided');
     }
 
-    if (!minWam || minWam < 0 || minWam > 100) {
+    if (minWam < 0 || minWam > 100) {
         throw HTTPError(400, 'Invalid WAM provided');
     }
 
