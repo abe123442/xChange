@@ -1,44 +1,14 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import crypto from 'crypto';
+import crypto, { randomUUID } from 'crypto';
 import { Data, User, CONSTANTS } from './typedef';
 
-export function hash(initValue: string) {
+function hash(initValue: string): string {
     return crypto.createHash('sha256').update(initValue).digest('hex');
 }
 
-function generateId(): number {
-    const database: Data = getData();
-
-    let id: number = Math.floor(Math.random() * CONSTANTS.MAX_CAPACITY);
-    let unique: boolean = false;
-    while (!unique) {
-        id = Math.floor(Math.random() * CONSTANTS.MAX_CAPACITY);
-        unique = true;
-        const user: any = database.users.filter(user => user.id === id);
-        if (user) {
-            unique = false;
-            break;
-        }
-    }
-    return id;
-}
-
-function generateToken(): number {
-    const database = getData();
-
-    let token: number = Math.floor(Math.random() * CONSTANTS.MAX_CAPACITY);
-    let unique: boolean = false;
-    while (!unique) {
-        token = Math.floor(Math.random() * CONSTANTS.MAX_CAPACITY);
-        unique = true;
-        const user: any = database.users.filter(user => user.tokens.includes(token));
-        if (user) {
-            unique = false;
-            break;
-        }
-    }
-    return token;
+function generateUUID(): string {
+    return randomUUID();
 }
 
 /**
@@ -49,17 +19,17 @@ function generateToken(): number {
  * @param {*} nameLast 
  * @param {*} username 
  */
-export function register(email: string, password: string, nameFirst: string, nameLast: string, username: string): number {
-    const database: Data = getData();
+export function register(email: string, password: string, nameFirst: string, nameLast: string, username: string): string {
+    const database = getData();
 
     // Error checks
-    const user = database.users.filter(user => user.email.localeCompare(email) === 0);
+    const user = database.users.find(user => user.email.localeCompare(email) === 0);
 
     if (user) {
         throw HTTPError(400, "Email is already registered");
     }
 
-    const id: number = generateId();
+    const id = database.users.length;
     database.users.push({
         id: id,
         email: email,
@@ -67,18 +37,18 @@ export function register(email: string, password: string, nameFirst: string, nam
         nameFirst: nameFirst,
         nameLast: nameLast,
         username: username,
-        tokens: [generateToken()]
+        tokens: []
     });
 
     setData(database);
-    return id;
+    return login(email, password);
 }
 
-export function login(email: string, password: string): number {
-    const database: Data = getData();
+export function login(email: string, password: string): string {
+    const database = getData();
 
     // Error checks
-    const user: any = database.users.filter(user => user.email.localeCompare(email) === 0);
+    const user = database.users.find(user => user.email.localeCompare(email) === 0);
 
     if (!user) {
         throw HTTPError(400, "Email not found");
@@ -88,18 +58,24 @@ export function login(email: string, password: string): number {
         throw HTTPError(400, "Password is incorrect");
     }
 
-    const token: number = generateToken();
+    const token = generateUUID();
     user.tokens.push(token);
 
     setData(database);
     return token;
 }
 
-export function logout(token: number) {
-    const database: Data = getData();
+export function logout(token: string) {
+    const database = getData();
 
-    const user: any = database.users.filter(user => user.tokens.includes(token));
+    // Error checks
+    const user = database.users.find(user => user.tokens.includes(token));
+
+    if (!user) {
+        throw HTTPError(400, "Token is invalid");
+    }
     user.tokens.splice(user.tokens.indexOf(token), 1);
 
     setData(database);
+    return {};
 }
