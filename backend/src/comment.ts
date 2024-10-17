@@ -60,10 +60,6 @@ export function createComment(userid: number, profileid: number, title: string, 
   const profile = getProfile(profileid);
 
   let commentid = data.comments.length;
-  if (data.comments.filter((x) => x.id = commentid)) {
-    commentid += 1;
-  }
-
 
   const newComment: Comment = {
     id: commentid,
@@ -71,8 +67,6 @@ export function createComment(userid: number, profileid: number, title: string, 
     title: title,
     desc: desc,
     rating: rating,
-    upvotes: 0,
-    downvotes: 0,
     upvotedUsers: [],
     downvotedUsers: []
   }
@@ -117,11 +111,9 @@ export function upvoteComment(commentid: number, userid: number): boolean {
   if (hasDownvoted) {
     const index = foundComment.downvotedUsers.indexOf(userid);
     foundComment.downvotedUsers.splice(index, 1);
-    foundComment.downvotes -= 1;
   }
 
   foundComment.upvotedUsers.push(userid);
-  foundComment.upvotes += 1;
 
   setData(data);
   return true;
@@ -155,11 +147,9 @@ export function downvoteComment(commentid: number, userid: number): boolean {
   if (hasUpvoted) {
     const index = foundComment.upvotedUsers.indexOf(userid);
     foundComment.upvotedUsers.splice(index, 1);
-    foundComment.upvotes -= 1;
   }
 
   foundComment.downvotedUsers.push(userid);
-  foundComment.downvotes += 1;
 
   setData(data);
   return true;
@@ -191,7 +181,6 @@ export function removeDownvote(commentid: number, userid: number): boolean {
    // remove old downvote
   const index = foundComment.downvotedUsers.indexOf(userid);
   foundComment.downvotedUsers.splice(index, 1);
-  foundComment.downvotes -= 1;
 
   setData(data);
   return true;
@@ -223,7 +212,6 @@ export function removeUpvote(commentid: number, userid: number): boolean {
    // remove old upvote
   const index = foundComment.upvotedUsers.indexOf(userid);
   foundComment.upvotedUsers.splice(index, 1);
-  foundComment.upvotes -= 1;
 
   setData(data);
   return true;

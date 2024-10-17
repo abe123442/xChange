@@ -50,8 +50,6 @@ export interface Comment {
   title: string,
   desc: string,
   rating: number,
-  upvotes: number,
-  downvotes: number,
   upvotedUsers: number[],
   downvotedUsers: number[]
 }

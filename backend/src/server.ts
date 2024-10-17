@@ -141,16 +141,7 @@ app.post('/auth/logout', (req: Request, res: Response) => {
 });
 
 app.get('/profile/:profileid/comments', (req: Request, res: Response) => {
-  const token = req.header('token') as string;
-  const profileid: number = parseInt(req.params.profileid);
-
-  try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
+  const profileid = parseInt(req.params.profileid);
 
   try {
     const response = getProfileComments(profileid);
@@ -162,21 +153,14 @@ app.get('/profile/:profileid/comments', (req: Request, res: Response) => {
   }
 });
 
-app.post('/profile/:profileid/comments/create', (req: Request, res: Response) => {
+app.post('/profile/:profileid/comments', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const { userid, title, desc, rating } = req.body;
-  const profileid: number = parseInt(req.params.profileid);
+  const { title, desc, rating } = req.body;
+  const profileid = parseInt(req.params.profileid);
 
   try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
-
-  try {
-    const response = createComment(parseInt(userid), profileid, title, desc, parseInt(rating));
+    const user = validateToken(token);
+    const response = createComment(user.id, profileid, title, desc, parseInt(rating));
     res.status(200).json(response);
   }
   catch (e) {
@@ -187,19 +171,11 @@ app.post('/profile/:profileid/comments/create', (req: Request, res: Response) =>
 
 app.put('/profile/comments/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const commentid: number = parseInt(req.params.commentid);
-  const userid: number = parseInt(req.body.userid);
+  const commentid = parseInt(req.params.commentid);
 
   try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
-
-  try {
-    const response = upvoteComment(commentid, userid);
+    const user = validateToken(token);
+    const response = upvoteComment(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {
@@ -210,19 +186,11 @@ app.put('/profile/comments/:commentid/upvote', (req: Request, res: Response) => 
 
 app.put('/profile/comments/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const commentid: number = parseInt(req.params.commentid);
-  const userid: number = parseInt(req.body.userid);
+  const commentid = parseInt(req.params.commentid);
 
   try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
-
-  try {
-    const response = downvoteComment(commentid, userid);
+    const user = validateToken(token);
+    const response = downvoteComment(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {
@@ -231,21 +199,13 @@ app.put('/profile/comments/:commentid/downvote', (req: Request, res: Response) =
   }
 });
 
-app.delete('/profile/comments/:commentid/upvote/remove', (req: Request, res: Response) => {
+app.delete('/profile/comments/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const commentid: number = parseInt(req.params.commentid);
-  const userid: number = parseInt(req.query.userid as string);
+  const commentid = parseInt(req.params.commentid);
 
   try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
-
-  try {
-    const response = removeUpvote(commentid, userid);
+    const user = validateToken(token);
+    const response = removeUpvote(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {
@@ -254,21 +214,13 @@ app.delete('/profile/comments/:commentid/upvote/remove', (req: Request, res: Res
   }
 });
 
-app.delete('/profile/comments/:commentid/downvote/remove', (req: Request, res: Response) => {
+app.delete('/profile/comments/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const commentid: number = parseInt(req.params.commentid);
-  const userid: number = parseInt(req.query.userid as string);
+  const commentid = parseInt(req.params.commentid);
 
   try {
-    validateToken(token);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(error.status ? error.status : 500).json({ error: error.message });
-  }
-
-  try {
-    const response = removeDownvote(commentid, userid);
+    const user = validateToken(token);
+    const response = removeDownvote(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {
