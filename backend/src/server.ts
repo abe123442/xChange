@@ -2,7 +2,7 @@ import express, { json, Request, Response } from 'express';
 import cors from 'cors';
 import errorHandler from 'middleware-http-errors';
 import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile, editProfile, deleteProfile } from './profile';
-import { register, login, logout, addUni, removeUni } from './auth';
+import { register, login, logout, addUni, removeUni, viewUser } from './auth';
 import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
@@ -188,6 +188,18 @@ app.delete('/auth/unis/remove', (req: Request, res: Response) => {
 
   try {
     const response = removeUni(token, uni);
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.get('/auth/user/view', (req: Request, res: Response) => {
+  const id = parseInt(req.query.id as string);
+
+  try {
+    const response = viewUser(id);
     res.status(200).json(response);
   } catch (e) {
     const error = e as Error;

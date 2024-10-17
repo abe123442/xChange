@@ -38,7 +38,7 @@ export function register(email: string, password: string, nameFirst: string, nam
     nameLast: nameLast,
     username: username,
     tokens: [],
-    targetuni: []
+    targetunis: []
   });
 
   setData(data);
@@ -87,11 +87,11 @@ export function addUni(token: string, uni: string) {
     throw HTTPError(401, "Invalid token");
   }
 
-  if (user.targetuni.includes(uni)) {
+  if (user.targetunis.includes(uni)) {
     throw HTTPError(400, "Uni already selected");
   }
 
-  user.targetuni.push(uni);
+  user.targetunis.push(uni);
   setData(data);
 }
 
@@ -104,12 +104,30 @@ export function removeUni(token: string, uni: string) {
     throw HTTPError(401, "Invalid token");
   }
 
-  if (!user.targetuni.includes(uni)) {
+  if (!user.targetunis.includes(uni)) {
     throw HTTPError(400, "Uni not selected");
   }
 
-  user.targetuni.splice(user.targetuni.indexOf(uni));
+  user.targetunis.splice(user.targetunis.indexOf(uni));
   setData(data);
+}
+
+export function viewUser(id: number) {
+  const database = getData();
+
+  const user = database.users.find(user => user.id === id);
+
+  if (!user) {
+    throw HTTPError(400, "User not found");
+  }
+
+  return {
+    email: user.email,
+    nameFirst: user.nameFirst,
+    nameLast: user.nameLast,
+    username: user.username,
+    targetunis: user.targetunis
+  }
 }
 
 export function validateAdmin(token: string) {

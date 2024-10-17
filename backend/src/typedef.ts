@@ -42,7 +42,7 @@ export interface User {
   nameLast: string,
   username: string,
   tokens: string[],
-  targetuni: string[];
+  targetunis: string[];
 }
 
 export interface Comment {
