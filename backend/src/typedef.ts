@@ -50,14 +50,18 @@ export interface User {
 
 export interface Comment {
   id: number,
+  userid: number,
   title: string,
   desc: string,
   rating: number,
   upvotes: number,
-  downvotes: number
+  downvotes: number,
+  upvotedUsers: number[],
+  downvotedUsers: number[]
 }
 
 export interface Data {
   profiles: Profile[],
-  users: User[]
+  users: User[],
+  comments: Comment[]
 }

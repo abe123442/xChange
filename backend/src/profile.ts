@@ -1,6 +1,6 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import { Category, DegLevel, Profile } from './typedef';
+import { Category, DegLevel, Profile, Comment } from './typedef';
 
 /**
  * Creates new profile with input parameters

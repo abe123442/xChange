@@ -1,6 +1,8 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
+import { User } from './typedef';
+
 
 function hash(initValue: string): string {
     return crypto.createHash('sha256').update(initValue).digest('hex');
@@ -77,4 +79,11 @@ export function logout(token: string) {
 
     setData(database);
     return {};
+}
+
+// returns empty array if no user found
+export function checkValidUser(userid: number): User[] {
+    const data = getData();
+
+    return data.users.filter((x) => x.id === userid);
 }

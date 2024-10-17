@@ -20,7 +20,7 @@ function saveData(data: Data) {
 function loadData(): Data {
   const filename = 'dataMemory.json';
   if (!fs.existsSync(filename)) {
-    return { profiles: [] };
+    return { profiles: [], users: [], comments: [] };
   }
   return JSON.parse(fs.readFileSync(filename, 'utf8'));
 }
