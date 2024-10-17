@@ -1,6 +1,5 @@
 import { getData, setData } from './dataStore';
 import { getProfile } from './profile';
-import { checkValidUser } from './auth';
 import { Comment } from './typedef';
 import HTTPError from 'http-errors';
 
@@ -38,12 +37,8 @@ export function getProfileComments(profileid: number): Comment[] {
  * @param rating
  * @returns newly created comment
  */
-export function createComment(userid: number, profileid: number, title: string, desc: string, rating: number): Comment {
+export function createComment(userid: number, profileid: number, title: string, desc: string, rating: number) {
   const data = getData();
-
-  if (!checkValidUser(userid)) {
-    throw HTTPError(400, 'User does not exist');
-  }
 
   if (!title || title.length > 50) {
     throw HTTPError(400, 'Invalid title provided');
@@ -79,7 +74,7 @@ export function createComment(userid: number, profileid: number, title: string, 
   data.comments.push(newComment);
   setData(data);
 
-  return newComment;
+  return {};
 }
 
 /**
@@ -88,7 +83,7 @@ export function createComment(userid: number, profileid: number, title: string, 
  * @param profileid
  * @returns true if upvote was successfully added
  */
-export function upvoteComment(commentid: number, userid: number): boolean {
+export function upvoteComment(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
@@ -103,7 +98,6 @@ export function upvoteComment(commentid: number, userid: number): boolean {
   if (hasUpvoted) {
     // user has already upvoted
     throw HTTPError(400, 'User has already upvoted');
-    // return false;
   }
 
   // remove old downvote
@@ -116,7 +110,7 @@ export function upvoteComment(commentid: number, userid: number): boolean {
   foundComment.upvotedUsers.push(userid);
 
   setData(data);
-  return true;
+  return {};
 }
 
 /**
@@ -125,7 +119,7 @@ export function upvoteComment(commentid: number, userid: number): boolean {
  * @param profileid
  * @returns true if downvote was successfully added
  */
-export function downvoteComment(commentid: number, userid: number): boolean {
+export function downvoteComment(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
@@ -139,7 +133,6 @@ export function downvoteComment(commentid: number, userid: number): boolean {
   if (hasDownvoted) {
     // user has already downvoted
     throw HTTPError(400, 'User has already downvoted');
-    // return false;
   }
 
   // remove old upvote
@@ -152,7 +145,7 @@ export function downvoteComment(commentid: number, userid: number): boolean {
   foundComment.downvotedUsers.push(userid);
 
   setData(data);
-  return true;
+  return {};
 }
 
 /**
@@ -161,7 +154,7 @@ export function downvoteComment(commentid: number, userid: number): boolean {
  * @param profileid
  * @returns true if downvote was successfully removed
  */
-export function removeDownvote(commentid: number, userid: number): boolean {
+export function removeDownvote(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
@@ -175,15 +168,14 @@ export function removeDownvote(commentid: number, userid: number): boolean {
   if (!hasDownvoted) {
     // user has not already downvoted
     throw HTTPError(400, 'User not has already downvoted');
-    // return false;
   }
 
-   // remove old downvote
+  // remove old downvote
   const index = foundComment.downvotedUsers.indexOf(userid);
   foundComment.downvotedUsers.splice(index, 1);
 
   setData(data);
-  return true;
+  return {};
 }
 
 /**
@@ -192,7 +184,7 @@ export function removeDownvote(commentid: number, userid: number): boolean {
  * @param profileid
  * @returns true if upvote was successfully removed
  */
-export function removeUpvote(commentid: number, userid: number): boolean {
+export function removeUpvote(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
@@ -204,15 +196,14 @@ export function removeUpvote(commentid: number, userid: number): boolean {
 
   const hasUpvoted = foundComment.upvotedUsers.filter((x) => x === userid);
   if (!hasUpvoted) {
-    // user has not already downvoted
-    throw HTTPError(400, 'User not has already downvoted');
-    // return false;
+    // user has not already upvoted
+    throw HTTPError(400, 'User not has already upvoted');
   }
 
-   // remove old upvote
+  // remove old upvote
   const index = foundComment.upvotedUsers.indexOf(userid);
   foundComment.upvotedUsers.splice(index, 1);
 
   setData(data);
-  return true;
+  return {};
 }
