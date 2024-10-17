@@ -18,7 +18,6 @@ export function uploadExcelToDatabase(filename: string, header?: string[]) {
       }
     });
   });
-  console.log(getData().profiles.length);
   return {};
 }
 
