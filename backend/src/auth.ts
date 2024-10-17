@@ -72,7 +72,7 @@ export function logout(token: string) {
     const user = database.users.find(user => user.tokens.includes(token));
 
     if (!user) {
-        throw HTTPError(400, "Token is invalid");
+        throw HTTPError(401, "Token is invalid");
     }
     user.tokens.splice(user.tokens.indexOf(token), 1);
 
@@ -81,16 +81,26 @@ export function logout(token: string) {
 }
 
 export function isAdmin(token: string): boolean {
-    const database = getData();
+    const database: Data = getData();
 
     const user = database.users.find(user => user.tokens.includes(token));
 
     if (!user) {
-        throw HTTPError(400, "Token is invalid");
+        throw HTTPError(401, "Token is invalid");
     }
 
     if (ADMIN_EMAILS.includes(user.email)) {
         return true;
     }
     return false;
+}
+
+export function validateToken(token: string) {
+    const database: Data = getData();
+
+    const user = database.users.find(user => user.tokens.includes(token));
+
+    if (!user) {
+        throw HTTPError(401, "Token is invalid");
+    }
 }
