@@ -1,8 +1,12 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
 
-export default function Home() {
+const BACKEND_URL = 'https://localhost:5000';
+
+export default async function Profile({ params }: { params: { id: string }}) {
+  const { id } = params;
+  const data = await fetch(BACKEND_URL + `/profile/${id}`);
+  const profile = await data.json();
   return (
     <>
       <NavBar />
