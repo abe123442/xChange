@@ -12,6 +12,9 @@ export const SPLITREGEX = /[\s,-/]+/;
 //   MAX_CAPACITY: 10000
 // }
 
+// Admin emails
+export const ADMIN_EMAILS = ["unsw-admin@ad.unsw.edu.au"];
+
 // INTERFACES
 export interface Error {
   status: number,

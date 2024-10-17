@@ -1,8 +1,7 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
-import { User } from './typedef';
-
+import { Data, User, CONSTANTS, ADMIN_EMAILS } from './typedef';
 
 function hash(initValue: string): string {
     return crypto.createHash('sha256').update(initValue).digest('hex');
@@ -73,7 +72,7 @@ export function logout(token: string) {
     const user = database.users.find(user => user.tokens.includes(token));
 
     if (!user) {
-        throw HTTPError(400, "Token is invalid");
+        throw HTTPError(401, "Token is invalid");
     }
     user.tokens.splice(user.tokens.indexOf(token), 1);
 
@@ -81,9 +80,27 @@ export function logout(token: string) {
     return {};
 }
 
-// returns empty array if no user found
-export function checkValidUser(userid: number): User[] {
-    const data = getData();
+export function isAdmin(token: string): boolean {
+    const database: Data = getData();
 
-    return data.users.filter((x) => x.id === userid);
+    const user = database.users.find(user => user.tokens.includes(token));
+
+    if (!user) {
+        throw HTTPError(401, "Token is invalid");
+    }
+
+    if (ADMIN_EMAILS.includes(user.email)) {
+        return true;
+    }
+    return false;
+}
+
+export function validateToken(token: string) {
+    const database: Data = getData();
+
+    const user = database.users.find(user => user.tokens.includes(token));
+
+    if (!user) {
+        throw HTTPError(401, "Token is invalid");
+    }
 }
