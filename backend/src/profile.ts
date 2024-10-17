@@ -16,74 +16,79 @@ import { Category, DegLevel, Profile } from './typedef';
  * @param img 
  */
 export function createProfile(
-    name: string, desc: string, country: string, scope: string, degLevels: string[],
-    category: string, minWam: number, load: string, link: string, img: string) {
-    if (!name || name.length > 50) {
-        throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 50 characters');
-    }
+  token: string, name: string, desc: string, country: string, scope: string, 
+  degLevels: string[], category: string, minWam: number, load: string, 
+  link: string, img: string
+) {
 
-    if (desc.length > 500) {
-        throw HTTPError(400, 'Invalid university description provided, must be at most 500 characters');
-    }
+  // TODO: auth check with token
 
-    if (!country) {
-        throw HTTPError(400, 'Invalid country provided');
-    }
+  if (!name || name.length > 50) {
+    throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 50 characters');
+  }
 
-    if (!scope) {
-        throw HTTPError(400, 'Invalid scope provided');
-    }
+  if (desc.length > 500) {
+    throw HTTPError(400, 'Invalid university description provided, must be at most 500 characters');
+  }
 
-    if (!(category in Category)) {
-        throw HTTPError(400, 'Invalid category provided');
-    }
+  if (!country) {
+    throw HTTPError(400, 'Invalid country provided');
+  }
 
-    if (degLevels.some(d => !(d in DegLevel))) {
-        throw HTTPError(400, 'Invalid degree level(s) provided');
-    }
+  if (!scope) {
+    throw HTTPError(400, 'Invalid scope provided');
+  }
 
-    if (minWam < 0 || minWam > 100) {
-        throw HTTPError(400, 'Invalid WAM provided');
-    }
+  if (!(category in Category)) {
+    throw HTTPError(400, 'Invalid category provided');
+  }
 
-    if (!load) {
-        throw HTTPError(400, 'Invalid full time load provided');
-    }
+  if (degLevels.some(d => !(d in DegLevel))) {
+    throw HTTPError(400, 'Invalid degree level(s) provided');
+  }
 
-    const urlRegex = /^(http[s]{0,1}:\/\/){0,1}www\..*/
+  if (minWam < 0 || minWam > 100) {
+    throw HTTPError(400, 'Invalid WAM provided');
+  }
 
-    if (!link.match(urlRegex)) {
-        throw HTTPError(400, 'Invalid website URL provided');
-    }
+  if (!load) {
+    throw HTTPError(400, 'Invalid full time load provided');
+  }
 
-    if (!img.match(urlRegex)) {
-        throw HTTPError(400, 'Invalid image URL provided');
-    }
-    
-    const data = getData();
-    let newId = data.profiles.length;
+  const urlRegex = /^(http[s]{0,1}:\/\/){0,1}www\..*/
 
-    let newProfile = {
-        id: newId,
-        name: name,
-        desc: desc,
-        country: country,
-        scope: scope,
-        category: category,
-        minWam: minWam,
-        load: load,
-        degLevels: degLevels,
-        link: link,
-        img: img,
-        rating: 0,
-        numRates: 0,
-        comments: []
-    }
+  if (!link.match(urlRegex)) {
+    throw HTTPError(400, 'Invalid website URL provided');
+  }
 
-    data.profiles.push(newProfile);
-    setData(data);
+  if (!img.match(urlRegex)) {
+    throw HTTPError(400, 'Invalid image URL provided');
+  }
+  
+  const data = getData();
+  let newId = data.profiles.length;
 
-    return {};
+  let newProfile = {
+    id: newId,
+    name: name,
+    desc: desc,
+    country: country,
+    scope: scope,
+    category: category,
+    minWam: minWam,
+    load: load,
+    degLevels: degLevels,
+    link: link,
+    img: img,
+    rating: 0,
+    numRates: 0,
+    comments: []
+  }
+
+  data.profiles.push(newProfile);
+  setData(data);
+
+  return {};
 }
 
 export function getAllProfiles(): Profile[] {
@@ -124,7 +129,8 @@ export function getProfile(profileid: number): Profile {
  */
 export function getFilteredProfiles(
     name: string, desc: string, country: string, scope: string, degLevels: string[],
-    category: string, minWam: number, load: string): Profile[] {
+    category: string, minWam: number, load: string
+  ): Profile[] {
     const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;
@@ -154,6 +160,9 @@ export function getFilteredProfiles(
     if (!!load) {
         profiles = profiles.filter(p => matchKeywordsStr(p.load, load.split(splitRegex)));
     }
+
+    profiles.sort((a, b) => a.name.localeCompare(b.name));
+
     return profiles;
 }
 
@@ -181,13 +190,13 @@ function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
     return false;
 }
 
-function hasSubstring(main: string, sub: string): boolean {
-    return main.toLowerCase().includes(sub);
-}
-
 function matches(a: string, b: string): boolean {
     return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
 }
+
+// function hasSubstring(main: string, sub: string): boolean {
+//   return main.toLowerCase().includes(sub);
+// }
 
 // function matchKeywords(string, keywords) {
 //     const words = profile.name.split(" ");
