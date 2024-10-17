@@ -79,7 +79,7 @@ app.get('/profile/:profileid', (req: Request, res: Response) => {
   }
 });
 
-app.get('/profile/:profileid', (req: Request, res: Response) => {
+app.post('/profile/:profileid', (req: Request, res: Response) => {
   const { token, name, desc, country, scope, category, minWam, degLevels, load, 
     link, img } = req.body;
 

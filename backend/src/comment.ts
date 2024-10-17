@@ -1,7 +1,7 @@
 import { getData, setData } from './dataStore';
 import { getProfile } from './profile';
 import { checkValidUser } from './auth';
-import { Category, DegLevel, Profile, Comment } from './typedef';
+import { Comment } from './typedef';
 import HTTPError from 'http-errors';
 
 /**
