@@ -1,7 +1,7 @@
 import express, { json, Request, Response } from 'express';
 import cors from 'cors';
 import errorHandler from 'middleware-http-errors';
-import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile } from './profile';
+import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile, editProfile, deleteProfile } from './profile';
 import { register, login, logout } from './auth';
 import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
@@ -94,6 +94,35 @@ app.post('/profile', (req: Request, res: Response) => {
     const response = tryCreateProfile(token, name, desc, country, scope, degLevels,
       category, minWam, load, link, img
     );
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.put('/profile/:profileid/edit', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const { name, desc, country, scope, category, minWam, degLevels, load, 
+    link, img } = req.body;
+
+  try {
+    const response = editProfile(token, name, desc, country, scope, degLevels,
+      category, minWam, load, link, img
+    );
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/:profileid/delete', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const name: string = req.query.name as string;
+
+  try {
+    const response = deleteProfile(token, name);
     res.status(200).json(response);
   } catch (e) {
     const error = e as Error;
