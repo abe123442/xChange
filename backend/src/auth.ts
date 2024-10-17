@@ -3,7 +3,7 @@ import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
 import { Data, ADMIN_EMAILS, User } from './typedef';
 
-function hash(initValue: string): string {
+export function hash(initValue: string): string {
   return crypto.createHash('sha256').update(initValue).digest('hex');
 }
 

@@ -76,6 +76,7 @@ export function createComment(userid: number, profileid: number, title: string, 
   // recalculate rating
   const newRating = (profile.rating * profile.comments.length) + rating;
   profile.rating = newRating;
+  profile.numRates += 1;
 
   profile.comments.push(commentid);
   data.comments.push(newComment);
@@ -238,7 +239,9 @@ export function deleteComment(commentid: number, userid: number) {
   data.deletedComments += 1;
 
   for (const profile of data.profiles) {
-    profile.comments.splice(profile.comments.indexOf(commentid), 1);
+    if (profile.comments.splice(profile.comments.indexOf(commentid), 1)) {
+      profile.numRates =- 1;
+    };
   }
 
   return {};
