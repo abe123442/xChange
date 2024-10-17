@@ -77,6 +77,10 @@ export function createComment(userid: number, profileid: number, title: string, 
     downvotedUsers: []
   }
 
+  // recalculate rating
+  const newRating = (profile.rating * profile.comments.length) + rating;
+  profile.rating = newRating;
+
   profile.comments.push(commentid);
   data.comments.push(newComment);
   setData(data);
