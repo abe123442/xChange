@@ -2,6 +2,12 @@ import XLSX from 'xlsx';
 import fs from 'fs';
 import { createProfile } from './profile';
 import { ExcelRow, ExcelSheet } from './typedef';
+import { validateAdmin } from './auth';
+
+export function tryUploadExcelToDatabase(token: string, filename: string, header?: string[]) {
+  validateAdmin(token);
+  uploadExcelToDatabase(filename, header);
+}
 
 /**
  * Loads excel's contents into the database
@@ -9,7 +15,7 @@ import { ExcelRow, ExcelSheet } from './typedef';
  * @param header 
  * @returns object
  */
-export function uploadExcelToDatabase(filename: string, header?: string[]) {
+function uploadExcelToDatabase(filename: string, header?: string[]) {
   const excelSheets = excelToJSON(filename, header);
   
   excelSheets.forEach(s => {

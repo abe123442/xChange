@@ -4,7 +4,7 @@ import errorHandler from 'middleware-http-errors';
 import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile } from './profile';
 import { register, login, logout } from './auth';
 import { Error } from './typedef';
-import { uploadExcelToDatabase } from './excelConverter';
+import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
 
 const app = express();
@@ -30,10 +30,11 @@ app.get('/home', (req: Request, res: Response) => {
 });
 
 app.post('/upload', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
   const { file, header } = req.body;
 
   try {
-    res.status(200).json(uploadExcelToDatabase(file ? file : 'Partner Placement Guide.xlsx', header));
+    res.status(200).json(tryUploadExcelToDatabase(token, file ? file : 'Partner Placement Guide.xlsx', header));
   } catch (e) {
     const error = e as Error;
     res.status(error.status ? error.status : 500).json({ error: error.message });
@@ -98,7 +99,7 @@ app.post('/profile', (req: Request, res: Response) => {
   }
 });
 
-app.post('/register', (req: Request, res: Response) => {
+app.post('/auth/register', (req: Request, res: Response) => {
   const { email, password, nameFirst, nameLast, username } = req.body;
 
   try {
@@ -111,7 +112,7 @@ app.post('/register', (req: Request, res: Response) => {
   }
 });
 
-app.post('/login', (req: Request, res: Response) => {
+app.post('/auth/login', (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
@@ -124,7 +125,7 @@ app.post('/login', (req: Request, res: Response) => {
   }
 });
 
-app.post('/logout', (req: Request, res: Response) => {
+app.post('/auth/logout', (req: Request, res: Response) => {
   const token = req.header('token') as string;
 
   try {

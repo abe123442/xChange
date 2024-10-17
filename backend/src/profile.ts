@@ -4,7 +4,7 @@ import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
 import { validateAdmin } from './auth';
 
 /**
- * Creates new profile with input parameters
+ * Creates new profile with input parameters, must be ADMIN to do so
  * @param name 
  * @param desc 
  * @param country 
@@ -200,17 +200,17 @@ export function getFilteredProfiles(
   return profiles;
 }
 
+function matchKeywordsStr(string: string, keywords: string[]): boolean {
+  const basewords = string.split(SPLITREGEX);
+  return matchKeywordsArr(basewords, keywords);
+}
+
 /**
  * Returns true if string contains any of the keywords
  * @param {*} string 
  * @param {*} keywords 
  * @returns 
  */
-function matchKeywordsStr(string: string, keywords: string[]): boolean {
-  const basewords = string.split(SPLITREGEX);
-  return matchKeywordsArr(basewords, keywords);
-}
-
 function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
   for (const word of basewords) {
     for (const keyword of keywords) {

@@ -77,9 +77,12 @@ export function logout(token: string) {
   return {};
 }
 
-export function validateAdmin(token: string): boolean {
+export function validateAdmin(token: string) {
   const user = validateToken(token);
-  return ADMIN_EMAILS.includes(user.email);
+  if (!ADMIN_EMAILS.includes(user.email)) {
+    throw HTTPError(403, "User must be an administrator");
+  }
+  return user;
 }
 
 export function validateToken(token: string, dataRef?: Data): User {
