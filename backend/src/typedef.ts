@@ -1,16 +1,13 @@
 // ENUMS
-export enum Category {
-  SUPER_PARTNER = 'Super Partner',
-  HIGH_CAPACITY = 'High Capacity',
-  HIGH_DEMAND = 'High Demand'
-}
-
 export enum DegLevel {
   UG = 'UG',
   PG = 'PG'
 }
 
 // CONSTANTS
+export const CATEGORY = ['Super Partner', 'High Capacity', 'High Demand'];
+export const SPLITREGEX = /[\s,-/]+/;
+
 // export const CONSTANTS = {
 //   MAX_CAPACITY: 10000
 // }
@@ -60,4 +57,21 @@ export interface Comment {
 export interface Data {
   profiles: Profile[],
   users: User[]
+}
+
+export interface ExcelSheet {
+  continent: string,
+  rows: ExcelRow[]
+}
+
+export interface ExcelRow {
+  name: string,
+  desc: string,
+  country: string,
+  scope: string,
+  category: string,
+  minWam: string,
+  degLevels: string,
+  load: string,
+  link: string,
 }

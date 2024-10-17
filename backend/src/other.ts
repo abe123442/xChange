@@ -1,6 +1,6 @@
 import { setData } from './dataStore';
 
 export function clear() {
-  setData({ profiles: [] });
+  setData({ profiles: [], users: [] });
   return {};
 }

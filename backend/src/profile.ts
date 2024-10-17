@@ -1,6 +1,6 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import { Category, DegLevel, Profile } from './typedef';
+import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
 
 /**
  * Creates new profile with input parameters
@@ -15,35 +15,54 @@ import { Category, DegLevel, Profile } from './typedef';
  * @param link 
  * @param img 
  */
-export function createProfile(
+export function tryCreateProfile(
   token: string, name: string, desc: string, country: string, scope: string, 
-  degLevels: string[], category: string, minWam: number, load: string, 
+  degLevels: string, category: string, minWam: number, load: string, 
   link: string, img: string
 ) {
 
   // TODO: auth check with token
 
-  if (!name || name.length > 50) {
-    throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 50 characters');
-  }
+  return createProfile(name, desc, country, scope, degLevels, category, minWam, load, link, img);
+}
 
-  if (desc.length > 500) {
-    throw HTTPError(400, 'Invalid university description provided, must be at most 500 characters');
+export function createProfile(
+  name: string, desc: string, country: string, scope: string, 
+  degLevels: string, category: string, minWam: number, load: string, 
+  link: string, img: string
+) {
+  if (!name || name.length > 100) {
+    throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 100 characters');
   }
+  name = name.trim();
 
+  if (desc) {
+    if (desc.length > 1000) {
+      throw HTTPError(400, 'Invalid university description provided, must be at most 1000 characters');
+    }
+    desc = desc.trim();
+  }
+  
   if (!country) {
     throw HTTPError(400, 'Invalid country provided');
   }
+  country = country.trim();
 
   if (!scope) {
     throw HTTPError(400, 'Invalid scope provided');
   }
+  scope = scope.trim();
 
-  if (!(category in Category)) {
+  if (!category) {
+    throw HTTPError(400, 'Invalid category provided');
+  }
+  category = category.trim();
+  if (!(CATEGORY.includes(category))) {
     throw HTTPError(400, 'Invalid category provided');
   }
 
-  if (degLevels.some(d => !(d in DegLevel))) {
+  const degLevelsArr = degLevels.split(SPLITREGEX);
+  if (degLevelsArr.some(d => d && !(d in DegLevel))) {
     throw HTTPError(400, 'Invalid degree level(s) provided');
   }
 
@@ -52,17 +71,29 @@ export function createProfile(
   }
 
   if (!load) {
-    throw HTTPError(400, 'Invalid full time load provided');
+    load = '?';
+    // throw HTTPError(400, 'Invalid full time load provided');
   }
+  load = load.trim();
 
-  const urlRegex = /^(http[s]{0,1}:\/\/){0,1}www\..*/
+  const urlRegex = /^((https?:\/\/)|(www\.)).*/
 
-  if (!link.match(urlRegex)) {
-    throw HTTPError(400, 'Invalid website URL provided');
+  if (!link) {
+    throw HTTPError(400, 'No website URL provided');
   }
+  link = link.trim();
 
-  if (!img.match(urlRegex)) {
-    throw HTTPError(400, 'Invalid image URL provided');
+  // NOTE: Invalid links allowed because some fields in the placement xlsx has 
+  // 'Please check with advisor' in the link field
+  // if (!link.match(urlRegex)) {
+  //   throw HTTPError(400, 'Invalid website URL provided');
+  // }
+
+  if (img) {
+    if (!img.match(urlRegex)) {
+      throw HTTPError(400, 'Invalid image URL provided');
+    }
+    img = img.trim();
   }
   
   const data = getData();
@@ -77,7 +108,7 @@ export function createProfile(
     category: category,
     minWam: minWam,
     load: load,
-    degLevels: degLevels,
+    degLevels: degLevelsArr,
     link: link,
     img: img,
     rating: 0,
@@ -92,8 +123,8 @@ export function createProfile(
 }
 
 export function getAllProfiles(): Profile[] {
-    const data = getData();
-    return data.profiles;
+  const data = getData();
+  return data.profiles;
 }
 
 /**
@@ -102,14 +133,14 @@ export function getAllProfiles(): Profile[] {
  * @returns requested profile with that profileid
  */
 export function getProfile(profileid: number): Profile {
-    const data = getData();
+  const data = getData();
 
-    if (profileid < 0 || profileid >= data.profiles.length) {
-        throw HTTPError(400, 'Requested profile does not exist');
-    }
+  if (profileid < 0 || profileid >= data.profiles.length) {
+    throw HTTPError(400, 'Requested profile does not exist');
+  }
 
-    const profile = data.profiles[profileid];
-    return profile;
+  const profile = data.profiles[profileid];
+  return profile;
 }
 
 /**
@@ -128,42 +159,40 @@ export function getProfile(profileid: number): Profile {
  * @returns list of filtered profiles
  */
 export function getFilteredProfiles(
-    name: string, desc: string, country: string, scope: string, degLevels: string[],
-    category: string, minWam: number, load: string
-  ): Profile[] {
-    const splitRegex = /[\s,-/]+/;
-    
-    let profiles = getData().profiles;
+  name: string, desc: string, country: string, scope: string, degLevels: string,
+  category: string, minWam: number, load: string
+): Profile[] {
+  let profiles = getData().profiles;
 
-    // Double negative, !!, also checks for falsey (ie, empty strings)
-    if (!!name) {
-        profiles = profiles.filter(p => matchKeywordsStr(p.name, name.split(splitRegex)));
-    }
-    if (!!desc) {
-        profiles = profiles.filter(p => matchKeywordsStr(p.desc, desc.split(splitRegex)));
-    }
-    if (!!country) {
-        profiles = profiles.filter(p => matchKeywordsStr(p.country, country.split(splitRegex)));
-    }
-    if (!!scope) {
-        profiles = profiles.filter(p => matchKeywordsStr(p.scope, scope.split(splitRegex)));
-    }
-    if (!!category) {
-        profiles = profiles.filter(p => p.category === category);
-    }
-    if (!!minWam) {
-        profiles = profiles.filter(p => p.minWam <= minWam);
-    }
-    if (!!degLevels) {
-        profiles = profiles.filter(p => matchKeywordsArr(p.degLevels, degLevels));
-    }
-    if (!!load) {
-        profiles = profiles.filter(p => matchKeywordsStr(p.load, load.split(splitRegex)));
-    }
+  // Double negative, !!, also checks for falsey (ie, empty strings)
+  if (!!name) {
+    profiles = profiles.filter(p => matchKeywordsStr(p.name, name.split(SPLITREGEX)));
+  }
+  if (!!desc) {
+    profiles = profiles.filter(p => matchKeywordsStr(p.desc, desc.split(SPLITREGEX)));
+  }
+  if (!!country) {
+    profiles = profiles.filter(p => matchKeywordsStr(p.country, country.split(SPLITREGEX)));
+  }
+  if (!!scope) {
+    profiles = profiles.filter(p => matchKeywordsStr(p.scope, scope.split(SPLITREGEX)));
+  }
+  if (!!category) {
+    profiles = profiles.filter(p => p.category === category);
+  }
+  if (!!minWam) {
+    profiles = profiles.filter(p => p.minWam <= minWam);
+  }
+  if (!!degLevels) {
+    profiles = profiles.filter(p => matchKeywordsArr(p.degLevels, degLevels.split(SPLITREGEX)));
+  }
+  if (!!load) {
+    profiles = profiles.filter(p => matchKeywordsStr(p.load, load.split(SPLITREGEX)));
+  }
 
-    profiles.sort((a, b) => a.name.localeCompare(b.name));
+  profiles.sort((a, b) => a.name.localeCompare(b.name));
 
-    return profiles;
+  return profiles;
 }
 
 /**
@@ -173,25 +202,24 @@ export function getFilteredProfiles(
  * @returns 
  */
 function matchKeywordsStr(string: string, keywords: string[]): boolean {
-    const splitRegex = /[\s,-/]+/;
-    const basewords = string.split(splitRegex);
-    return matchKeywordsArr(basewords, keywords);
+  const basewords = string.split(SPLITREGEX);
+  return matchKeywordsArr(basewords, keywords);
 }
 
 function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
-    for (const word of basewords) {
-        for (const keyword of keywords) {
-            if (matches(word, keyword)) {
-                return true;
-            }
-        }
+  for (const word of basewords) {
+    for (const keyword of keywords) {
+      if (matches(word, keyword)) {
+        return true;
+      }
     }
+  }
 
-    return false;
+  return false;
 }
 
 function matches(a: string, b: string): boolean {
-    return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
+  return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
 }
 
 // function hasSubstring(main: string, sub: string): boolean {
