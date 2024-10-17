@@ -7,7 +7,7 @@ import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
 import { validateToken } from './auth';
-import { getProfileComments, createComment, upvoteComment, downvoteComment, removeUpvote, removeDownvote } from './comment';
+import { getProfileComments, createComment, upvoteComment, downvoteComment, removeUpvote, removeDownvote, deleteComment } from './comment';
 
 const app = express();
 app.use(json());
@@ -288,6 +288,21 @@ app.delete('/profile/comments/:commentid/downvote', (req: Request, res: Response
   try {
     const user = validateToken(token);
     const response = removeDownvote(commentid, user.id);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/comments/:commentid/delete', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid = parseInt(req.params.commentid);
+
+  try {
+    const user = validateToken(token);
+    const response = deleteComment(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {
