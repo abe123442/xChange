@@ -46,6 +46,7 @@ export interface User {
 
 export interface Comment {
   id: number,
+  username: string,
   userid: number,
   title: string,
   desc: string,

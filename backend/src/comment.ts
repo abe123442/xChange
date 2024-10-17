@@ -54,10 +54,17 @@ export function createComment(userid: number, profileid: number, title: string, 
 
   const profile = getProfile(profileid);
 
+  const user = data.users.find(user => user.id === userid);
+
+  if (!user) {
+    throw HTTPError(400, "Invalid user id");
+  }
+
   let commentid = data.comments.length;
 
   const newComment: Comment = {
     id: commentid,
+    username: user.username,
     userid: userid,
     title: title,
     desc: desc,
