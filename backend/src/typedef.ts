@@ -41,7 +41,8 @@ export interface User {
   nameFirst: string,
   nameLast: string,
   username: string,
-  tokens: string[]
+  tokens: string[],
+  targetuni: string[];
 }
 
 export interface Comment {

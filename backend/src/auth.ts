@@ -37,7 +37,8 @@ export function register(email: string, password: string, nameFirst: string, nam
     nameFirst: nameFirst,
     nameLast: nameLast,
     username: username,
-    tokens: []
+    tokens: [],
+    targetuni: []
   });
 
   setData(data);
@@ -75,6 +76,40 @@ export function logout(token: string) {
 
   setData(data);
   return {};
+}
+
+export function addUni(token: string, uni: string) {
+  const data = getData();
+
+  const user = data.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Invalid token");
+  }
+
+  if (user.targetuni.includes(uni)) {
+    throw HTTPError(400, "Uni already selected");
+  }
+
+  user.targetuni.push(uni);
+  setData(data);
+}
+
+export function removeUni(token: string, uni: string) {
+  const data = getData();
+
+  const user = data.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Invalid token");
+  }
+
+  if (!user.targetuni.includes(uni)) {
+    throw HTTPError(400, "Uni not selected");
+  }
+
+  user.targetuni.splice(user.targetuni.indexOf(uni));
+  setData(data);
 }
 
 export function validateAdmin(token: string) {

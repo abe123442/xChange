@@ -2,7 +2,7 @@ import express, { json, Request, Response } from 'express';
 import cors from 'cors';
 import errorHandler from 'middleware-http-errors';
 import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile, editProfile, deleteProfile } from './profile';
-import { register, login, logout } from './auth';
+import { register, login, logout, addUni, removeUni } from './auth';
 import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
@@ -164,6 +164,32 @@ app.post('/auth/logout', (req: Request, res: Response) => {
     res.status(200).json(response);
   }
   catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.put('/auth/unis/add', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const uni = req.body.uni as string;
+
+  try {
+    const response = addUni(token, uni);
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/auth/unis/remove', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const uni = req.query.uni as string;
+
+  try {
+    const response = removeUni(token, uni);
+    res.status(200).json(response);
+  } catch (e) {
     const error = e as Error;
     res.status(error.status ? error.status : 500).json({ error: error.message });
   }
