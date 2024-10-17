@@ -35,7 +35,7 @@ export function getProfileComments(profileid: number): Comment[] {
  * @param title
  * @param desc
  * @param rating
- * @returns newly created comment
+ * @returns nothing
  */
 export function createComment(userid: number, profileid: number, title: string, desc: string, rating: number) {
   const data = getData();
@@ -60,7 +60,7 @@ export function createComment(userid: number, profileid: number, title: string, 
     throw HTTPError(400, "Invalid user id");
   }
 
-  let commentid = data.comments.length;
+  let commentid = data.comments.length + data.deletedComments;
 
   const newComment: Comment = {
     id: commentid,
@@ -88,7 +88,7 @@ export function createComment(userid: number, profileid: number, title: string, 
  * Applies an upvote to a comment
  * @param userid
  * @param profileid
- * @returns true if upvote was successfully added
+ * @returns nothing
  */
 export function upvoteComment(commentid: number, userid: number) {
   const data = getData();
@@ -124,7 +124,7 @@ export function upvoteComment(commentid: number, userid: number) {
  * Applies an downvote to a comment
  * @param userid
  * @param profileid
- * @returns true if downvote was successfully added
+ * @returns nothing
  */
 export function downvoteComment(commentid: number, userid: number) {
   const data = getData();
@@ -159,7 +159,7 @@ export function downvoteComment(commentid: number, userid: number) {
  * Removes a downvote to a comment
  * @param userid
  * @param profileid
- * @returns true if downvote was successfully removed
+ * @returns nothing
  */
 export function removeDownvote(commentid: number, userid: number) {
   const data = getData();
@@ -189,7 +189,7 @@ export function removeDownvote(commentid: number, userid: number) {
  * Removes an upvote to a comment
  * @param userid
  * @param profileid
- * @returns true if upvote was successfully removed
+ * @returns nothing
  */
 export function removeUpvote(commentid: number, userid: number) {
   const data = getData();
@@ -212,5 +212,34 @@ export function removeUpvote(commentid: number, userid: number) {
   foundComment.upvotedUsers.splice(index, 1);
 
   setData(data);
+  return {};
+}
+
+/**
+ * Deletes an existing comment and removes it from the respective profile.
+ * @param commentid
+ * @param userid
+ * @returns nothing
+ */
+export function deleteComment(commentid: number, userid: number) {
+  const data = getData();
+
+  const comment = data.comments.filter((x) => x.id === commentid)[0];
+
+  if (!comment) {
+    throw HTTPError(400, 'Comment not found');
+  }
+
+  if (comment.userid !== userid) {
+    throw HTTPError(401, "User is not authorised to delete this comment");
+  }
+
+  data.comments.splice(data.comments.indexOf(comment), 1);
+  data.deletedComments += 1;
+
+  for (const profile of data.profiles) {
+    profile.comments.splice(profile.comments.indexOf(commentid), 1);
+  }
+
   return {};
 }

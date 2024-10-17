@@ -110,7 +110,7 @@ export function createProfile(
     img = img.trim();
   }
   
-  let newId = data.profiles.length;
+  let newId = data.profiles.length + data.deletedProfiles;
 
   let newProfile = {
     id: newId,
@@ -192,7 +192,8 @@ export function deleteProfile(token: string, name: string) {
     throw HTTPError(400, "Invalid profile");
   }
 
-  database.profiles.splice(database.profiles.indexOf(profile));
+  database.profiles.splice(database.profiles.indexOf(profile), 1);
+  database.deletedProfiles += 1;
   setData(database);
 }
 
@@ -209,12 +210,13 @@ export function getAllProfiles(): Profile[] {
 export function getProfile(profileid: number): Profile {
   const data = getData();
 
-  if (profileid < 0 || profileid >= data.profiles.length) {
+  const foundProfile = data.profiles.filter((x) => x.id === profileid)[0];
+
+  if (!foundProfile) {
     throw HTTPError(400, 'Requested profile does not exist');
   }
 
-  const profile = data.profiles[profileid];
-  return profile;
+  return foundProfile;
 }
 
 /**

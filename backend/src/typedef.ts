@@ -58,8 +58,10 @@ export interface Comment {
 
 export interface Data {
   profiles: Profile[],
+  deletedProfiles: number,
   users: User[],
-  comments: Comment[]
+  comments: Comment[],
+  deletedComments: number,
 }
 
 export interface ExcelSheet {

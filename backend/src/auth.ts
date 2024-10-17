@@ -108,7 +108,7 @@ export function removeUni(token: string, uni: string) {
     throw HTTPError(400, "Uni not selected");
   }
 
-  user.targetunis.splice(user.targetunis.indexOf(uni));
+  user.targetunis.splice(user.targetunis.indexOf(uni), 1);
   setData(data);
 }
 
