@@ -12,7 +12,7 @@ function generateUUID(): string {
 }
 
 /**
- * Requires database to have an array of users
+ * Requires data to have an array of users
  * @param {*} email 
  * @param {*} password 
  * @param {*} nameFirst 
@@ -20,17 +20,17 @@ function generateUUID(): string {
  * @param {*} username 
  */
 export function register(email: string, password: string, nameFirst: string, nameLast: string, username: string): string {
-  const database = getData();
+  const data = getData();
 
   // Error checks
-  const user = database.users.find(user => user.email.localeCompare(email) === 0);
+  const user = data.users.find(user => user.email.localeCompare(email) === 0);
 
   if (user) {
     throw HTTPError(400, "Email is already registered");
   }
 
-  const id = database.users.length;
-  database.users.push({
+  const id = data.users.length;
+  data.users.push({
     id: id,
     email: email,
     password: hash(password),
@@ -40,15 +40,15 @@ export function register(email: string, password: string, nameFirst: string, nam
     tokens: []
   });
 
-  setData(database);
+  setData(data);
   return login(email, password);
 }
 
 export function login(email: string, password: string): string {
-  const database = getData();
+  const data = getData();
 
   // Error checks
-  const user = database.users.find(user => user.email.localeCompare(email) === 0);
+  const user = data.users.find(user => user.email.localeCompare(email) === 0);
 
   if (!user) {
     throw HTTPError(400, "Email not found");
@@ -61,46 +61,37 @@ export function login(email: string, password: string): string {
   const token = generateUUID();
   user.tokens.push(token);
 
-  setData(database);
+  setData(data);
   return token;
 }
 
 export function logout(token: string) {
+  const data = getData();
+
   // Error checks
-  validateToken(token);
+  const user = validateToken(token, data);
 
-  const database = getData();
-
-  const user = database.users.find(user => user.tokens.includes(token)) as User;
   user.tokens.splice(user.tokens.indexOf(token), 1);
 
-  setData(database);
+  setData(data);
   return {};
 }
 
 export function isAdmin(token: string): boolean {
-  const database: Data = getData();
-
-  const user = database.users.find(user => user.tokens.includes(token));
-
-  if (!user) {
-    throw HTTPError(401, "Token is invalid");
-  }
-
-  if (ADMIN_EMAILS.includes(user.email)) {
-    return true;
-  }
-  return false;
+  const user = validateToken(token);
+  return ADMIN_EMAILS.includes(user.email);
 }
 
-export function validateToken(token: string) {
-    const database: Data = getData();
+export function validateToken(token: string, dataRef?: Data): User {
+    const data = dataRef ? dataRef : getData();
 
-    const user = database.users.find(user => user.tokens.includes(token));
+    const user = data.users.find(user => user.tokens.includes(token));
 
     if (!user) {
       throw HTTPError(401, "Token is invalid");
     }
+
+    return user;
 }
 
 export function checkValidUser(id: number): boolean {

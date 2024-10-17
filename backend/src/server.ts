@@ -31,8 +31,10 @@ app.get('/home', (req: Request, res: Response) => {
 });
 
 app.post('/upload', (req: Request, res: Response) => {
+  const { file, header } = req.body;
+
   try {
-    res.status(200).json(uploadExcelToDatabase('Partner Placement Guide.xlsx'));
+    res.status(200).json(uploadExcelToDatabase(file ? file : 'Partner Placement Guide.xlsx', header));
   } catch (e) {
     const error = e as Error;
     res.status(error.status ? error.status : 500).json({ error: error.message });
