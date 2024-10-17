@@ -102,3 +102,12 @@ export function validateToken(token: string) {
       throw HTTPError(401, "Token is invalid");
     }
 }
+
+export function checkValidUser(id: number): boolean {
+    const database: Data = getData();
+
+    const user = database.users.find(user => user.id === id);
+
+    if (!user) {return false;}
+    return true;
+}
