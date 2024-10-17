@@ -1,7 +1,7 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
-import { validateToken } from './auth';
+import { validateAdmin } from './auth';
 
 /**
  * Creates new profile with input parameters
@@ -21,7 +21,7 @@ export function tryCreateProfile(
   degLevels: string, category: string, minWam: number, load: string, 
   link: string, img: string
 ) {
-  validateToken(token);
+  validateAdmin(token);
   return createProfile(name, desc, country, scope, degLevels, category, minWam,
     load, link, img
   );

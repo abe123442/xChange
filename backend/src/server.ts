@@ -6,7 +6,6 @@ import { register, login, logout } from './auth';
 import { Error } from './typedef';
 import { uploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
-import { validateToken } from './auth';
 
 const app = express();
 app.use(json());
@@ -83,7 +82,7 @@ app.get('/profile/:profileid', (req: Request, res: Response) => {
   }
 });
 
-app.post('/profile/:profileid', (req: Request, res: Response) => {
+app.post('/profile', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const { name, desc, country, scope, category, minWam, degLevels, load, 
     link, img } = req.body;

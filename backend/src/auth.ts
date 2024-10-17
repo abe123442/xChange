@@ -77,19 +77,18 @@ export function logout(token: string) {
   return {};
 }
 
-export function isAdmin(token: string): boolean {
+export function validateAdmin(token: string): boolean {
   const user = validateToken(token);
   return ADMIN_EMAILS.includes(user.email);
 }
 
 export function validateToken(token: string, dataRef?: Data): User {
-    const data = dataRef ? dataRef : getData();
+  const data = dataRef ? dataRef : getData();
+  
+  const user = data.users.find(user => user.tokens.includes(token));
+  if (!user) {
+    throw HTTPError(401, "Token is invalid");
+  }
 
-    const user = data.users.find(user => user.tokens.includes(token));
-
-    if (!user) {
-      throw HTTPError(401, "Token is invalid");
-    }
-
-    return user;
+  return user;
 }
