@@ -3,13 +3,14 @@ import NavBar from "@/components/navbar";
 
 const BACKEND_URL = 'https://localhost:5000';
 
-export default async function Profile({ params }: { params: { id: string }}) {
+export default async function Page({ params }: { params: { id: string }}) {
   const { id } = params;
   const data = await fetch(BACKEND_URL + `/profile/${id}`);
   const profile = await data.json();
   return (
     <>
       <NavBar />
+      <Profile profile = { profile } />
       <div className={styles.page}>
         <main className={styles.main}>
 
