@@ -1,7 +1,7 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
-import { Data, User, CONSTANTS } from './typedef';
+import { Data, User, CONSTANTS, ADMIN_EMAILS } from './typedef';
 
 function hash(initValue: string): string {
     return crypto.createHash('sha256').update(initValue).digest('hex');
@@ -78,4 +78,19 @@ export function logout(token: string) {
 
     setData(database);
     return {};
+}
+
+export function isAdmin(token: string): boolean {
+    const database = getData();
+
+    const user = database.users.find(user => user.tokens.includes(token));
+
+    if (!user) {
+        throw HTTPError(400, "Token is invalid");
+    }
+
+    if (ADMIN_EMAILS.includes(user.email)) {
+        return true;
+    }
+    return false;
 }
