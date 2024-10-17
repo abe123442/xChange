@@ -96,30 +96,6 @@ app.post('/profile/:profileid', (req: Request, res: Response) => {
   }
 });
 
-/**
- * Filtered profiles
- * name: string
- * desc: string
- * country: string
- * scope: string
- * degLevels: string[]
- * category: string
- * minWam: number
- * load: string
- * link: string
- * img: string
- */
-app.get('/profile/filtered', (req: Request, res: Response) => {
-  try {
-    validateToken(req.headers.token as string);
-  }
-  catch (e) {
-    const error = e as Error;
-    res.status(401).json({error: error.message});
-  }
-  res.json(getFilteredProfiles(req.body.name, req.body.desc, req.body.country, req.body.scope, JSON.parse(req.body.degLevels as string), req.body.category, parseInt(req.body.minWam as string), req.body.load, req.body.link, req.body.img));
-});
-
 app.post('/register', (req: Request, res: Response) => {
   try {
     res.json(register(req.body.email, req.body.password, req.body.nameFirst, req.body.nameLast, req.body.username));
