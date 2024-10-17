@@ -6,6 +6,8 @@ import { register, login, logout } from './auth';
 import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
+import { validateToken } from './auth';
+import { getProfileComments, createComment, upvoteComment, downvoteComment, removeUpvote, removeDownvote } from './comment';
 
 const app = express();
 app.use(json());
@@ -138,7 +140,142 @@ app.post('/auth/logout', (req: Request, res: Response) => {
   }
 });
 
+app.get('/profile/:profileid/comments', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const profileid: number = parseInt(req.params.profileid);
 
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = getProfileComments(profileid);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.post('/profile/:profileid/comments/create', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const { userid, title, desc, rating } = req.body;
+  const profileid: number = parseInt(req.params.profileid);
+
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = createComment(parseInt(userid), profileid, title, desc, parseInt(rating));
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.put('/profile/comments/:commentid/upvote', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid: number = parseInt(req.params.commentid);
+  const userid: number = parseInt(req.body.userid);
+
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = upvoteComment(commentid, userid);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.put('/profile/comments/:commentid/downvote', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid: number = parseInt(req.params.commentid);
+  const userid: number = parseInt(req.body.userid);
+
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = downvoteComment(commentid, userid);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/comments/:commentid/upvote/remove', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid: number = parseInt(req.params.commentid);
+  const userid: number = parseInt(req.query.userid as string);
+
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = removeUpvote(commentid, userid);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/comments/:commentid/downvote/remove', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid: number = parseInt(req.params.commentid);
+  const userid: number = parseInt(req.query.userid as string);
+
+  try {
+    validateToken(token);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+
+  try {
+    const response = removeDownvote(commentid, userid);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
 
 // ====================================================================
 // SERVER ROUTES ABOVE ================================================

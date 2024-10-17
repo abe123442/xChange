@@ -95,3 +95,12 @@ export function validateToken(token: string, dataRef?: Data): User {
 
   return user;
 }
+
+export function checkValidUser(id: number): boolean {
+    const database: Data = getData();
+
+    const user = database.users.find(user => user.id === id);
+
+    if (!user) {return false;}
+    return true;
+}
