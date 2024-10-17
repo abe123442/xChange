@@ -1,6 +1,7 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
+import { validateToken } from './auth';
 
 /**
  * Creates new profile with input parameters
@@ -20,10 +21,10 @@ export function tryCreateProfile(
   degLevels: string, category: string, minWam: number, load: string, 
   link: string, img: string
 ) {
-
-  // TODO: auth check with token
-
-  return createProfile(name, desc, country, scope, degLevels, category, minWam, load, link, img);
+  validateToken(token);
+  return createProfile(name, desc, country, scope, degLevels, category, minWam,
+    load, link, img
+  );
 }
 
 export function createProfile(
@@ -32,13 +33,17 @@ export function createProfile(
   link: string, img: string
 ) {
   if (!name || name.length > 100) {
-    throw HTTPError(400, 'Invalid university name provided, must not be blank and be at most 100 characters');
+    throw HTTPError(400,
+      'Invalid university name provided, must not be blank and be at most 100 characters'
+    );
   }
   name = name.trim();
 
   if (desc) {
     if (desc.length > 1000) {
-      throw HTTPError(400, 'Invalid university description provided, must be at most 1000 characters');
+      throw HTTPError(400,
+        'Invalid university description provided, must be at most 1000 characters'
+      );
     }
     desc = desc.trim();
   }
@@ -221,57 +226,3 @@ function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
 function matches(a: string, b: string): boolean {
   return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
 }
-
-// function hasSubstring(main: string, sub: string): boolean {
-//   return main.toLowerCase().includes(sub);
-// }
-
-// function matchKeywords(string, keywords) {
-//     const words = profile.name.split(" ");
-//     const matchingIndices = [];
-
-//     for (const i in words) {
-//         let found = false;
-//         for (const j in keywords) {
-//             if (matchKeyword(words[i], keywords[j])) {
-//                 matchingIndices.push(j);
-//                 found = true;
-//                 break;
-//             }
-//         }
-//         if (!found) {
-//             matchingIndices.push(-2);
-//         }
-//     }
-
-//     let streak = 0;
-//     let maxStreak = 0;
-//     let prev = -2;
-//     for (const index of matchingIndices) {
-//         if (index === prev + 1) {
-//             streak++;
-//         }
-//         else {
-//             streak = 1;
-//         }
-//         if (streak > maxStreak) {
-//             maxStreak = streak;
-//         }
-//         prev = index;
-//     }
-//     profile.maxConsecutive = maxStreak;
-
-//     let matching = 0;
-//     for (const index of matchingIndices) {
-//         if (index !== -2) {
-//             matching++;
-//         }
-//     }
-//     profile.matchingIndices = matching;
-
-//     return profile;
-// }
-
-// function matchKeyword(a, b) {
-//     return a.toLowerCase() === b.toLowerCase();
-// }
