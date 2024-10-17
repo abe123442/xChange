@@ -82,7 +82,8 @@ app.get('/profile/:profileid', (req: Request, res: Response) => {
 });
 
 app.post('/profile/:profileid', (req: Request, res: Response) => {
-  const { token, name, desc, country, scope, category, minWam, degLevels, load, 
+  const token = req.header('token') as string;
+  const { name, desc, country, scope, category, minWam, degLevels, load, 
     link, img } = req.body;
 
   try {
@@ -97,34 +98,42 @@ app.post('/profile/:profileid', (req: Request, res: Response) => {
 });
 
 app.post('/register', (req: Request, res: Response) => {
+  const { email, password, nameFirst, nameLast, username } = req.body;
+
   try {
-    res.json(register(req.body.email, req.body.password, req.body.nameFirst, req.body.nameLast, req.body.username));
+    const response = register(email, password, nameFirst, nameLast, username);
+    res.status(200).json(response);
   }
   catch (e) {
     const error = e as Error;
-    res.status(400).json({error: error.message});
+    res.status(error.status ? error.status : 500).json({ error: error.message });
   }
 });
 
 app.post('/login', (req: Request, res: Response) => {
+  const { email, password } = req.body;
+
   try {
-    res.json(login(req.body.email, req.body.password));
+    const response = login(email, password);
+    res.status(200).json(response);
   }
   catch (e) {
     const error = e as Error;
-    res.status(400).json({error: error.message});
+    res.status(error.status ? error.status : 500).json({ error: error.message });
   }
 });
 
 app.post('/logout', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+
   try {
-    validateToken(req.headers.token as string);
+    const response = logout(token);
+    res.status(200).json(response);
   }
   catch (e) {
     const error = e as Error;
-    res.status(401).json({error: error.message});
+    res.status(error.status ? error.status : 500).json({ error: error.message });
   }
-  res.json(logout(req.headers.token as string));
 });
 
 

@@ -2,8 +2,13 @@ import XLSX from 'xlsx';
 import fs from 'fs';
 import { createProfile } from './profile';
 import { ExcelRow, ExcelSheet } from './typedef';
-import { getData } from './dataStore';
 
+/**
+ * Loads excel's contents into the database
+ * @param filename 
+ * @param header 
+ * @returns object
+ */
 export function uploadExcelToDatabase(filename: string, header?: string[]) {
   const excelSheets = excelToJSON(filename, header);
   
@@ -18,6 +23,7 @@ export function uploadExcelToDatabase(filename: string, header?: string[]) {
       }
     });
   });
+
   return {};
 }
 

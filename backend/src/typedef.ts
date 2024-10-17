@@ -8,12 +8,8 @@ export enum DegLevel {
 export const CATEGORY = ['Super Partner', 'High Capacity', 'High Demand'];
 export const SPLITREGEX = /[\s,-/]+/;
 
-// export const CONSTANTS = {
-//   MAX_CAPACITY: 10000
-// }
-
 // Admin emails
-export const ADMIN_EMAILS = ["unsw-admin@ad.unsw.edu.au"];
+export const ADMIN_EMAILS = ['unsw-admin@ad.unsw.edu.au'];
 
 // INTERFACES
 export interface Error {

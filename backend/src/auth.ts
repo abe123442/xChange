@@ -1,14 +1,14 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
-import { Data, ADMIN_EMAILS } from './typedef';
+import { Data, ADMIN_EMAILS, User } from './typedef';
 
 function hash(initValue: string): string {
-    return crypto.createHash('sha256').update(initValue).digest('hex');
+  return crypto.createHash('sha256').update(initValue).digest('hex');
 }
 
 function generateUUID(): string {
-    return randomUUID();
+  return randomUUID();
 }
 
 /**
@@ -20,79 +20,77 @@ function generateUUID(): string {
  * @param {*} username 
  */
 export function register(email: string, password: string, nameFirst: string, nameLast: string, username: string): string {
-    const database = getData();
+  const database = getData();
 
-    // Error checks
-    const user = database.users.find(user => user.email.localeCompare(email) === 0);
+  // Error checks
+  const user = database.users.find(user => user.email.localeCompare(email) === 0);
 
-    if (user) {
-        throw HTTPError(400, "Email is already registered");
-    }
+  if (user) {
+    throw HTTPError(400, "Email is already registered");
+  }
 
-    const id = database.users.length;
-    database.users.push({
-        id: id,
-        email: email,
-        password: hash(password),
-        nameFirst: nameFirst,
-        nameLast: nameLast,
-        username: username,
-        tokens: []
-    });
+  const id = database.users.length;
+  database.users.push({
+    id: id,
+    email: email,
+    password: hash(password),
+    nameFirst: nameFirst,
+    nameLast: nameLast,
+    username: username,
+    tokens: []
+  });
 
-    setData(database);
-    return login(email, password);
+  setData(database);
+  return login(email, password);
 }
 
 export function login(email: string, password: string): string {
-    const database = getData();
+  const database = getData();
 
-    // Error checks
-    const user = database.users.find(user => user.email.localeCompare(email) === 0);
+  // Error checks
+  const user = database.users.find(user => user.email.localeCompare(email) === 0);
 
-    if (!user) {
-        throw HTTPError(400, "Email not found");
-    }
+  if (!user) {
+    throw HTTPError(400, "Email not found");
+  }
 
-    if (user.password != hash(password)) {
-        throw HTTPError(400, "Password is incorrect");
-    }
+  if (user.password != hash(password)) {
+    throw HTTPError(400, "Password is incorrect");
+  }
 
-    const token = generateUUID();
-    user.tokens.push(token);
+  const token = generateUUID();
+  user.tokens.push(token);
 
-    setData(database);
-    return token;
+  setData(database);
+  return token;
 }
 
 export function logout(token: string) {
-    const database = getData();
+  // Error checks
+  validateToken(token);
 
-    // Error checks
-    const user = database.users.find(user => user.tokens.includes(token));
+  const database = getData();
 
-    if (!user) {
-        throw HTTPError(401, "Token is invalid");
-    }
-    user.tokens.splice(user.tokens.indexOf(token), 1);
+  const user = database.users.find(user => user.tokens.includes(token)) as User;
+  user.tokens.splice(user.tokens.indexOf(token), 1);
 
-    setData(database);
-    return {};
+  setData(database);
+  return {};
 }
 
 export function isAdmin(token: string): boolean {
-    const database: Data = getData();
+  const database: Data = getData();
 
-    const user = database.users.find(user => user.tokens.includes(token));
+  const user = database.users.find(user => user.tokens.includes(token));
 
-    if (!user) {
-        throw HTTPError(401, "Token is invalid");
-    }
+  if (!user) {
+    throw HTTPError(401, "Token is invalid");
+  }
 
-    if (ADMIN_EMAILS.includes(user.email)) {
-        return true;
-    }
-    return false;
+  if (ADMIN_EMAILS.includes(user.email)) {
+    return true;
+  }
+  return false;
 }
 
 export function validateToken(token: string) {
@@ -101,6 +99,6 @@ export function validateToken(token: string) {
     const user = database.users.find(user => user.tokens.includes(token));
 
     if (!user) {
-        throw HTTPError(401, "Token is invalid");
+      throw HTTPError(401, "Token is invalid");
     }
 }
