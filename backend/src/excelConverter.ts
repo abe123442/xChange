@@ -7,6 +7,7 @@ import { validateAdmin } from './auth';
 export function tryUploadExcelToDatabase(token: string, filename: string, header?: string[]) {
   validateAdmin(token);
   uploadExcelToDatabase(filename, header);
+  return {};
 }
 
 /**
