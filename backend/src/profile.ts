@@ -124,7 +124,7 @@ export function getProfile(profileid: number): Profile {
  */
 export function getFilteredProfiles(
     name: string, desc: string, country: string, scope: string, degLevels: string[],
-    category: string, minWam: number, load: string, link: string, img: string): Profile[] {
+    category: string, minWam: number, load: string): Profile[] {
     const splitRegex = /[\s,-/]+/;
     
     let profiles = getData().profiles;

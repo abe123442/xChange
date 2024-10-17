@@ -18,7 +18,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/home', (req: Request, res: Response) => {
   try {
-    const response = getAllProfiles();
+    const response = { profiles: getAllProfiles() };
     res.status(200).json(response);
   } catch (e) {
     const error = e as Error;

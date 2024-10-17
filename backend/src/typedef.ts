@@ -11,9 +11,9 @@ export enum DegLevel {
 }
 
 // CONSTANTS
-export const CONSTANTS = {
-  MAX_CAPACITY: 10000
-}
+// export const CONSTANTS = {
+//   MAX_CAPACITY: 10000
+// }
 
 // INTERFACES
 export interface Error {
@@ -35,7 +35,7 @@ export interface Profile {
   img: string,
   rating: number,
   numRates: number,
-  comments: Array<number>
+  comments: number[]
 }
 
 export interface User {

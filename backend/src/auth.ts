@@ -1,7 +1,6 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
-import { Data, User, CONSTANTS } from './typedef';
 
 function hash(initValue: string): string {
     return crypto.createHash('sha256').update(initValue).digest('hex');
