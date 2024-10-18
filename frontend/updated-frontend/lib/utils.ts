@@ -22,6 +22,20 @@ export interface ProfileProps {
   profile: Profile
 }
 
+export interface CommentProps {
+  comments: Comment[]
+}
+
+export interface Comment {
+  id: number,
+  userid: number,
+  title: string,
+  desc: string,
+  rating: number,
+  upvotedUsers: number[],
+  downvotedUsers: number[]
+}
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }

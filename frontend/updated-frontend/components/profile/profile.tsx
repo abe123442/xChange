@@ -4,6 +4,16 @@ import { ProfileProps } from "@/lib/utils";
 import './profile.css';
 
 export const Profile: React.FC<ProfileProps> = ({ profile }) => {
+  const getCategoryColour = () => {
+    switch (profile.category) {
+      case 'High Demand':
+        return 'category category-red';
+      case 'High Capacity':
+        return 'category category-green';
+      case 'Super Partner':
+        return 'category category-yellow'
+    }
+  };
   return (
     <main className="main">
       <div className="grid-container">
@@ -33,8 +43,8 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
         </div>
 
         <div className="p-category">
-          <div className="category category-green">
-            {profile.category}
+          <div className={getCategoryColour()}>
+            <b> {profile.category} </b>
           </div>
         </div>
 
@@ -77,7 +87,6 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
       </div>
 
       <script>
-        
       </script>
     </main>
   );

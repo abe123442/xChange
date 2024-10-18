@@ -7,16 +7,19 @@ const BACKEND_URL = 'http://localhost:5000';
 
 export default async function Page({ params }: { params: { id: string }}) {
   const { id } = params;
-  const data = await fetch(BACKEND_URL + `/profile/${id}`);
-  const profile = await data.json();
-  console.log(profile);
+  const profileData = await fetch(BACKEND_URL + `/profile/${id}`);
+  const profile = await profileData.json();
+
+  const commentData = await fetch(BACKEND_URL + `/profile/${id}/comments`);
+  const comments = await commentData.json();
+  console.log(comments);
   return (
     <>
       <NavBar />
       <div className={styles.page}>
         <main className={styles.main}>
           <Profile profile = { profile.profile } />
-          <Comment profile = { profile.profile } />
+          <Comment comments = { comments.comments } />
         </main>
         <footer className={styles.footer}>
 

@@ -16,13 +16,13 @@
 }
 
 .category-yellow {
-  border-right: 3px solid theme('colors.c_yellow.500');
-  background-color: theme('colors.c_yellow.300');
+  border-right: 3px solid theme('colors.c_yellow.300');
+  background-color: theme('colors.c_yellow.500');
 }
 
 .category-red {
-  border-right: 3px solid theme('colors.c_red.500');
-  background-color: theme('colors.c_red.300');
+  border-right: 3px solid theme('colors.c_red.300');
+  background-color: theme('colors.c_red.500');
 }
 
 .name {
@@ -112,107 +112,8 @@ hr.divider {
 }
 
 .grid-container > div {
-  background-color: rgb(8, 61, 119, 0.04);
+  background-color: rgb(8, 61, 119, 0.02);
   text-align: left;
   padding: 20px;
   font-size: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
 }

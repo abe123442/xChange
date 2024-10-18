@@ -144,7 +144,7 @@ app.get('/profile/:profileid/comments', (req: Request, res: Response) => {
   const profileid = parseInt(req.params.profileid);
 
   try {
-    const response = getProfileComments(profileid);
+    const response = { comments: getProfileComments(profileid) };
     res.status(200).json(response);
   }
   catch (e) {
