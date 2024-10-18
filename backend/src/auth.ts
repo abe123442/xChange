@@ -112,22 +112,20 @@ export function removeUni(token: string, uni: string) {
   setData(data);
 }
 
-export function viewUser(id: number) {
-  const database = getData();
+export function viewSelf(token: string): User {
+  const user = validateToken(token);
+  return user;
+}
 
-  const user = database.users.find(user => user.id === id);
+export function viewUser(userid: number): User {
+  const data = getData();
+  const user = data.users.find(user => user.id === userid);
 
   if (!user) {
     throw HTTPError(400, "User not found");
   }
 
-  return {
-    email: user.email,
-    nameFirst: user.nameFirst,
-    nameLast: user.nameLast,
-    username: user.username,
-    targetunis: user.targetunis
-  }
+  return user;
 }
 
 export function validateAdmin(token: string) {
