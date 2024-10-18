@@ -45,7 +45,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, currentUserId }) => 
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'token': token,
       },
     });
 
@@ -65,7 +65,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, currentUserId }) => 
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'token': token,
       },
     });
 
@@ -84,7 +84,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, currentUserId }) => 
         <b>{comment.title}</b>
       </div>
       <div className="comment-desc">{comment.desc}</div>
-      <div className="comment-rating">Rating: {comment.rating}/5</div>
+      <div className="comment-rating">Rating: {comment.rating}/10</div>
       
       <div className="comment-votes">
         <div className="comment-upvote" onClick={handleUpvote}>
