@@ -41,7 +41,6 @@ export interface CommentProps {
 
 export interface CommentFormProps {
   profileId: string;
-  setComments?: (comments: Comment[]) => void;
 }
 
 export function cn(...inputs: ClassValue[]) {
