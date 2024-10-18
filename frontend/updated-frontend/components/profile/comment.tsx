@@ -2,25 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { CommentProps } from "@/lib/utils";
+import { BACKEND_URL } from '@/lib/utils';
 
-export const Comment: React.FC<CommentProps> = ({ comments }) => {
-  const [s, setComments] = useState<Comment[]>([]);
+export const Comment: React.FC<CommentProps> = ({ comments, profileid }) => {
+  const [comment, setComments] = useState<Comment[]>([]);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [rating, setRating] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetch(`/api/comments/${comments.id}/comments`)
-      .then((res) => res.json())
-      .then((data) => {
-        setComments(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to load comments:", err);
-      });
-  }, [comments.id]);
+  // useEffect(() => {
+  //   fetch(`/api/comments/${comments.id}/comments`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setComments(data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Failed to load comments:", err);
+  //     });
+  // }, [comments.id]);
 
   const submitComment = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +32,7 @@ export const Comment: React.FC<CommentProps> = ({ comments }) => {
       rating,
     };
 
-    const response = await fetch(`/api/comments/${comments.id}/comments`, {
+    const response = await fetch(BACKEND_URL + `profile/${profileid}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export const Comment: React.FC<CommentProps> = ({ comments }) => {
     }
   };
 
-  if (isLoading) return <p>Loading comments...</p>;
+  // if (isLoading) return <p>Loading comments...</p>;
 
   return (
     <section>

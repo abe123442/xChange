@@ -5253,8 +5253,46 @@
       "nameLast": "Admin",
       "username": "Admin",
       "tokens": [
+        "faf85f27-f0a3-4a2b-a117-dcacc25313eb"
       ]
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": 0,
+      "userid": 0,
+      "title": "My comment",
+      "desc": "I love this uni <3",
+      "rating": 9,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 1,
+      "userid": 0,
+      "title": "My comment 2",
+      "desc": "I hate this uni <3",
+      "rating": 2,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 2,
+      "userid": 0,
+      "title": "My comment 3",
+      "desc": "I this uni <3",
+      "rating": 5,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 3,
+      "userid": 0,
+      "title": "My comment 4",
+      "desc": "I normal <3",
+      "rating": 5,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    }
+  ]
 }
