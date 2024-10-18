@@ -1,18 +1,18 @@
 "use client"
 
-import * as React from "react"
+import * as React from "react";
 
-import "./user-auth-form.css"
-import { useLocalStorage } from 'usehooks-ts'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { BACKEND_URL } from "@/lib/utils"
+import "./user-auth-form.css";
+import { useLocalStorage } from "usehooks-ts";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BACKEND_URL } from "@/lib/utils";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const [token, setToken, removeToken] = useLocalStorage('token', null)
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
   const [error, setError] = React.useState('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [success, setSuccess] = React.useState(false);
