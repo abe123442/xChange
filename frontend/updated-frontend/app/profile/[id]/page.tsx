@@ -1,19 +1,20 @@
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
+import { Profile } from '@/components/profile';
 
-const BACKEND_URL = 'https://localhost:5000';
+const BACKEND_URL = 'http://localhost:5000';
 
 export default async function Page({ params }: { params: { id: string }}) {
   const { id } = params;
   const data = await fetch(BACKEND_URL + `/profile/${id}`);
   const profile = await data.json();
+  console.log(profile);
   return (
     <>
       <NavBar />
-      <Profile profile = { profile } />
       <div className={styles.page}>
         <main className={styles.main}>
-
+          <Profile profile = { profile.profile } />
         </main>
         <footer className={styles.footer}>
 

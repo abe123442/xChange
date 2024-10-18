@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,9 +25,9 @@ export default function Home() {
           </ol>
 
           <div className={styles.ctas}>
-            <a
+            <Link
               className={styles.primary}
-              href="/profile/[id]"
+              href="/profile/100"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -38,7 +39,7 @@ export default function Home() {
                 height={20}
               />
               Deploy now
-            </a>
+            </Link>
             <a
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
               target="_blank"
