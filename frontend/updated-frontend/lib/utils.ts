@@ -13,12 +13,6 @@ export interface Comment {
   downvotedUsers: number[];
 }
 
-export interface CommentProps {
-  comments: Comment[];
-  profileid: number;
-  currentUserId: number; 
-}
-
 export interface Profile {
   id: number;
   name: string;
