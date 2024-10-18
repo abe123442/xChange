@@ -5,6 +5,7 @@ import { CommentFormProps } from '@/lib/utils';
 import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
 import { Input } from '../ui/input';
+import { useLocalStorage } from 'usehooks-ts';
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
@@ -12,6 +13,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [rating, setRating] = useState<number | undefined>(undefined);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +32,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'token': token,
+        'token': token
       },
       body: JSON.stringify({
         title,

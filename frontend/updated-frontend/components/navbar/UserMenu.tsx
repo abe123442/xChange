@@ -5,13 +5,30 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import { useLocalStorage } from "usehooks-ts";
+import { BACKEND_URL } from "@/lib/utils";
 
 const UserMenu: React.FC<{}> = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const logout = async () => {
+    const response = await fetch(`${BACKEND_URL}/auth/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    });
+
+    if (response.ok) {
+      removeToken();
+    }
+  };
 
   return (
     <div className="relative">
@@ -58,7 +75,7 @@ const UserMenu: React.FC<{}> = () => {
         </div>
       </div>
 
-      {isOpen && (
+      {!token && isOpen && (
         <div
           className="
               absolute
@@ -78,6 +95,30 @@ const UserMenu: React.FC<{}> = () => {
             <MenuItem
               label="Register"
               onClick={/*registerModal.onOpen*/ () => {window.location.href = '/auth/register';}}
+            />
+          </div>
+        </div>
+      )}
+
+      {token && isOpen && (
+        <div
+          className="
+              absolute
+              rounded-xl
+              shadow-md
+              w-[40vw]
+              md:w-3/4
+              bg-white
+              overflow-hidden
+              right-0
+              top-12
+              text-sm
+            "
+        >
+          <div className="flex flex-col cursor-pointer">
+            <MenuItem
+              label="Logout"
+              onClick={logout}
             />
           </div>
         </div>

@@ -27,12 +27,18 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="flex">
             <div>
               <Profile profile={profile.profile} />
+              <br></br>
               <div className={styles.form}>
                 <CommentForm profileId={profile.profile.id.toString()} />
               </div>
             </div>
             <div className={styles.frame}>
-              <Comment comments={comments.comments} userid={profile.profile.id} />
+              <div className={styles.title}>
+                Comments
+              </div>
+              <div className="sticky max-h-[calc(100vh-4rem)] overflow-y-scroll scrollbar-none">
+                <Comment comments={comments.comments} userid={profile.profile.id} />
+              </div>
             </div>
           </div>
         </main>

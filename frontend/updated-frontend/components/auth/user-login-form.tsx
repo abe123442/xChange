@@ -37,7 +37,7 @@ export function UserLoginForm({ className, ...props }: UserAuthFormProps) {
     const response = await fetch(BACKEND_URL + `/auth/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: email.value,

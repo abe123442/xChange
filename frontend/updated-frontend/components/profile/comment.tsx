@@ -5,13 +5,13 @@ import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import { BACKEND_URL } from '@/lib/utils';
 import { CommentProps, Comment as CommentType } from '@/lib/utils';
 import './comment.css';
+import { useLocalStorage } from 'usehooks-ts';
 
 export const Comment: React.FC<CommentProps> = ({ comments, userid }) => {
   return (
     <div className="comments-section">
-      <h2 className="title">Comments</h2>
       {comments.length === 0 ? (
-        <p>No comments available.</p>
+        <p className="align-right">No comments available.</p>
       ) : (
         comments.map((comment) => (
           <CommentCard key={comment.id} comment={comment} userid={userid} />
@@ -27,6 +27,7 @@ interface CommentCardProps {
 }
 
 const CommentCard: React.FC<CommentCardProps> = ({ comment, userid }) => {
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
   const [likes, setLikes] = useState(comment.upvotedUsers.length);
   const [downvotes, setDownvotes] = useState(comment.downvotedUsers.length);
   const [hasLiked, setHasLiked] = useState(() =>
@@ -36,8 +37,6 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, userid }) => {
     comment.downvotedUsers.includes(userid)
   );
 
-  const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb";
-
   const handleUpvote = async () => {
     if (hasLiked) return;
 
@@ -45,7 +44,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, userid }) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'token': token,
+        'token': token
       },
     });
 
@@ -65,7 +64,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment, userid }) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'token': token,
+        'token': token
       },
     });
 
