@@ -52,9 +52,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     if (response.ok) {
       setSuccess(true);
       setToken(responseData.token);
-      console.log(responseData.token);
     } else {
       setError(responseData.error + '.' || 'An error ocurred.');
+      setIsLoading(false);
     }
  
   }

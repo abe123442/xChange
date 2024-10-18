@@ -105,7 +105,7 @@ app.post('/auth/register', (req: Request, res: Response) => {
   const { email, password, nameFirst, nameLast, username } = req.body;
 
   try {
-    const response = register(email, password, nameFirst, nameLast, username);
+    const response = { token: register(email, password, nameFirst, nameLast, username) };
     res.status(200).json(response);
   }
   catch (e) {
@@ -118,7 +118,7 @@ app.post('/auth/login', (req: Request, res: Response) => {
   const { email, password } = req.body;
   
   try {
-    const response = login(email, password);
+    const response = { token: login(email, password) };
     res.status(200).json(response);
   }
   catch (e) {
