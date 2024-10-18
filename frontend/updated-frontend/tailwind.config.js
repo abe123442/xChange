@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      yale_blue: {
+      c_blue: {
         DEFAULT: "#083d77",
         100: "#020c18",
         200: "#031930",
@@ -20,7 +20,7 @@ module.exports = {
         800: "#70b0f5",
         900: "#b7d8fa",
       },
-      cerise: {
+      c_red: {
         DEFAULT: "#da4167",
         100: "#2f0913",
         200: "#5e1325",
@@ -32,7 +32,7 @@ module.exports = {
         800: "#f0b2c2",
         900: "#f7d9e0",
       },
-      coral: {
+      c_orange: {
         DEFAULT: "#f78764",
         100: "#421203",
         200: "#842407",
@@ -44,7 +44,7 @@ module.exports = {
         800: "#fccfc1",
         900: "#fde7e0",
       },
-      snow: {
+      c_white: {
         DEFAULT: "#fffbff",
         100: "#650065",
         200: "#ca00ca",
@@ -56,7 +56,7 @@ module.exports = {
         800: "#fffdff",
         900: "#fffeff",
       },
-      icterine: {
+      c_yellow: {
         DEFAULT: "#fffb46",
         100: "#414000",
         200: "#838000",
