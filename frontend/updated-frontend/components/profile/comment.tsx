@@ -1,7 +1,5 @@
 "use client";
 
-
-import { useState, useEffect } from "react";
 import { CommentProps } from "@/lib/utils";
 import './comment.css';
 
@@ -9,7 +7,7 @@ import './comment.css';
 export const Comment: React.FC<CommentProps> = ({ comments }) => {
  return (
    <div className="comments-section">
-     <h2>Comments</h2>
+     <h2 className="title">Comments</h2>
      {comments.length === 0 ? (
        <p>No comments available.</p>
      ) : (

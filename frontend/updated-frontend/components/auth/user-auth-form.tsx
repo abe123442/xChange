@@ -65,8 +65,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         Register
       </h1>
       <hr className="divider"></hr>
-      {error && <p className="error">{error}</p>}
-      {success && <p className="success">Account registered successfully!</p>}
 
       <form onSubmit={onSubmit}>
         <div className="grid gap-2">
@@ -143,6 +141,10 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
             />
           </div>
+          
+          {error && <p className="error">{error}</p>}
+          {success && <p className="success">Account registered successfully!</p>}
+          
           <Button disabled={isLoading} type="submit" className="button">
             <span className="flex items-center justify-center">
               {isLoading && (

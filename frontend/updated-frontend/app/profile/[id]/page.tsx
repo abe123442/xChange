@@ -21,10 +21,18 @@ export default async function Page({ params }: { params: { id: string } }) {
     <>
       <div className={styles.page}>
         <main className={styles.main}>
-          <Profile profile={profile.profile} />
           {/* Render Comments with profileId */}
-          <Comment comments={comments.comments} profileid={profile.profile.id} />
-          <CommentForm profileId={profile.profile.id.toString()} />
+          <div className="flex">
+            <div>
+              <Profile profile={profile.profile} />
+              <div className={styles.form}>
+                <CommentForm profileId={profile.profile.id.toString()} />
+              </div>
+            </div>
+            <div className={styles.frame}>
+              <Comment comments={comments.comments} profileid={profile.profile.id} />
+            </div>
+          </div>
         </main>
         <footer className={styles.footer}>
         </footer>

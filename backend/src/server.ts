@@ -31,7 +31,7 @@ app.get('/home', (req: Request, res: Response) => {
   }
 });
 
-app.post('/upload', (req: Request, res: Response) => {
+app.post('/auth/upload', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const { file, header } = req.body;
 

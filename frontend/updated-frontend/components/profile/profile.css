@@ -11,17 +11,17 @@
 }
 
 .category-green {
-  border-right: 3px solid green;
+  border-right: 6px solid green;
   background-color: lightgreen;
 }
 
 .category-yellow {
-  border-right: 3px solid theme('colors.c_yellow.300');
+  border-right: 6px solid theme('colors.c_yellow.300');
   background-color: theme('colors.c_yellow.500');
 }
 
 .category-red {
-  border-right: 3px solid theme('colors.c_red.300');
+  border-right: 6px solid theme('colors.c_red.300');
   background-color: theme('colors.c_red.600');
 }
 
@@ -45,9 +45,9 @@
   grid-template-columns: repeat(6, minmax(100px, 1fr));
   grid-template-areas:
     'name name name name name name'
-    'minwam minwam load load category category'
-    'deglevels deglevels scope scope scope scope'
-    'desc desc desc desc link link';
+    'minwam minwam deglevels deglevels category category'
+    'load load load scope scope scope'
+    'link link desc desc desc desc';
   gap: 25px;
   padding: 10px;
   min-width: 100%;

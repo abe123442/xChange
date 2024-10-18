@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { CommentFormProps } from '@/lib/utils';
 import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
+import { Input } from '../ui/input';
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
@@ -51,14 +52,11 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
 
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <h2>Post a Comment</h2>
-
-      {error && <p className="error">{error}</p>}
-      {success && <p className="success">Comment posted successfully!</p>}
+      <h2 className="title">Post a Comment</h2>
 
       <div className="form-group">
         <label>Title</label>
-        <input
+        <Input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -68,24 +66,27 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
 
       <div className="form-group">
         <label>Description</label>
-        <textarea
+        <Input
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
           placeholder="Enter comment description"
-        ></textarea>
+        ></Input>
       </div>
 
       <div className="form-group">
         <label>Rating</label>
-        <input
+        <Input
           type="number"
           value={rating || ''}
           onChange={(e) => setRating(Number(e.target.value))}
           min="1"
-          max="5"
-          placeholder="Rate from 1 to 5"
+          max="10"
+          placeholder="Rate from 1 to 10"
         />
       </div>
+
+      {error && <p className="error">{error}</p>}
+      {success && <p className="success">Comment posted successfully!</p>}
 
       <button type="submit">Submit Comment</button>
     </form>
