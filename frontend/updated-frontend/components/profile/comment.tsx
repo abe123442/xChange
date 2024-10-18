@@ -1,8 +1,9 @@
 "use client";
 
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { CommentProps } from "@/lib/utils";
+import './comment.css';
 
 
 export const Comment: React.FC<CommentProps> = ({ comments }) => {
