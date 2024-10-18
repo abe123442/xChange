@@ -1829,9 +1829,13 @@
       ],
       "link": "https://sugang.khu.ac.kr/",
       "img": "",
-      "rating": 0,
+      "rating": 24,
       "numRates": 0,
-      "comments": []
+      "comments": [
+        0,
+        1,
+        2
+      ]
     },
     {
       "id": 101,
@@ -1848,9 +1852,11 @@
       ],
       "link": "https://admission-is.bnu.edu.cn/english/admissionprogram/bachelordegreeprogram/admissionbrochure/index.html",
       "img": "",
-      "rating": 0,
+      "rating": 5,
       "numRates": 0,
-      "comments": []
+      "comments": [
+        3
+      ]
     },
     {
       "id": 102,
@@ -5261,9 +5267,9 @@
     {
       "id": 0,
       "userid": 0,
-      "title": "My comment",
-      "desc": "I love this uni <3",
-      "rating": 9,
+      "title": "My comment 3",
+      "desc": "I this uni <3",
+      "rating": 5,
       "upvotedUsers": [],
       "downvotedUsers": []
     },
@@ -5279,9 +5285,9 @@
     {
       "id": 2,
       "userid": 0,
-      "title": "My comment 3",
-      "desc": "I this uni <3",
-      "rating": 5,
+      "title": "My comment 1",
+      "desc": "I love this uni <3",
+      "rating": 10,
       "upvotedUsers": [],
       "downvotedUsers": []
     },

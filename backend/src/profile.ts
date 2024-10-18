@@ -1,6 +1,6 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
+import { CATEGORY, Data, DegLevel, Profile, SPLITREGEX } from './typedef';
 import { validateAdmin } from './auth';
 
 /**
@@ -137,8 +137,8 @@ export function getAllProfiles(): Profile[] {
  * @param profileid 
  * @returns requested profile with that profileid
  */
-export function getProfile(profileid: number): Profile {
-  const data = getData();
+export function getProfile(profileid: number, dataRef?: Data): Profile {
+  const data = dataRef ? dataRef : getData();
 
   if (profileid < 0 || profileid >= data.profiles.length) {
     throw HTTPError(400, 'Requested profile does not exist');

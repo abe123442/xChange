@@ -52,7 +52,7 @@ export function createComment(userid: number, profileid: number, title: string, 
     throw HTTPError(400, 'Invalid rating provided');
   }
 
-  const profile = getProfile(profileid);
+  const profile = getProfile(profileid, data);
 
   let commentid = data.comments.length;
 
