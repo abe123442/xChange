@@ -5,7 +5,7 @@ h1 {
 }
 
 .error {
-  color: red;
+  color: theme('colors.c_red.500');
 }
 
 .success {
