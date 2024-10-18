@@ -92,7 +92,9 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       {success && <p className="success">Comment posted successfully!</p>}
 
       <Button className="button" type="submit">
-        Submit Comment
+        <span>
+          Submit Comment
+        </span>
       </Button>
     </form>
   );
