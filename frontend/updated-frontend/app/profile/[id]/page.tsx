@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/navbar/NavBar";
 import { Profile } from '@/components/profile/profile';
 import { Comment } from '@/components/profile/comment';
 import { BACKEND_URL } from '@/lib/utils';
