@@ -240,9 +240,11 @@ export function deleteComment(commentid: number, userid: number) {
   data.deletedComments += 1;
 
   for (const profile of data.profiles) {
-    if (profile.comments.splice(profile.comments.indexOf(commentid), 1)) {
-      profile.numRates =- 1;
-    };
+    if (profile.comments.includes(commentid)) {
+      profile.comments.splice(profile.comments.indexOf(commentid), 1)
+      profile.numRates -= 1;
+      break;
+    }
   }
 
   setData(data);
