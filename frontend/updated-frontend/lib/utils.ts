@@ -36,6 +36,16 @@ export interface Comment {
   downvotedUsers: number[]
 }
 
+// Props for the Comment component
+export interface CommentProps {
+  comments: Comment[];
+}
+
+// Props for the CommentForm component
+export interface CommentFormProps {
+  profileId: string;
+}
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }

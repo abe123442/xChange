@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
 import { Profile } from '@/components/profile/profile';
 import { Comment } from '@/components/profile/comment';
+import { CommentForm } from "@/components/profile/commentForm";
 
 const BACKEND_URL = 'http://localhost:5000';
 
