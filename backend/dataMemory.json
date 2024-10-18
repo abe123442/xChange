@@ -1829,7 +1829,7 @@
       ],
       "link": "https://sugang.khu.ac.kr/",
       "img": "",
-      "rating": 8948,
+      "rating": 501097,
       "numRates": 0,
       "comments": [
         0,
@@ -1838,7 +1838,9 @@
         4,
         5,
         6,
-        7
+        7,
+        8,
+        9
       ]
     },
     {
@@ -5301,6 +5303,60 @@
       "title": "My comment 4",
       "desc": "I normal <3",
       "rating": 5,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 4,
+      "userid": 0,
+      "title": "check",
+      "desc": "check",
+      "rating": 2,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 5,
+      "userid": 0,
+      "title": "RealComment",
+      "desc": "real?",
+      "rating": 2,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 6,
+      "userid": 0,
+      "title": "sigmaUni",
+      "desc": "this is sigma",
+      "rating": 1,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 7,
+      "userid": 0,
+      "title": "Working",
+      "desc": "work?",
+      "rating": 2,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 8,
+      "userid": 0,
+      "title": "work2",
+      "desc": "workin?",
+      "rating": 1,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 9,
+      "userid": 0,
+      "title": "testing",
+      "desc": "tes1",
+      "rating": 1,
       "upvotedUsers": [],
       "downvotedUsers": []
     }
