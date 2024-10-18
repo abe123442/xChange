@@ -33,9 +33,9 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
         </div>
 
         <div className="p-category">
-          <div className="category">
+          <b className="category">
             {profile.category}
-          </div>
+          </b>
         </div>
 
         <div className="p-minwam">
@@ -75,6 +75,11 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
           </div>
         </div>
       </div>
+
+      <script>
+        let a = 0;
+        
+      </script>
     </main>
   );
 }
