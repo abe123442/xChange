@@ -1829,9 +1829,19 @@
       ],
       "link": "https://sugang.khu.ac.kr/",
       "img": "",
-      "rating": 0,
+      "rating": 501097,
       "numRates": 0,
-      "comments": []
+      "comments": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "id": 101,
@@ -1848,9 +1858,11 @@
       ],
       "link": "https://admission-is.bnu.edu.cn/english/admissionprogram/bachelordegreeprogram/admissionbrochure/index.html",
       "img": "",
-      "rating": 0,
+      "rating": 5,
       "numRates": 0,
-      "comments": []
+      "comments": [
+        3
+      ]
     },
     {
       "id": 102,
@@ -5256,10 +5268,11 @@
       ],
       "link": "https://fatpic.com",
       "img": "https://fatpic.png",
-      "rating": 0,
-      "numRates": 0,
+      "rating": 3,
+      "numRates": 1,
       "comments": [
-        14
+        14,
+        2
       ]
     }
   ],
@@ -5291,146 +5304,6 @@
   ],
   "comments": [
     {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
-      "id": null,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
       "id": 14,
       "username": "NPC",
       "userid": 1,
@@ -5442,6 +5315,16 @@
     },
     {
       "id": 15,
+      "username": "NPC",
+      "userid": 1,
+      "title": "Stinky Slimy",
+      "desc": "too sussy",
+      "rating": 3,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 2,
       "username": "NPC",
       "userid": 1,
       "title": "Stinky Slimy",

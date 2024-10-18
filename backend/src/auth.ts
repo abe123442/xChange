@@ -21,7 +21,7 @@ function generateUUID(): string {
  */
 export function register(email: string, password: string, nameFirst: string, nameLast: string, username: string): string {
   const data = getData();
-
+  
   // Error checks
   const user = data.users.find(user => user.email.localeCompare(email) === 0);
 

@@ -207,8 +207,8 @@ export function getAllProfiles(): Profile[] {
  * @param profileid 
  * @returns requested profile with that profileid
  */
-export function getProfile(profileid: number): Profile {
-  const data = getData();
+export function getProfile(profileid: number, dataRef?: Data): Profile {
+  const data = dataRef ? dataRef : getData();
 
   const foundProfile = data.profiles.filter((x) => x.id === profileid)[0];
 
