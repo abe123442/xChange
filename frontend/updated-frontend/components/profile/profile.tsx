@@ -40,7 +40,7 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
 
         <div className="p-minwam">
           <b>
-            Minimum Wam
+            Minimum WAM
           </b>
           <p>
             {profile.minWam}

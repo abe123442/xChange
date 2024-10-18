@@ -90,8 +90,8 @@ hr.divider {
   grid-template-columns: repeat(6, minmax(100px, 1fr));
   grid-template-areas:
     'name name name name category category'
-    'scope scope scope scope minwam minwam'
-    'load load load load deglevels deglevels'
+    'minwam minwam load load load load'
+    'deglevels deglevels scope scope scope scope'
     'desc desc desc desc link link';
   gap: 25px;
   padding: 10px;
