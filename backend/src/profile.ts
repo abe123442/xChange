@@ -1,6 +1,6 @@
 import { getData, setData } from './dataStore';
 import HTTPError from 'http-errors';
-import { CATEGORY, DegLevel, Profile, SPLITREGEX } from './typedef';
+import { ADMIN_EMAILS, CATEGORY, Data, DegLevel, Profile, SPLITREGEX } from './typedef';
 import { validateAdmin } from './auth';
 
 /**
@@ -32,12 +32,21 @@ export function createProfile(
   degLevels: string, category: string, minWam: number, load: string, 
   link: string, img: string
 ) {
+  const data = getData();
+
   if (!name || name.length > 100) {
     throw HTTPError(400,
       'Invalid university name provided, must not be blank and be at most 100 characters'
     );
   }
   name = name.trim();
+
+  const profile = data.profiles.find(profile => profile.name.localeCompare(name) === 0);
+  if (profile) {
+    throw HTTPError(400,
+      'An existing profile with the same name already exists, try again'
+    );
+  }
 
   if (desc) {
     if (desc.length > 1000) {
@@ -101,8 +110,7 @@ export function createProfile(
     img = img.trim();
   }
   
-  const data = getData();
-  let newId = data.profiles.length;
+  let newId = data.profiles.length + data.deletedProfiles;
 
   let newProfile = {
     id: newId,
@@ -127,6 +135,68 @@ export function createProfile(
   return {};
 }
 
+export function editProfile(token: string, name: string, desc: string, country: string, scope: string, 
+  degLevels: string, category: string, minWam: number, load: string, 
+  link: string, img: string) {
+  const database: Data = getData();
+
+  const user = database.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Token not found");
+  }
+
+  if (!ADMIN_EMAILS.includes(user.email)) {
+    throw HTTPError(401, "Unauthorised access");
+  }
+
+  const profile = database.profiles.find(profile => profile.name.localeCompare(name) === 0);
+
+  if (!profile) {
+    throw HTTPError(400, "Invalid profile");
+  }
+
+  profile.name = name;
+  profile.desc = desc;
+  profile.country = country;
+  profile.scope = scope;
+
+  const degLevelsArr = degLevels.split(SPLITREGEX);
+  profile.degLevels = degLevelsArr;
+
+  profile.category = category;
+  profile.minWam = minWam;
+  profile.load = load;
+  profile.link = link;
+  profile.img = img;
+
+  setData(database);
+}
+
+export function deleteProfile(token: string, name: string) {
+  const database: Data = getData();
+
+  const user = database.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Token not found");
+  }
+
+  if (!ADMIN_EMAILS.includes(user.email)) {
+    throw HTTPError(401, "Unauthorised access");
+  }
+
+  const profile = database.profiles.find(profile => profile.name.localeCompare(name) === 0);
+
+  if (!profile) {
+    throw HTTPError(400, "Invalid profile");
+  }
+
+  database.profiles.splice(database.profiles.indexOf(profile), 1);
+  database.deletedProfiles += 1;
+  setData(database);
+}
+
 export function getAllProfiles(): Profile[] {
   const data = getData();
   return data.profiles;
@@ -140,12 +210,13 @@ export function getAllProfiles(): Profile[] {
 export function getProfile(profileid: number): Profile {
   const data = getData();
 
-  if (profileid < 0 || profileid >= data.profiles.length) {
+  const foundProfile = data.profiles.filter((x) => x.id === profileid)[0];
+
+  if (!foundProfile) {
     throw HTTPError(400, 'Requested profile does not exist');
   }
 
-  const profile = data.profiles[profileid];
-  return profile;
+  return foundProfile;
 }
 
 /**

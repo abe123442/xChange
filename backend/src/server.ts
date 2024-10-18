@@ -1,13 +1,13 @@
 import express, { json, Request, Response } from 'express';
 import cors from 'cors';
 import errorHandler from 'middleware-http-errors';
-import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile } from './profile';
-import { register, login, logout } from './auth';
+import { tryCreateProfile, getAllProfiles, getFilteredProfiles, getProfile, editProfile, deleteProfile } from './profile';
+import { register, login, logout, addUni, removeUni, viewUser } from './auth';
 import { Error } from './typedef';
 import { tryUploadExcelToDatabase } from './excelConverter';
 import { clear } from './other';
 import { validateToken } from './auth';
-import { getProfileComments, createComment, upvoteComment, downvoteComment, removeUpvote, removeDownvote } from './comment';
+import { getProfileComments, createComment, upvoteComment, downvoteComment, removeUpvote, removeDownvote, deleteComment } from './comment';
 
 const app = express();
 app.use(json());
@@ -101,6 +101,35 @@ app.post('/profile', (req: Request, res: Response) => {
   }
 });
 
+app.put('/profile/:profileid/edit', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const { name, desc, country, scope, category, minWam, degLevels, load, 
+    link, img } = req.body;
+
+  try {
+    const response = editProfile(token, name, desc, country, scope, degLevels,
+      category, minWam, load, link, img
+    );
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/:profileid/delete', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const name: string = req.query.name as string;
+
+  try {
+    const response = deleteProfile(token, name);
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
 app.post('/auth/register', (req: Request, res: Response) => {
   const { email, password, nameFirst, nameLast, username } = req.body;
 
@@ -135,6 +164,44 @@ app.post('/auth/logout', (req: Request, res: Response) => {
     res.status(200).json(response);
   }
   catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.put('/auth/unis/add', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const uni = req.body.uni as string;
+
+  try {
+    const response = addUni(token, uni);
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/auth/unis/remove', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const uni = req.query.uni as string;
+
+  try {
+    const response = removeUni(token, uni);
+    res.status(200).json(response);
+  } catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.get('/auth/user/view', (req: Request, res: Response) => {
+  const id = parseInt(req.query.id as string);
+
+  try {
+    const response = viewUser(id);
+    res.status(200).json(response);
+  } catch (e) {
     const error = e as Error;
     res.status(error.status ? error.status : 500).json({ error: error.message });
   }
@@ -221,6 +288,21 @@ app.delete('/profile/comments/:commentid/downvote', (req: Request, res: Response
   try {
     const user = validateToken(token);
     const response = removeDownvote(commentid, user.id);
+    res.status(200).json(response);
+  }
+  catch (e) {
+    const error = e as Error;
+    res.status(error.status ? error.status : 500).json({ error: error.message });
+  }
+});
+
+app.delete('/profile/comments/:commentid/delete', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
+  const commentid = parseInt(req.params.commentid);
+
+  try {
+    const user = validateToken(token);
+    const response = deleteComment(commentid, user.id);
     res.status(200).json(response);
   }
   catch (e) {

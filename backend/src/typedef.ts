@@ -41,11 +41,13 @@ export interface User {
   nameFirst: string,
   nameLast: string,
   username: string,
-  tokens: string[]
+  tokens: string[],
+  targetunis: string[];
 }
 
 export interface Comment {
   id: number,
+  username: string,
   userid: number,
   title: string,
   desc: string,
@@ -56,8 +58,10 @@ export interface Comment {
 
 export interface Data {
   profiles: Profile[],
+  deletedProfiles: number,
   users: User[],
-  comments: Comment[]
+  comments: Comment[],
+  deletedComments: number,
 }
 
 export interface ExcelSheet {
