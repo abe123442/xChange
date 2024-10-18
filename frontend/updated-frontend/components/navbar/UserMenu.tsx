@@ -74,10 +74,10 @@ const UserMenu: React.FC<{}> = () => {
             "
         >
           <div className="flex flex-col cursor-pointer">
-            <MenuItem label="Login" onClick={/*loginModal.onOpen*/ () => {}} />
+            <MenuItem label="Login" onClick={/*loginModal.onOpen*/ () => {window.location.href = '/auth/login';}} />
             <MenuItem
-              label="Sign up"
-              onClick={/*registerModal.onOpen*/ () => {}}
+              label="Register"
+              onClick={/*registerModal.onOpen*/ () => {window.location.href = '/auth/register';}}
             />
           </div>
         </div>

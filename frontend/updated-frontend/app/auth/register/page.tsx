@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { UserAuthForm } from "../../components/auth/user-auth-form"
+import { UserAuthForm } from "../../../components/auth/user-auth-form"
 
 export default function AuthenticationPage() {
   return (
