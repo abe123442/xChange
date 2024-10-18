@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               </div>
             </div>
             <div className={styles.frame}>
-              <Comment comments={comments.comments} profileid={profile.profile.id} />
+              <Comment comments={comments.comments} userid={profile.profile.id} />
             </div>
           </div>
         </main>

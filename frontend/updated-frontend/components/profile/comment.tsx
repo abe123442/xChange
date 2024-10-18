@@ -6,7 +6,7 @@ import { BACKEND_URL } from '@/lib/utils';
 import { CommentProps, Comment as CommentType } from '@/lib/utils';
 import './comment.css';
 
-export const Comment: React.FC<CommentProps> = ({ comments, currentUserId }) => {
+export const Comment: React.FC<CommentProps> = ({ comments, userid }) => {
   return (
     <div className="comments-section">
       <h2 className="title">Comments</h2>
@@ -14,7 +14,7 @@ export const Comment: React.FC<CommentProps> = ({ comments, currentUserId }) => 
         <p>No comments available.</p>
       ) : (
         comments.map((comment) => (
-          <CommentCard key={comment.id} comment={comment} currentUserId={currentUserId} />
+          <CommentCard key={comment.id} comment={comment} userid={userid} />
         ))
       )}
     </div>
@@ -23,17 +23,17 @@ export const Comment: React.FC<CommentProps> = ({ comments, currentUserId }) => 
 
 interface CommentCardProps {
   comment: CommentType;
-  currentUserId: number;
+  userid: number;
 }
 
-const CommentCard: React.FC<CommentCardProps> = ({ comment, currentUserId }) => {
+const CommentCard: React.FC<CommentCardProps> = ({ comment, userid }) => {
   const [likes, setLikes] = useState(comment.upvotedUsers.length);
   const [downvotes, setDownvotes] = useState(comment.downvotedUsers.length);
   const [hasLiked, setHasLiked] = useState(() =>
-    comment.upvotedUsers.includes(currentUserId)
+    comment.upvotedUsers.includes(userid)
   );
   const [hasDownvoted, setHasDownvoted] = useState(() =>
-    comment.downvotedUsers.includes(currentUserId)
+    comment.downvotedUsers.includes(userid)
   );
 
   const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb";
