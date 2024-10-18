@@ -62,8 +62,13 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
     });
 
     if (response.ok) {
-      setLikes(likes + 1);
-      setHasLiked(true);
+      setLikes(likes + hasLiked ? -1 : 1);
+      setHasLiked(!hasLiked);
+
+      if (hasLiked && hasDownvoted) {
+        setDownvotes(downvotes - 1);
+        setDownvotes(false);
+      }
     } else {
       const responseData = await response.json();
       console.error('Error upvoting comment:', responseData);
@@ -82,8 +87,13 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
     });
 
     if (response.ok) {
-      setDownvotes(downvotes + 1);
-      setHasDownvoted(true);
+      setDownvotes(downvotes + hasDownvoted ? -1 : 1);
+      setHasDownvoted(!hasDownvoted);
+
+      if (hasLiked && hasDownvoted) {
+        setLikes(likes - 1);
+        setLikes(false);
+      }
     } else {
       const responseData = await response.json();
       console.error('Error downvoting comment:', responseData);

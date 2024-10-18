@@ -47,6 +47,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       setTitle('');
       setDesc('');
       setRating(undefined);
+      window.location.href = window.location.href;
     } else {
       const responseData = await response.json();
       setError(responseData.error || 'Error posting the comment.');
