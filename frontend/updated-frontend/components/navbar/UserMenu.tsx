@@ -7,6 +7,7 @@ import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import { useLocalStorage } from "usehooks-ts";
 import { BACKEND_URL } from "@/lib/utils";
+import { Separator } from "../ui/separator";
 
 const UserMenu: React.FC<{}> = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,7 @@ const UserMenu: React.FC<{}> = () => {
           md:py-1
           md:px-2
           border-[1px]
-          border-muted
+          border-c_blue-100
           flex
           flex-row
           items-center
@@ -90,11 +91,23 @@ const UserMenu: React.FC<{}> = () => {
               text-sm
             "
         >
-          <div className="flex flex-col cursor-pointer">
-            <MenuItem label="Login" onClick={/*loginModal.onOpen*/ () => {window.location.href = '/auth/login';}} />
+          <div className="flex flex-col bg-c_white-500 cursor-pointer">
+            <MenuItem
+              label="Login"
+              onClick={
+                /*loginModal.onOpen*/ () => {
+                  window.location.href = "/auth/login";
+                }
+              }
+            />
+            <Separator className="w-auto" />
             <MenuItem
               label="Register"
-              onClick={/*registerModal.onOpen*/ () => {window.location.href = '/auth/register';}}
+              onClick={
+                /*registerModal.onOpen*/ () => {
+                  window.location.href = "/auth/register";
+                }
+              }
             />
           </div>
         </div>
