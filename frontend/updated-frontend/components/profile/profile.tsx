@@ -65,12 +65,11 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
         </div>
 
         <div className="p-link">
-          <b>
-            Link
-          </b>
           <div>
-            <a href={profile.link} target="_blank" className="">
-              {profile.link}
+            <a href={profile.link} target="_blank" className="link">
+              <span>
+                Course Catalogue
+              </span>
             </a>
           </div>
         </div>
