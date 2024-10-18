@@ -295,5 +295,5 @@ function matchKeywordsArr(basewords: string[], keywords: string[]): boolean {
 }
 
 function matches(a: string, b: string): boolean {
-  return a.toLowerCase().localeCompare(b.toLowerCase()) === 0;
+  return a.toLowerCase().includes(b.toLowerCase());
 }
