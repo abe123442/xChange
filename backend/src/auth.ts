@@ -3,7 +3,7 @@ import HTTPError from 'http-errors';
 import crypto, { randomUUID } from 'crypto';
 import { Data, ADMIN_EMAILS, User } from './typedef';
 
-function hash(initValue: string): string {
+export function hash(initValue: string): string {
   return crypto.createHash('sha256').update(initValue).digest('hex');
 }
 
@@ -37,7 +37,8 @@ export function register(email: string, password: string, nameFirst: string, nam
     nameFirst: nameFirst,
     nameLast: nameLast,
     username: username,
-    tokens: []
+    tokens: [],
+    targetunis: []
   });
 
   setData(data);
@@ -75,6 +76,58 @@ export function logout(token: string) {
 
   setData(data);
   return {};
+}
+
+export function addUni(token: string, uni: string) {
+  const data = getData();
+
+  const user = data.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Invalid token");
+  }
+
+  if (user.targetunis.includes(uni)) {
+    throw HTTPError(400, "Uni already selected");
+  }
+
+  user.targetunis.push(uni);
+  setData(data);
+}
+
+export function removeUni(token: string, uni: string) {
+  const data = getData();
+
+  const user = data.users.find(user => user.tokens.includes(token));
+
+  if (!user) {
+    throw HTTPError(401, "Invalid token");
+  }
+
+  if (!user.targetunis.includes(uni)) {
+    throw HTTPError(400, "Uni not selected");
+  }
+
+  user.targetunis.splice(user.targetunis.indexOf(uni), 1);
+  setData(data);
+}
+
+export function viewUser(id: number) {
+  const database = getData();
+
+  const user = database.users.find(user => user.id === id);
+
+  if (!user) {
+    throw HTTPError(400, "User not found");
+  }
+
+  return {
+    email: user.email,
+    nameFirst: user.nameFirst,
+    nameLast: user.nameLast,
+    username: user.username,
+    targetunis: user.targetunis
+  }
 }
 
 export function validateAdmin(token: string) {
