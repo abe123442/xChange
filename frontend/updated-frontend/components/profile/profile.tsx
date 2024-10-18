@@ -8,9 +8,9 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
     <main className="main">
       <div className="grid-container">
         <div className="p-name">
-          <b className="name">
+          <div className="name">
             {profile.name}
-          </b>
+          </div>
           <hr className="divider"></hr>
         </div>
 
@@ -33,9 +33,9 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
         </div>
 
         <div className="p-category">
-          <b className="category">
+          <div className="category category-green">
             {profile.category}
-          </b>
+          </div>
         </div>
 
         <div className="p-minwam">
@@ -77,7 +77,6 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
       </div>
 
       <script>
-        let a = 0;
         
       </script>
     </main>

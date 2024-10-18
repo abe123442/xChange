@@ -112,7 +112,7 @@ hr.divider {
 }
 
 .grid-container > div {
-  background-color: rgba(240, 248, 255, 0.596);
+  background-color: rgb(8, 61, 119, 0.04);
   text-align: left;
   padding: 20px;
   font-size: 20px;
