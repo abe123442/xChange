@@ -5307,8 +5307,12 @@
       "title": "My comment 2",
       "desc": "I hate this uni <3",
       "rating": 2,
-      "upvotedUsers": [],
-      "downvotedUsers": []
+      "upvotedUsers": [
+        0
+      ],
+      "downvotedUsers": [
+        0
+      ]
     },
     {
       "id": 2,
@@ -5316,8 +5320,12 @@
       "title": "My comment 1",
       "desc": "I love this uni <3",
       "rating": 10,
-      "upvotedUsers": [],
-      "downvotedUsers": []
+      "upvotedUsers": [
+        0
+      ],
+      "downvotedUsers": [
+        0
+      ]
     },
     {
       "id": 3,

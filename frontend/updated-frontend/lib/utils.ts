@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export const BACKEND_URL = 'http://localhost:5000';
+export const BACKEND_URL = 'http://localhost:8000';
 
 export interface Comment {
   id: number;
@@ -11,6 +11,12 @@ export interface Comment {
   rating: number;
   upvotedUsers: number[];
   downvotedUsers: number[];
+}
+
+export interface CommentProps {
+  comments: Comment[];
+  profileid: number;
+  currentUserId: number; 
 }
 
 export interface Profile {

@@ -96,20 +96,21 @@ export function upvoteComment(commentid: number, userid: number) {
   const comments = data.comments;
 
 
-  const foundComment = comments.filter((x) => x.id === commentid)[0]
+  const foundComment = comments.find((x) => x.id === commentid);
 
   if (!foundComment) {
     throw HTTPError(400, 'Comment does not exist');
   }
 
-  const hasUpvoted = foundComment.upvotedUsers.filter((x) => x === userid);
+  const hasUpvoted = foundComment.upvotedUsers.find((x) => x === userid);
+
   if (hasUpvoted) {
     // user has already upvoted
     throw HTTPError(400, 'User has already upvoted');
   }
 
   // remove old downvote
-  const hasDownvoted = foundComment.downvotedUsers.filter((x) => x === userid);
+  const hasDownvoted = foundComment.downvotedUsers.find((x) => x === userid);
   if (hasDownvoted) {
     const index = foundComment.downvotedUsers.indexOf(userid);
     foundComment.downvotedUsers.splice(index, 1);
@@ -131,20 +132,20 @@ export function downvoteComment(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
-  const foundComment = comments.filter((x) => x.id === commentid)[0]
+  const foundComment = comments.find((x) => x.id === commentid);
 
   if (!foundComment) {
     throw HTTPError(400, 'Comment does not exist');
   }
 
-  const hasDownvoted = foundComment.downvotedUsers.filter((x) => x === userid);
+  const hasDownvoted = foundComment.downvotedUsers.find((x) => x === userid);
   if (hasDownvoted) {
     // user has already downvoted
     throw HTTPError(400, 'User has already downvoted');
   }
 
   // remove old upvote
-  const hasUpvoted = foundComment.upvotedUsers.filter((x) => x === userid);
+  const hasUpvoted = foundComment.upvotedUsers.find((x) => x === userid);
   if (hasUpvoted) {
     const index = foundComment.upvotedUsers.indexOf(userid);
     foundComment.upvotedUsers.splice(index, 1);
@@ -166,13 +167,13 @@ export function removeDownvote(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
-  const foundComment = comments.filter((x) => x.id === commentid)[0]
+  const foundComment = comments.find((x) => x.id === commentid);
 
   if (!foundComment) {
     throw HTTPError(400, 'Comment does not exist');
   }
 
-  const hasDownvoted = foundComment.downvotedUsers.filter((x) => x === userid);
+  const hasDownvoted = foundComment.downvotedUsers.find((x) => x === userid);
   if (!hasDownvoted) {
     // user has not already downvoted
     throw HTTPError(400, 'User not has already downvoted');
@@ -196,13 +197,13 @@ export function removeUpvote(commentid: number, userid: number) {
   const data = getData();
   const comments = data.comments;
 
-  const foundComment = comments.filter((x) => x.id === commentid)[0]
+  const foundComment = comments.find((x) => x.id === commentid);
 
   if (!foundComment) {
     throw HTTPError(400, 'Comment does not exist');
   }
 
-  const hasUpvoted = foundComment.upvotedUsers.filter((x) => x === userid);
+  const hasUpvoted = foundComment.upvotedUsers.find((x) => x === userid);
   if (!hasUpvoted) {
     // user has not already upvoted
     throw HTTPError(400, 'User not has already upvoted');
@@ -225,7 +226,7 @@ export function removeUpvote(commentid: number, userid: number) {
 export function deleteComment(commentid: number, userid: number) {
   const data = getData();
 
-  const comment = data.comments.filter((x) => x.id === commentid)[0];
+  const comment = data.comments.find((x) => x.id === commentid);
 
   if (!comment) {
     throw HTTPError(400, 'Comment not found');
@@ -239,10 +240,13 @@ export function deleteComment(commentid: number, userid: number) {
   data.deletedComments += 1;
 
   for (const profile of data.profiles) {
-    if (profile.comments.splice(profile.comments.indexOf(commentid), 1)) {
-      profile.numRates =- 1;
-    };
+    if (profile.comments.includes(commentid)) {
+      profile.comments.splice(profile.comments.indexOf(commentid), 1)
+      profile.numRates -= 1;
+      break;
+    }
   }
 
+  setData(data);
   return {};
 }
