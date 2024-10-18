@@ -1,61 +1,123 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
-  	}
+    colors: {
+      yale_blue: {
+        DEFAULT: "#083d77",
+        100: "#020c18",
+        200: "#031930",
+        300: "#052548",
+        400: "#07325f",
+        500: "#083d77",
+        600: "#0d63bf",
+        700: "#2889f0",
+        800: "#70b0f5",
+        900: "#b7d8fa",
+      },
+      cerise: {
+        DEFAULT: "#da4167",
+        100: "#2f0913",
+        200: "#5e1325",
+        300: "#8d1c38",
+        400: "#bb254b",
+        500: "#da4167",
+        600: "#e16684",
+        700: "#e88ca3",
+        800: "#f0b2c2",
+        900: "#f7d9e0",
+      },
+      coral: {
+        DEFAULT: "#f78764",
+        100: "#421203",
+        200: "#842407",
+        300: "#c6360a",
+        400: "#f35322",
+        500: "#f78764",
+        600: "#f89e83",
+        700: "#fab7a2",
+        800: "#fccfc1",
+        900: "#fde7e0",
+      },
+      snow: {
+        DEFAULT: "#fffbff",
+        100: "#650065",
+        200: "#ca00ca",
+        300: "#ff30ff",
+        400: "#ff95ff",
+        500: "#fffbff",
+        600: "#fffbff",
+        700: "#fffcff",
+        800: "#fffdff",
+        900: "#fffeff",
+      },
+      icterine: {
+        DEFAULT: "#fffb46",
+        100: "#414000",
+        200: "#838000",
+        300: "#c4c100",
+        400: "#fffb06",
+        500: "#fffb46",
+        600: "#fffd6c",
+        700: "#fffd91",
+        800: "#fffeb6",
+        900: "#fffeda",
+      },
+    },
+    extend: {
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };
