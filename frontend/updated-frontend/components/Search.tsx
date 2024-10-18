@@ -87,7 +87,7 @@ export default function Search() {
             onChange={(e) => setUniversityName(e.target.value)}
             className="flex-1"
           />
-          <Button className="button" type="submit"><span>Submit</span></Button>
+          <button className="button" type="submit"><span>Submit</span></button>
         </div>
 
         <div className="flex flex-col md:flex-row md:space-x-8">
@@ -172,7 +172,7 @@ export default function Search() {
             </div>
           </div>
 
-          <div className="w-full md:w-3/4">
+          <div className="w-full md:w-3/4 sticky max-h-[calc(100vh-4rem)] overflow-y-scroll scrollbar-none">
             <div className="bg-muted rounded-lg grid overflow-visible lg:grid-cols-4 sm:grid-cols-2 grid-cols-1">
               {profiles.map((profile) => {
                 return <Card key={profile.id} profile={profile} />;

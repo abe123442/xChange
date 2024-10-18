@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { use, useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
 import MenuItem from "./MenuItem";
@@ -28,8 +28,25 @@ const UserMenu: React.FC<{}> = () => {
 
     if (response.ok) {
       removeToken();
+      window.location.href = window.location.href;
     }
   };
+
+  // const getCurrUser = async () => {
+  //   const response = await fetch(`${BACKEND_URL}/auth/user`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'token': token
+  //     }
+  //   });
+  
+  //   if (response.ok) {
+  //     const responseData = await response.json();
+  //     return responseData;
+  //   }
+  //   return null;
+  // }
 
   return (
     <div className="relative">
