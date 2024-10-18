@@ -1,16 +1,6 @@
 "use client";
 
-// name search
-// desc search
-// country search
-// scope search (disciplines)
-// category search (high deman partner etc)
-// wam search (int)
-// degreeLevel search (UG/PG)
-// load search (ECTS)?
-
 import { useEffect, useState } from "react";
-import useSWR from "swr";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -87,7 +77,9 @@ export default function Search() {
             onChange={(e) => setUniversityName(e.target.value)}
             className="flex-1"
           />
-          <button className="button" type="submit"><span>Submit</span></button>
+          <button className="button" type="submit">
+            <span>Submit</span>
+          </button>
         </div>
 
         <div className="flex flex-col md:flex-row md:space-x-8">

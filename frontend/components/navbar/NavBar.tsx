@@ -4,7 +4,7 @@ import UserMenu from "./UserMenu";
 
 const NavBar: React.FC<{}> = () => {
   return (
-    <div className="fixed w-full bg-c_yellow-800 z-10 shadow-sm">
+    <div className="fixed w-full bg-[linear-gradient(144deg,theme('colors.c\_yellow.DEFAULT'),theme('colors.c\_orange.DEFAULT')_50%,theme('colors.c\_red.DEFAULT'))] z-10 shadow-sm">
       <div
         className="
           py-4
