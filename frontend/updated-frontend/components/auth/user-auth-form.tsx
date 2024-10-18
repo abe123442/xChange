@@ -12,7 +12,7 @@ import { BACKEND_URL } from "@/lib/utils"
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
-  const [token, setToken, removeToken] = useLocalStorage('token', null)
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
   const [error, setError] = React.useState('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [success, setSuccess] = React.useState(false);

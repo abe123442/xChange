@@ -28,4 +28,25 @@
     font-size: 12px;
     color: #888;
   }
+
+  .comment-upvote {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .comment-upvote svg {
+    margin-right: 8px;
+    transition: color 0.2s;
+  }
+  
+  .thumbs-up-liked {
+    color: blue; /* Change color when liked */
+  }
+  
+  .comment-upvote div {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
   

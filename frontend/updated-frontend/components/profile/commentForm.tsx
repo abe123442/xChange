@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { CommentFormProps } from '@/lib/utils';
 import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
+import { useLocalStorage } from 'usehooks-ts';
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
@@ -23,13 +24,13 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       return;
     }
 
-    // Correct header key to `token`
     const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb"; // Static token for testing
+    // const [token, setToken, removeToken] = useLocalStorage('token', '');
     const response = await fetch(`${BACKEND_URL}/profile/${profileId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'token': token, // Use 'token' instead of 'Authorization'
+        'token': token,
       },
       body: JSON.stringify({
         title,
