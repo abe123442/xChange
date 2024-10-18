@@ -116,7 +116,7 @@ app.post('/auth/register', (req: Request, res: Response) => {
 
 app.post('/auth/login', (req: Request, res: Response) => {
   const { email, password } = req.body;
-
+  
   try {
     const response = login(email, password);
     res.status(200).json(response);
@@ -169,7 +169,7 @@ app.post('/profile/:profileid/comments', (req: Request, res: Response) => {
   }
 });
 
-app.put('/profile/comments/:commentid/upvote', (req: Request, res: Response) => {
+app.put('/comments/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -184,7 +184,7 @@ app.put('/profile/comments/:commentid/upvote', (req: Request, res: Response) => 
   }
 });
 
-app.put('/profile/comments/:commentid/downvote', (req: Request, res: Response) => {
+app.put('/comments/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -199,7 +199,7 @@ app.put('/profile/comments/:commentid/downvote', (req: Request, res: Response) =
   }
 });
 
-app.delete('/profile/comments/:commentid/upvote', (req: Request, res: Response) => {
+app.delete('/comments/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -214,7 +214,7 @@ app.delete('/profile/comments/:commentid/upvote', (req: Request, res: Response) 
   }
 });
 
-app.delete('/profile/comments/:commentid/downvote', (req: Request, res: Response) => {
+app.delete('/comments/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
