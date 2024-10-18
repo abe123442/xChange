@@ -2,7 +2,7 @@
 
 import { ProfileProps } from "@/lib/utils";
 
-export const Profile: React.FC<ProfileProps> = ({ profile }) => {
+export const Comment: React.FC<ProfileProps> = ({ profile }) => {
   return (
     <>
     </>

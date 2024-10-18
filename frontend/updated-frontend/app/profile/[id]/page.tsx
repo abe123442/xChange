@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
 import { Profile } from '@/components/profile';
+import { Comment } from '@/components/comment';
 
 const BACKEND_URL = 'http://localhost:5000';
 
@@ -15,6 +16,7 @@ export default async function Page({ params }: { params: { id: string }}) {
       <div className={styles.page}>
         <main className={styles.main}>
           <Profile profile = { profile.profile } />
+          <Comment profile = { profile.profile } />
         </main>
         <footer className={styles.footer}>
 
