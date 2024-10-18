@@ -77,7 +77,7 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
 
         <div className="p-link">
           <div>
-            <a href={profile.link} target="_blank" className="link">
+            <a href={profile.link} target="_blank" className="button">
               <span>
                 Course Catalogue
               </span>
