@@ -11,6 +11,7 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
           <b className="name">
             {profile.name}
           </b>
+          <hr className="divider"></hr>
         </div>
 
         <div className="p-desc">

@@ -14,7 +14,12 @@
 
 .name {
   margin: auto;
-  text-align: center;
+  font-size: 40px;
+}
+
+hr.divider {
+  border-top: 6px solid rgba(212, 163, 0, 1);
+  border-radius: 5px;
 }
 
 /* Button */
@@ -85,12 +90,11 @@
   grid-template-columns: repeat(6, minmax(100px, 1fr));
   grid-template-areas:
     'name name name name category category'
-    'load load minwam minwam deglevels deglevels'
-    'load load scope scope scope scope'
-    'desc desc desc link link link';
+    'scope scope scope scope minwam minwam'
+    'load load load load deglevels deglevels'
+    'desc desc desc desc link link';
   gap: 25px;
   padding: 10px;
-  background-color: rgb(2, 137, 255);
   min-width: 100%;
 }
 
