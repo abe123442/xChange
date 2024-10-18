@@ -2,9 +2,8 @@ import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
 import { Profile } from '@/components/profile/profile';
 import { Comment } from '@/components/profile/comment';
-import { CommentForm } from "@/components/profile/commentForm";
+import { BACKEND_URL } from '@/lib/utils';
 
-const BACKEND_URL = 'http://localhost:5001';
 export const revalidate = 0;
 
 export default async function Page({ params }: { params: { id: string }}) {

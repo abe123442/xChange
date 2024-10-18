@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-export const BACKEND_URL = 'http://localhost:5000';
+export const BACKEND_URL = 'http://localhost:5001';
 
 export interface Profile {
   id: number,
