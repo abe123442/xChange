@@ -15,7 +15,7 @@
       "link": "www.kuleuven.be/english/admissions/exchange/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -33,7 +33,7 @@
       "link": "www.uc3m.es/ss/Satellite/Grado/en/TextoMixta/1371211624089/Study_in_English",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -52,7 +52,7 @@
       "link": "www.unileoben.ac.at/en/studying/current-students/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -71,7 +71,7 @@
       "link": "http://vvz.wu.ac.at/cgi-bin/vvz.pl?S=18S;T=;LV=3;L2=S;C=M;L3=S;I=;L=;LANG=EN",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -89,7 +89,7 @@
       "link": "https://czs.muni.cz/en/student-from-abroad/international-student-guide/course-catalogue",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -107,7 +107,7 @@
       "link": "www.en.aau.dk/education/guest-exchange",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -125,7 +125,7 @@
       "link": "http://kursuskatalog.au.dk/en/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -143,7 +143,7 @@
       "link": "http://www.cbs.dk/undergrad",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -161,7 +161,7 @@
       "link": "http://www.kurser.dtu.dk/search.aspx?menulanguage=en-GB/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -180,7 +180,7 @@
       "link": "http://kurser.ku.dk/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -198,7 +198,7 @@
       "link": "https://courses.helsinki.fi/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -216,7 +216,7 @@
       "link": "https://www.univ-amu.fr/en/public/courses-open-exchange-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -234,7 +234,7 @@
       "link": "http://www.essec.edu/en/masters-and-business-school/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -251,7 +251,7 @@
       "link": "https://sites.google.com/essec.edu/bbaincomingexchange/menu/academics/course-offer",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -269,7 +269,7 @@
       "link": "bbaincomingexchange/menu/academics/course-offer",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -287,7 +287,7 @@
       "link": "https://neoma-bs.fr/wp-content/uploads/2022/11/NEOMA-BS_COURSE-CATALOGUE_Fall_2022-23-1.pdf",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -305,7 +305,7 @@
       "link": "https://etudesanglophones.univ-paris-diderot.fr/modules-english-and-studies-english-speaking-world",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -323,7 +323,7 @@
       "link": "https://www.u-paris2.fr/en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -341,7 +341,7 @@
       "link": "https://www.law-school.de/international/education/exchange-program/academics#c34641",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -359,7 +359,7 @@
       "link": "https://www.ebs.edu/en/campus/international-students/exchange-students-business-school/courses.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -377,7 +377,7 @@
       "link": "https://www.frankfurt-school.de/en/home/programmes/international-office/incoming",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -395,7 +395,7 @@
       "link": "https://www.haw-hamburg.de/en/international/erasmus-study-abroad/programmes-in-english/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -413,7 +413,7 @@
       "link": "https://www.hm.edu/en/your_stay_at_hm/exchange_students/index.en.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -431,7 +431,7 @@
       "link": "https://lsf.verwaltung.uni-muenchen.de/qisserver/rds?state=wtree&search=1&category=veranstaltung.browse&language=en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -449,7 +449,7 @@
       "link": "https://www.esb-business-school.de/en/studying-at-esb/student-exchange",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -467,7 +467,7 @@
       "link": "https://www.tu.berlin/en/international/students-1/international-students/exchange-studies-at-tu-berlin/studying-at-tu-berlin/information-about-courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -485,7 +485,7 @@
       "link": "https://www.mgt.tum.de/programs/international-exchange-programs/incoming-exchange-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -503,7 +503,7 @@
       "link": "https://www.hm.edu/en/course_offerings/courses_in_english/index.en.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -521,7 +521,7 @@
       "link": "https://www.uni-bonn.de/studying/vor-dem-studium/degree-programs",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -539,7 +539,7 @@
       "link": "http://www.uni-freiburg.de/go/campus-en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -557,7 +557,7 @@
       "link": "https://www.uni-mannheim.de/en/academics/coming-to-mannheim/exchange-students/courses/course-catalog/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -575,7 +575,7 @@
       "link": "https://uni-tuebingen.de/en/international/study-in-tuebingen/erasmus-and-exchange-to-tuebingen/courses-for-exchange-students/#c1657365",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -593,7 +593,7 @@
       "link": "https://oip.ku.edu.tr/wp-content/uploads/2019/11/whu_-_otto_beisheim_school_of_management_2019-2020.pdf",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -611,7 +611,7 @@
       "link": "https://ugla.hi.is/kennsluskra/index.php?tab=nam&chapter=exhange_course_list&kennsluar=current",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -629,7 +629,7 @@
       "link": "https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/Programs/Current+Students/Services/International+Relations/International+Students/International+Student+Desk/Before+Your+Arrival/Educational+Offer/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -647,7 +647,7 @@
       "link": "https://corsidilaurea.uniroma1.it/en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -665,7 +665,7 @@
       "link": "https://www4.ceda.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerInsegnamentoPublic.do?jaf_currentWFID=main",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -683,7 +683,7 @@
       "link": "https://www.iuav.it/didattica1/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -701,7 +701,7 @@
       "link": "http://www.unibo.it/en/teaching/course-unit-catalogue",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -719,7 +719,7 @@
       "link": "http://en.didattica.unipd.it/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -737,7 +737,7 @@
       "link": "https://eur.osiris-student.nl/#/onderwijscatalogus/extern/cursus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -755,7 +755,7 @@
       "link": "https://eur.osiris-student.nl/#/onderwijscatalogus/extern/cursus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -773,7 +773,7 @@
       "link": "https://eur.osiris-student.nl/#/onderwijscatalogus/extern/cursus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -791,7 +791,7 @@
       "link": "https://eur.osiris-student.nl/#/onderwijscatalogus/extern/cursus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -810,7 +810,7 @@
       "link": "https://www.eur.nl/en/euc/education/exchange/incoming-students#exchange-admission-application",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -828,7 +828,7 @@
       "link": "https://www.ru.nl/en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -846,7 +846,7 @@
       "link": "https://www.tilburguniversity.edu/education/exchange-programs/courses.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -864,7 +864,7 @@
       "link": "https://www.maastrichtuniversity.nl/education/exchange",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -882,7 +882,7 @@
       "link": "https://www.maastrichtuniversity.nl/education/exchange",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -900,7 +900,7 @@
       "link": "https://www.maastrichtuniversity.nl/education/exchange",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -918,7 +918,7 @@
       "link": "https://www.utwente.nl/en/education/exchange-students/programmes/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -937,7 +937,7 @@
       "link": "https://www.ntnu.edu/studies/exchange/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -955,7 +955,7 @@
       "link": "http://www.uio.no/english/studies/courses/all/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -973,7 +973,7 @@
       "link": "https://www2.novasbe.unl.pt/en/programs/exchange-programs/courses-for-exchange-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -991,7 +991,7 @@
       "link": "http://www.esade.edu/grados/eng/grado-direccion-empresas/tu-formacion/asignaturas",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1009,7 +1009,7 @@
       "link": "https://www.ie.edu/law-school/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1027,7 +1027,7 @@
       "link": "http://www.upv.es/entidades/OPII/infoweb/pi/info/818871normali.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1045,7 +1045,7 @@
       "link": "http://www.unavarra.es/relacionesinternacionales/relaciones-internacionales-y-movilidad/estudiantes-internacionales/course-catalogue+?languageId=1",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1063,7 +1063,7 @@
       "link": "http://www.comillas.edu/en/international/for-foreign-students/programs-for-foreign-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1081,7 +1081,7 @@
       "link": "https://www.ub.edu/dyn/cms/continguts_en/estudis/oferta_formativa/graus/index.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1099,7 +1099,7 @@
       "link": "http://uleext.unileon.es/?q=en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1117,7 +1117,7 @@
       "link": "https://www.upf.edu/web/bapis/courses-and-syllabi",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1135,7 +1135,7 @@
       "link": "https://estudios.unizar.es/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1153,7 +1153,7 @@
       "link": "https://www.student.chalmers.se/sp/course_list",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1171,7 +1171,7 @@
       "link": "http://www.lunduniversity.lu.se/international-admissions/exchange-study-abroad/exchange-studies/find-exchange-courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1189,7 +1189,7 @@
       "link": "http://www.kth.se/student/kurser/sokkurs?l=en_UK",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1207,7 +1207,7 @@
       "link": "https://sisu.it.su.se/en/educations#?q=",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1225,7 +1225,7 @@
       "link": "https://sisu.it.su.se/en/educations#?q=",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1243,7 +1243,7 @@
       "link": "http://utbildning.gu.se/education/courses-and-programmes/courses-for-exchange-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1261,7 +1261,7 @@
       "link": "http://www.uu.se/en/admissions/exchange/courses/list/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1279,7 +1279,7 @@
       "link": "https://www.epfl.ch/education/international/en/coming-to-epfl/semester-courses/studies/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1298,7 +1298,7 @@
       "link": "https://studentservices.uzh.ch/uzh/anonym/vvz/index.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1316,7 +1316,7 @@
       "link": "https://studentservices.uzh.ch/uzh/anonym/vvz/index.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1334,7 +1334,7 @@
       "link": "https://www.unige.ch/formcont/en/programmes/types/programmes-in-english/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1352,7 +1352,7 @@
       "link": "https://applicationspub.unil.ch/interpub/noauth/php/Ud/index.php?v_langue=en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1371,7 +1371,7 @@
       "link": "http://vvz.wu.ac.at/cgi-bin/vvz.pl?S=18S;T=;LV=3;L2=S;C=M;L3=S;I=;L=;LANG=EN",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1389,7 +1389,7 @@
       "link": "https://www.sciencespo.fr/en/about/our-campuses/virtual-tours-campuses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1407,7 +1407,7 @@
       "link": "http://www.univ-lyon3.fr/exchange-students--951008.kjsp?RH=INS-ACCUEIL_EN",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1425,7 +1425,7 @@
       "link": "https://www.sorbonne-universite.fr/en/our-academic-programs",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1443,7 +1443,7 @@
       "link": "http://www.sciencespo-aix.fr/contenu/inscription/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1461,7 +1461,7 @@
       "link": "https://www.uni-weimar.de/qisserver/rds?state=wtree&search=1&category=veranstaltung.browse&topitem=lectures&subitem=lectureindex&breadcrumb=lectureindex",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1479,7 +1479,7 @@
       "link": "https://www.udk-berlin.de/en/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1497,7 +1497,7 @@
       "link": "http://www.fu-berlin.de/vv/en/fb",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1515,7 +1515,7 @@
       "link": "https://agnes.hu-berlin.de/lupo/rds?state=wtree&search=1&category=veranstaltung.browse&navigationPosition=functions%2Clectureindex&breadcrumb=lectureindex&topitem=functions&subitem=lectureindex",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1533,7 +1533,7 @@
       "link": "http://www.studiegids.tudelft.nl/bbDefault.do?SIS_SwitchLang=en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1551,7 +1551,7 @@
       "link": "https://www.hku.nl/en/home",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1569,7 +1569,7 @@
       "link": "https://www.uu.nl/en/education/exchange-students-social-and-behavioural-sciences/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1587,7 +1587,7 @@
       "link": "https://www.uu.nl/en/education/exchange-and-visiting-students/course-information/faculty-of-law-economics-governance",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1606,7 +1606,7 @@
       "link": "https://studiegids.uva.nl/xmlpages/page/2023-2024-en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1625,7 +1625,7 @@
       "link": "https://www.wdka.nl/admissions/exchange-programmes-wdka",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1642,7 +1642,7 @@
       "link": "https://sisu.it.su.se/en/educations#?q=",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1661,7 +1661,7 @@
       "link": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebotPre.view?lang=en",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1679,7 +1679,7 @@
       "link": "https://www.zhdk.ch/en/degree-programmes",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1698,7 +1698,7 @@
       "link": "Please check with advisor",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1717,7 +1717,7 @@
       "link": "Please check with advisor",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1736,7 +1736,7 @@
       "link": "Please check with advisor",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1755,7 +1755,7 @@
       "link": "https://www.kobe-u.ac.jp/en/study_in_kobe/admission/exchange_program/courses_programs.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1774,7 +1774,7 @@
       "link": "https://www.nagoya-cu.ac.jp/education/guide/syllabus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1793,7 +1793,7 @@
       "link": "Check Factsheet on Moodle",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1812,7 +1812,7 @@
       "link": "https://www.skku.edu/eng/International/StudySKKU/CourseInformation.do",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1830,7 +1830,7 @@
       "link": "https://sugang.khu.ac.kr/",
       "img": "",
       "rating": 501097,
-      "numRates": 0,
+      "numRates": -1,
       "comments": [
         0,
         1,
@@ -1839,8 +1839,7 @@
         5,
         6,
         7,
-        8,
-        9
+        8
       ]
     },
     {
@@ -1859,10 +1858,8 @@
       "link": "https://admission-is.bnu.edu.cn/english/admissionprogram/bachelordegreeprogram/admissionbrochure/index.html",
       "img": "",
       "rating": 5,
-      "numRates": 0,
-      "comments": [
-        3
-      ]
+      "numRates": -1,
+      "comments": []
     },
     {
       "id": 102,
@@ -1879,7 +1876,7 @@
       "link": "https://campus.nottingham.ac.uk/psp/csprd_pub/EMPLOYEE/SA/c/UN_PROG_AND_MOD_EXTRACT.UN_PAM_CRSE_EXTRCT.GBL?",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1897,7 +1894,7 @@
       "link": "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1915,7 +1912,7 @@
       "link": "http://www.admo.cityu.edu.hk/exchange_visiting/exchange/#anchor03",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1933,7 +1930,7 @@
       "link": "https://www.polyu.edu.hk/geo/exchange-and-study-abroad/incoming-students/incoming-exchange/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1951,7 +1948,7 @@
       "link": "http://prog-crs.ust.hk/ugcourse",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1970,7 +1967,7 @@
       "link": "https://intlaffairs.hku.hk/academic-information",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -1988,7 +1985,7 @@
       "link": "https://publiceservices.smu.edu.sg/psc/ps/EMPLOYEE/HRMS/c/SIS_CR.SIS_CLASS_SEARCH.GBL?&",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2006,7 +2003,7 @@
       "link": "https://publiceservices.smu.edu.sg/psc/ps/EMPLOYEE/HRMS/c/SIS_CR.SIS_CLASS_SEARCH.GBL",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2025,7 +2022,7 @@
       "link": "https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2044,7 +2041,7 @@
       "link": "https://nupace.iee.nagoya-u.ac.jp/en/academic/overview.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2063,7 +2060,7 @@
       "link": "http://web.aiu.ac.jp/en/academic/course-offerings/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2082,7 +2079,7 @@
       "link": "http://global.chuo-u.ac.jp/english/admissions/exchange/semester-or-full-year/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2101,7 +2098,7 @@
       "link": "https://intad.doshisha.ac.jp/en/exchange/cge_curriculum.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2120,7 +2117,7 @@
       "link": "https://g-port.univ.gakushuin.ac.jp/campusweb_gk/slbssrch.do?clearAccessData=true&contenam=slbssrch&kjnmnNo=12",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2139,7 +2136,7 @@
       "link": "https://www.hiroshima-u.ac.jp/en/husa/abouthusaprogram_top/academicprogram/coursetypes",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2158,7 +2155,7 @@
       "link": "https://international.hit-u.ac.jp/courses/hgp/information-on-courses-classes/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2177,7 +2174,7 @@
       "link": "http://syllabus01.academic.hokudai.ac.jp/Syllabi/Public/Syllabus/SylSearch.aspx",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2196,7 +2193,7 @@
       "link": "https://www.kansaigaidai.ac.jp/asp/academics/course-offerings/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2214,7 +2211,7 @@
       "link": "https://www.ic.keio.ac.jp/en/study/exchange/courses/courses_available_for_exchange_students.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2233,7 +2230,7 @@
       "link": "https://ciec.kwansei.ac.jp/study/exchange/outline/#h3-004",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2252,7 +2249,7 @@
       "link": "https://www.kyoto-u.ac.jp/en/education-campus/education_and_admissions/non-degree-programs/exchange-students/kamoku.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2271,7 +2268,7 @@
       "link": "https://www.meiji.ac.jp/cip/prospective/non_degree/application.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2290,7 +2287,7 @@
       "link": "https://sites.google.com/rikkyo.ac.jp/rikkyouniversitywebsiteforfutu/academics",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2309,7 +2306,7 @@
       "link": "http://en.ritsumei.ac.jp/admissions/skp/outline/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2328,7 +2325,7 @@
       "link": "https://www.insc.tohoku.ac.jp/english/exchange/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2347,7 +2344,7 @@
       "link": "https://www.tohoku-gakuin.ac.jp/en/exchange/special_programs.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2366,7 +2363,7 @@
       "link": "https://catalog.he.u-tokyo.ac.jp/ustep-index",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2385,7 +2382,7 @@
       "link": "https://www.waseda.jp/inst/cie/en/exchange/application",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2404,7 +2401,7 @@
       "link": "http://oia.ewha.ac.kr/oia/1170/subview.do",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2423,7 +2420,7 @@
       "link": "https://hanyangexchange.com/academics/syllabus/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2442,7 +2439,7 @@
       "link": "https://cais.kaist.ac.kr/totalOpeningCourse",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2461,7 +2458,7 @@
       "link": "https://sugang.korea.ac.kr/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2480,7 +2477,7 @@
       "link": "https://sugang.korea.ac.kr/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2499,7 +2496,7 @@
       "link": "https://www.pusan.ac.kr/eng/CMS/Contents/Contents.do?mCode=MN025",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2518,7 +2515,7 @@
       "link": "https://sugang.snu.ac.kr/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2537,7 +2534,7 @@
       "link": "https://sugang.snu.ac.kr/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2556,7 +2553,7 @@
       "link": "https://oia.yonsei.ac.kr/intstd/exCourse.asp",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2575,7 +2572,7 @@
       "link": "https://gem.um.edu.my/inbound-long-term-module-selection",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2594,7 +2591,7 @@
       "link": "https://ogp.fudan.edu.cn/16092/list.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2613,7 +2610,7 @@
       "link": "https://stuex.nju.edu.cn/en_/23303/list.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2631,7 +2628,7 @@
       "link": "http://www.dean.pku.edu.cn/service/web/courseSearch.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2649,7 +2646,7 @@
       "link": "https://en.gsm.pku.edu.cn/exchange/Incoming_Exchange/Academics.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2667,7 +2664,7 @@
       "link": "Please check Factsheet for courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2686,7 +2683,7 @@
       "link": "https://isc.sjtu.edu.cn/en/content.aspx?info_lb=213&flag=2",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2705,7 +2702,7 @@
       "link": "https://iecoenglish.sufe.edu.cn/f7/77/c3446a63351/page.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2724,7 +2721,7 @@
       "link": "http://intl-nondegree.tsinghua.edu.cn/f/yzlxs/yz_lxs_kstzb/view?id=264623",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2743,7 +2740,7 @@
       "link": "",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2762,7 +2759,7 @@
       "link": "https://modules.xjtlu.edu.cn/dept",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2781,7 +2778,7 @@
       "link": "",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2799,7 +2796,7 @@
       "link": "https://prog-crs.hkust.edu.hk/ugcourse",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2817,7 +2814,7 @@
       "link": "https://ug.hkubs.hku.hk/course",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2835,7 +2832,7 @@
       "link": "https://www.unsw.edu.au/law-justice/study/undergraduate/bachelor-laws",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2854,7 +2851,7 @@
       "link": "https://nol.ntu.edu.tw/nol/guest/index.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2873,7 +2870,7 @@
       "link": "",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2892,7 +2889,7 @@
       "link": "Please check with advisor",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2910,7 +2907,7 @@
       "link": "https://www.nus.edu.sg/registrar/prospective-students/non-graduating/coursework",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2928,7 +2925,7 @@
       "link": "https://www.nus.edu.sg/registrar/prospective-students/non-graduating/coursework",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2947,7 +2944,7 @@
       "link": "http://bba.acc.chula.ac.th/index.php/component/k2/item/304-complete-course-list",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2966,7 +2963,7 @@
       "link": "http://webprod3.leeds.ac.uk/banner/modulesearch.asp?T=S&L=UG",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -2984,7 +2981,7 @@
       "link": "https://www.nottingham.ac.uk/studywithus/international-applicants/spend-part-of-your-degree-here/approved-modules-for-visiting-students.aspx",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3003,7 +3000,7 @@
       "link": "http://www.ucd.ie/students/course_search.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3022,7 +3019,7 @@
       "link": "https://www.ucd.ie/quinn/internationalstudents/erasmusnoneuexchange/curriculum/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3041,7 +3038,7 @@
       "link": "https://www.bangor.ac.uk/courses/undergraduate-modules/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3060,7 +3057,7 @@
       "link": "https://www.hw.ac.uk/study/international/visiting-exchange/course-catalogue.htm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3078,7 +3075,7 @@
       "link": "https://www.lancaster.ac.uk/study/international-students/visiting-students/study-abroad-modules/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3097,7 +3094,7 @@
       "link": "https://intranet.swan.ac.uk/catalogue/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3116,7 +3113,7 @@
       "link": "https://www.exeter.ac.uk/study/studyabroadprogrammes/moduleselection/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3134,7 +3131,7 @@
       "link": "https://www.ncl.ac.uk/mobility/experience-newcastle/module-catalogue/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3153,7 +3150,7 @@
       "link": "https://www.ulster.ac.uk/global/study-abroad/modules",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3172,7 +3169,7 @@
       "link": "https://apex-live.shef.ac.uk/cies/web_cal.cal3_dept_form?p_year=23",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3191,7 +3188,7 @@
       "link": "https://www.southampton.ac.uk/courses/undergraduate.page",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3209,7 +3206,7 @@
       "link": "https://courses.warwick.ac.uk/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3228,7 +3225,7 @@
       "link": "https://www.tcd.ie/students/orientation/visiting-exchange/module-enrolment.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3247,7 +3244,7 @@
       "link": "https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=COURSESEARCH",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3266,7 +3263,7 @@
       "link": "https://www.bangor.ac.uk/courses/undergraduate-modules/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3285,7 +3282,7 @@
       "link": "https://www.gsa.ac.uk/about-gsa/key-information/our-structure/academic-services/programme-course-specifications/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3304,7 +3301,7 @@
       "link": "https://www.kcl.ac.uk/abroad/module-options",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3322,7 +3319,7 @@
       "link": "https://www.manchester.ac.uk/study/international/study-abroad-exchange/unit-search/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3340,7 +3337,7 @@
       "link": "https://www.manchester.ac.uk/study/international/study-abroad-exchange/unit-search/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3358,7 +3355,7 @@
       "link": "https://www.manchester.ac.uk/study/international/study-abroad-exchange/unit-search/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3376,7 +3373,7 @@
       "link": "https://www.ucl.ac.uk/prospective-students/study-abroad-at-ucl/subjects/law",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3395,7 +3392,7 @@
       "link": "http://www.bartlett.ucl.ac.uk/planning/programmes/undergraduate/undergraduate-modules",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3413,7 +3410,7 @@
       "link": "https://www.birmingham.ac.uk/International/study-abroad/study-abroad-incoming/study",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3431,7 +3428,7 @@
       "link": "https://www.bristol.ac.uk/centre-for-study-abroad/inbound/study-abroad-programmes-at-bristol/guidance/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3449,7 +3446,7 @@
       "link": "https://www.ed.ac.uk/global/study-abroad/course",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3467,7 +3464,7 @@
       "link": "https://www.gla.ac.uk/coursecatalogue/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3486,7 +3483,7 @@
       "link": "https://www.liverpool.ac.uk/global-opportunities/inbound/study-in-liverpool/academic/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3504,7 +3501,7 @@
       "link": "https://www.sussex.ac.uk/study/study-abroad-at-sussex/our-programs/semester-and-year-abroad-programs",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3521,7 +3518,7 @@
       "link": "http://www.colorado.edu/academics/course-search",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3539,7 +3536,7 @@
       "link": "https://catalog.uconn.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3557,7 +3554,7 @@
       "link": "https://courses.illinois.edu/schedule",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3575,7 +3572,7 @@
       "link": "https://courses.illinois.edu/schedule",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3593,7 +3590,7 @@
       "link": "https://courses.illinois.edu/schedule",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3611,7 +3608,7 @@
       "link": "https://academiccatalog.umd.edu/undergraduate/colleges-schools/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3629,7 +3626,7 @@
       "link": "https://ub.edu.ar/incoming-students-semester-programs-academic-offer",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3648,7 +3645,7 @@
       "link": "https://direitorio.fgv.br/grade-curricular-graduacao",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3666,7 +3663,7 @@
       "link": "Please check with advisor",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3685,7 +3682,7 @@
       "link": "https://www.concordia.ca/academics/undergraduate/calendar/current.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3704,7 +3701,7 @@
       "link": "https://academiccalendar.dal.ca/~/Catalog/ViewCatalog.aspx?pageid=viewcatalog&catalogid=129&topicgroupid=37031",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3722,7 +3719,7 @@
       "link": "https://www.hec.ca/en/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3740,7 +3737,7 @@
       "link": "https://www.queensu.ca/academic-calendar/engineering-applied-sciences/academic-plans/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3758,7 +3755,7 @@
       "link": "https://www.queensu.ca/artsci_online/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3776,7 +3773,7 @@
       "link": "https://law.queensu.ca/programs/jd/academic-program/course-information",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3794,7 +3791,7 @@
       "link": "https://smith.queensu.ca/bcom/the_program/curriculum/all_courses.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3812,7 +3809,7 @@
       "link": "https://westerncalendar.uwo.ca/Courses.cfm?SelectedCalendar=Live&ArchiveID=",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3831,7 +3828,7 @@
       "link": "https://law.uwo.ca/future_students/jd_academic_programs/course_offerings.html",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3850,7 +3847,7 @@
       "link": "https://w2prod.sis.yorku.ca/Apps/WebObjects/cdm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3869,7 +3866,7 @@
       "link": "https://www.uottawa.ca/current-students/course-timetable",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3887,7 +3884,7 @@
       "link": "https://uwaterloo.ca/student-success/exchange-and-study-abroad/come-waterloo/exchange/undergraduate-course-selection",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3906,7 +3903,7 @@
       "link": "https://internacionalizacion.uc.cl/quiero-ir-a-la-uc/viajar-a-la-uc/semestre-o-ano-en-la-uc/catalogo-de-cursos/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3925,7 +3922,7 @@
       "link": "https://www.u-cursos.cl/fau/12010000/cursos_departamento/indice",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3944,7 +3941,7 @@
       "link": "https://uniandes.smartcatalogiq.com/2024/catalogo/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3963,7 +3960,7 @@
       "link": "https://intercambio.itam.mx/en/international-students-undergraduate-students",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3981,7 +3978,7 @@
       "link": "https://prd28pi01.itesm.mx/Recepcion/StudyInMexico/OfertaAcademica/Buscar",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -3999,7 +3996,7 @@
       "link": "http://www.ci.cgai.udg.mx/centros-movilidad-presencial-2022a",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4016,7 +4013,7 @@
       "link": "https://www.alfred.edu/academics/undergrad-majors-minors/catalog.cfm",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4034,7 +4031,7 @@
       "link": "http://www.american.edu/provost/registrar/schedule/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4051,7 +4048,7 @@
       "link": "https://registrar.cofc.edu/courses/index.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4069,7 +4066,7 @@
       "link": "https://catalog.mines.edu/undergraduate/programs/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4088,7 +4085,7 @@
       "link": "https://catalog.drexel.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4107,7 +4104,7 @@
       "link": "http://www.erau.edu/degrees/catalog/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4125,7 +4122,7 @@
       "link": "https://business.emory.edu/undergraduate-business-degree/curriculum",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4143,7 +4140,7 @@
       "link": "https://catalog.gmu.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4161,7 +4158,7 @@
       "link": "http://bulletin.gwu.edu/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4178,7 +4175,7 @@
       "link": "https://oscar.gatech.edu/pls/bprod/bwckctlg.p_disp_dyn_ctlg",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4197,7 +4194,7 @@
       "link": "https://globale3.studioabroad.com/index.cfm?FuseAction=Programs.ListAll",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4216,7 +4213,7 @@
       "link": "http://catalog.iastate.edu/azcourses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4233,7 +4230,7 @@
       "link": "https://courses.k-state.edu/catalog/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4252,7 +4249,7 @@
       "link": "http://catalog.mercy.edu/content.php?catoid=6&navoid=441",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4270,7 +4267,7 @@
       "link": "https://reg.msu.edu/courses/Search.aspx",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4288,7 +4285,7 @@
       "link": "http://catalog.nau.edu/Courses/index",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4306,7 +4303,7 @@
       "link": "https://selfservice.mypurdue.purdue.edu/prod/bwckctlg.p_disp_dyn_ctlg?",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4324,7 +4321,7 @@
       "link": "https://catalog.rpi.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4342,7 +4339,7 @@
       "link": "https://catalog.tulane.edu/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4359,7 +4356,7 @@
       "link": "https://catalog.uab.edu/undergraduate/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4376,7 +4373,7 @@
       "link": "https://catalog.ku.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4394,7 +4391,7 @@
       "link": "http://bulletin.miami.edu/courses-az/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4412,7 +4409,7 @@
       "link": "http://registrar.unc.edu/courses/schedule-of-classes/directory-of-classes-2/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4430,7 +4427,7 @@
       "link": "https://catalog.kenan-flagler.unc.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4448,7 +4445,7 @@
       "link": "https://usdssb.sandiego.edu/prod/usd_course_query.p_start#main_content",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4466,7 +4463,7 @@
       "link": "https://bannerssb.utk.edu/kbanpr/bwckschd.p_disp_dyn_sched",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4484,7 +4481,7 @@
       "link": "http://records.ureg.virginia.edu/content.php?catoid=43&navoid=3031",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4502,7 +4499,7 @@
       "link": "https://catalog.vt.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4521,7 +4518,7 @@
       "link": "https://www.mcgill.ca/study/2024-2025/courses/search",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4540,7 +4537,7 @@
       "link": "https://www.mcgill.ca/study/2024-2025/courses/search",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4559,7 +4556,7 @@
       "link": "https://www.mcgill.ca/study/2024-2025/courses/search",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4578,7 +4575,7 @@
       "link": "https://www.mcgill.ca/law-studies/courses/current",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4595,7 +4592,7 @@
       "link": "https://selfserv.nscad.ca/Student/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4613,7 +4610,7 @@
       "link": "https://smith.queensu.ca/mba_programs/mba/program-details/index.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4632,7 +4629,7 @@
       "link": "https://apps.ualberta.ca/catalogue",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4651,7 +4648,7 @@
       "link": "https://courses.students.ubc.ca/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4670,7 +4667,7 @@
       "link": "https://courses.students.ubc.ca/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4688,7 +4685,7 @@
       "link": "https://courses.students.ubc.ca/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4707,7 +4704,7 @@
       "link": "https://courses.students.ubc.ca/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4725,7 +4722,7 @@
       "link": "https://www.utoronto.ca/academics/programs-directory",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4744,7 +4741,7 @@
       "link": "https://www.ivey.uwo.ca/hba/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4762,7 +4759,7 @@
       "link": "https://schulich.yorku.ca/wp-content/uploads/2023/02/Schulich-UG-Exchange-Course-Descriptions_Electives-ONLY.pdf",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4781,7 +4778,7 @@
       "link": "https://webapp4.asu.edu/catalog/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4799,7 +4796,7 @@
       "link": "https://fusionmx.babson.edu/CourseListing/?blnShowHeader=true",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4817,7 +4814,7 @@
       "link": "https://catalog.barnard.edu/barnard-college/courses-instruction/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4835,7 +4832,7 @@
       "link": "https://services.bc.edu/PublicCourseInfoSched/courseinfoschedHome!displayInput.action",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4853,7 +4850,7 @@
       "link": "https://courses.cornell.edu/index.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4871,7 +4868,7 @@
       "link": "https://schedule.georgetown.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4889,7 +4886,7 @@
       "link": "http://w4.stern.nyu.edu/uccoursedesc/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4907,7 +4904,7 @@
       "link": "https://bulletins.psu.edu/university-course-descriptions/undergraduate/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4925,7 +4922,7 @@
       "link": "https://www.saic.edu/course-search",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4944,7 +4941,7 @@
       "link": "https://catalogs.buffalo.edu/content.php?catoid=1&navoid=18",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4963,7 +4960,7 @@
       "link": "https://catalog.tulane.edu/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -4982,7 +4979,7 @@
       "link": "https://www.uclawsf.edu/academics/course-catalog/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5000,7 +4997,7 @@
       "link": "https://reciprocity.uceap.universityofcalifornia.edu/discover-uc",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5019,7 +5016,7 @@
       "link": "https://catalog.ufl.edu/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5036,7 +5033,7 @@
       "link": "https://law.illinois.edu/academics/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5054,7 +5051,7 @@
       "link": "https://webapps.lsa.umich.edu/CrsMaint/Public/CB_PublicBulletin.aspx?crselevel=ug",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5072,7 +5069,7 @@
       "link": "https://michiganross.umich.edu/course-catalog",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5090,7 +5087,7 @@
       "link": "https://www.si.umich.edu/programs/courses",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5108,7 +5105,7 @@
       "link": "https://catalog.upenn.edu/undergraduate/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5126,7 +5123,7 @@
       "link": "https://catalog.upenn.edu/undergraduate/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5144,7 +5141,7 @@
       "link": "https://registrar.utexas.edu/catalogs/undergraduate",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5162,7 +5159,7 @@
       "link": "https://catalog.utexas.edu/undergraduate/business/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5180,7 +5177,7 @@
       "link": "https://law.utexas.edu/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5198,7 +5195,7 @@
       "link": "http://records.ureg.virginia.edu/content.php?catoid=52&navoid=4046",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5216,7 +5213,7 @@
       "link": "http://www.student.guest.auckland.ac.nz/psp/ps/EMPLOYEE/HRMS/c/COMMUNITY_ACCESS.SSS_BROWSE_CATLG.GBL?&languageCd=ENG",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5234,7 +5231,7 @@
       "link": "http://www.bezalel.ac.il/en/academics/bachelor_degree/art/courses/",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5252,7 +5249,7 @@
       "link": "http://shnaton.huji.ac.il/yearbook.php",
       "img": "",
       "rating": 0,
-      "numRates": 0,
+      "numRates": -1,
       "comments": []
     },
     {
@@ -5269,9 +5266,8 @@
       "link": "https://fatpic.com",
       "img": "https://fatpic.png",
       "rating": 3,
-      "numRates": 1,
+      "numRates": -1,
       "comments": [
-        14,
         2
       ]
     }
@@ -5304,16 +5300,6 @@
   ],
   "comments": [
     {
-      "id": 14,
-      "username": "NPC",
-      "userid": 1,
-      "title": "Stinky Slimy",
-      "desc": "too sussy",
-      "rating": 3,
-      "upvotedUsers": [],
-      "downvotedUsers": []
-    },
-    {
       "id": 15,
       "username": "NPC",
       "userid": 1,
@@ -5334,5 +5320,5 @@
       "downvotedUsers": []
     }
   ],
-  "deletedComments": 0
+  "deletedComments": 1
 }
