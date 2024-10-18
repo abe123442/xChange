@@ -1,11 +1,10 @@
 import Container from "../Container";
 import Logo from "./Logo";
-import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 const NavBar: React.FC<{}> = () => {
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div className="fixed w-full bg-c_yellow-800 z-10 shadow-sm">
       <div
         className="
           py-4
@@ -27,7 +26,6 @@ const NavBar: React.FC<{}> = () => {
               <Logo />
               <h1 className="font-semibold text-xl">tuahXchange</h1>
             </div>
-            <Search />
             <UserMenu />
           </div>
         </Container>
