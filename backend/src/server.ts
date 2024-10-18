@@ -119,10 +119,9 @@ app.put('/profile/:profileid/edit', (req: Request, res: Response) => {
 
 app.delete('/profile/:profileid/delete', (req: Request, res: Response) => {
   const token = req.header('token') as string;
-  const name: string = req.query.name as string;
 
   try {
-    const response = deleteProfile(token, name);
+    const response = deleteProfile(token, parseInt(req.params.profileid));
     res.status(200).json(response);
   } catch (e) {
     const error = e as Error;
@@ -195,8 +194,8 @@ app.delete('/auth/unis/remove', (req: Request, res: Response) => {
   }
 });
 
-app.get('/auth/user/view', (req: Request, res: Response) => {
-  const id = parseInt(req.query.id as string);
+app.get('/auth/user/:id/view', (req: Request, res: Response) => {
+  const id = parseInt(req.params.id as string);
 
   try {
     const response = viewUser(id);

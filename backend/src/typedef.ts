@@ -9,7 +9,7 @@ export const CATEGORY = ['Super Partner', 'High Capacity', 'High Demand'];
 export const SPLITREGEX = /[\s,-/]+/;
 
 // Admin emails
-export const ADMIN_EMAILS = ['unsw-admin@ad.unsw.edu.au'];
+export const ADMIN_EMAILS = ['unsw-admin@ad.unsw.edu.au', 'test@gmail.com'];
 
 // INTERFACES
 export interface Error {

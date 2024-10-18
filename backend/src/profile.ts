@@ -173,7 +173,7 @@ export function editProfile(token: string, name: string, desc: string, country: 
   setData(database);
 }
 
-export function deleteProfile(token: string, name: string) {
+export function deleteProfile(token: string, id: number) {
   const database: Data = getData();
 
   const user = database.users.find(user => user.tokens.includes(token));
@@ -186,7 +186,7 @@ export function deleteProfile(token: string, name: string) {
     throw HTTPError(401, "Unauthorised access");
   }
 
-  const profile = database.profiles.find(profile => profile.name.localeCompare(name) === 0);
+  const profile = database.profiles.find(profile => profile.id === id);
 
   if (!profile) {
     throw HTTPError(400, "Invalid profile");
