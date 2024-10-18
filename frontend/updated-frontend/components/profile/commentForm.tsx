@@ -1,31 +1,35 @@
-// src/components/profile/CommentForm.tsx
 "use client";
 
 import { useState } from 'react';
 import { CommentFormProps } from '@/lib/utils';
 import './commentForm.css';
+import { BACKEND_URL } from '@/lib/utils'; 
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [rating, setRating] = useState<number | undefined>(undefined);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');  // Clear previous errors
+    setError(''); 
+    setSuccess(false); 
 
+    // Basic validation
     if (!title || !desc || !rating) {
       setError('All fields are required.');
       return;
     }
 
-    const token = "your-auth-token"; // Replace with actual token
-    const response = await fetch(`http://localhost:5001/profile/${profileId}/comments`, {
+    // Correct header key to `token`
+    const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb"; // Static token for testing
+    const response = await fetch(`${BACKEND_URL}/profile/${profileId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Include token in the headers
+        'token': token, // Use 'token' instead of 'Authorization'
       },
       body: JSON.stringify({
         title,
@@ -35,7 +39,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
     });
 
     if (response.ok) {
-      alert('Comment posted successfully!');
+      setSuccess(true);
       setTitle('');
       setDesc('');
       setRating(undefined);
@@ -48,7 +52,9 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
       <h2>Post a Comment</h2>
+
       {error && <p className="error">{error}</p>}
+      {success && <p className="success">Comment posted successfully!</p>}
 
       <div className="form-group">
         <label>Title</label>
