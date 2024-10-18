@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import NavBar from "@/components/navbar/NavBar";
 import { Profile } from '@/components/profile/profile';
 import { Comment } from '@/components/profile/comment';
 import { BACKEND_URL } from '@/lib/utils';
@@ -19,6 +20,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
+      <NavBar />
       <div className={styles.page}>
         <main className={styles.main}>
           <Profile profile={profile.profile} />
@@ -26,8 +28,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <Comment comments={comments.comments} profileid={profile.profile.id} />
           <CommentForm profileId={profile.profile.id.toString()} />
         </main>
-        <footer className={styles.footer}>
-        </footer>
+        <footer className={styles.footer}></footer>
       </div>
     </>
   );

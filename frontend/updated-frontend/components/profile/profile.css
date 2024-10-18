@@ -22,7 +22,7 @@
 
 .category-red {
   border-right: 3px solid theme('colors.c_red.300');
-  background-color: theme('colors.c_red.500');
+  background-color: theme('colors.c_red.600');
 }
 
 .name {
@@ -44,8 +44,8 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(100px, 1fr));
   grid-template-areas:
-    'name name name name category category'
-    'minwam minwam load load load load'
+    'name name name name name name'
+    'minwam minwam load load category category'
     'deglevels deglevels scope scope scope scope'
     'desc desc desc desc link link';
   gap: 25px;
@@ -54,7 +54,6 @@
 }
 
 .grid-container > div {
-  background-color: rgb(8, 61, 119, 0.02);
   text-align: left;
   padding: 20px;
   font-size: 20px;

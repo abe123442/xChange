@@ -22,6 +22,7 @@
   .comment-rating {
     color: #ff9800;
     font-weight: bold;
+    margin-bottom: 10px;
   }
   
   .comment-user {
@@ -48,5 +49,36 @@
     font-size: 14px;
     font-weight: bold;
   }
+
+  .comment-votes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .comment-upvote, .comment-downvote {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .comment-upvote svg, .comment-downvote svg {
+    margin-right: 8px;
+    transition: color 0.2s;
+  }
+  
+  .thumbs-up-liked {
+    color: blue;
+  }
+  
+  .thumbs-down-disliked {
+    color: red;
+  }
+  
+  .comment-upvote div, .comment-downvote div {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
   
   

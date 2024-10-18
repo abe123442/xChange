@@ -314,7 +314,7 @@ app.delete('/profile/comments/:commentid/delete', (req: Request, res: Response) 
 // SERVER ROUTES ABOVE ================================================
 // ====================================================================
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 app.use(errorHandler());
 
