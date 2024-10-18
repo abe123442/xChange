@@ -128,7 +128,9 @@ const UserMenu: React.FC<{}> = () => {
               text-sm
             "
         >
-          <div className="flex flex-col cursor-pointer">
+          <div className="flex flex-col bg-c_white-500 cursor-pointer">
+            <div className="text-center">Logged in</div>
+            <Separator className="w-auto" />
             <MenuItem
               label="Logout"
               onClick={logout}

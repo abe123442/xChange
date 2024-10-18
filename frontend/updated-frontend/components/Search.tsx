@@ -87,7 +87,7 @@ export default function Search() {
             onChange={(e) => setUniversityName(e.target.value)}
             className="flex-1"
           />
-          <Button type="submit">Submit</Button>
+          <Button className="button" type="submit"><span>Submit</span></Button>
         </div>
 
         <div className="flex flex-col md:flex-row md:space-x-8">
