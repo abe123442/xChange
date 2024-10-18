@@ -3,6 +3,10 @@
   margin: 0 0 10px 0;
 }
 
+.align-right {
+  text-align: right;
+}
+
 .comments-section {
   margin-top: 50px;
 }
