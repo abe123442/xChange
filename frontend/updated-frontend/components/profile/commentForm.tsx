@@ -6,6 +6,7 @@ import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
 import { Input } from '../ui/input';
 import { useLocalStorage } from 'usehooks-ts';
+import { Button } from "@/components/ui/button";  // Import your custom button component
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
@@ -90,7 +91,9 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       {error && <p className="error">{error}</p>}
       {success && <p className="success">Comment posted successfully!</p>}
 
-      <button type="submit">Submit Comment</button>
+      <Button className="button" type="submit">
+        Submit Comment
+      </Button>
     </form>
   );
 };
