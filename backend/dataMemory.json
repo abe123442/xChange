@@ -5308,9 +5308,11 @@
       "desc": "I hate this uni <3",
       "rating": 2,
       "upvotedUsers": [
+        0,
         0
       ],
       "downvotedUsers": [
+        0,
         0
       ]
     },
@@ -5321,9 +5323,11 @@
       "desc": "I love this uni <3",
       "rating": 10,
       "upvotedUsers": [
+        0,
         0
       ],
       "downvotedUsers": [
+        0,
         0
       ]
     },
