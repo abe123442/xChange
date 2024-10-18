@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar";
-import { Profile } from '@/components/profile';
-import { Comment } from '@/components/comment';
+import { Profile } from '@/components/profile/profile';
+import { Comment } from '@/components/profile/comment';
 
 const BACKEND_URL = 'http://localhost:5000';
 
