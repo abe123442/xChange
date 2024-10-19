@@ -38,6 +38,7 @@
 .p-minwam { grid-area: minwam; }
 .p-load { grid-area: load; }
 .p-deglevels { grid-area: deglevels; }
+.p-country { grid-area: country; }
 .p-link { grid-area: link; }
 
 .grid-container {
@@ -46,7 +47,7 @@
   grid-template-areas:
     'name name name name name name'
     'minwam minwam deglevels deglevels category category'
-    'load load load scope scope scope'
+    'load load scope scope country country'
     'desc desc desc desc link link';
   gap: 25px;
   padding: 10px;

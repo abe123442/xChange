@@ -66,6 +66,15 @@ export const Profile: React.FC<ProfileProps> = ({ profile }) => {
           </p>
         </div>
 
+        <div className="p-country">
+          <b>
+            Country
+          </b>
+          <p>
+            {profile.country}
+          </p>
+        </div>
+
         <div className="p-deglevels">
           <b>
             Degree Levels

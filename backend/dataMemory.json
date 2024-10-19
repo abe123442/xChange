@@ -106,9 +106,11 @@
       ],
       "link": "www.en.aau.dk/education/guest-exchange",
       "img": "",
-      "rating": 0,
-      "numRates": 0,
-      "comments": []
+      "rating": 10,
+      "numRates": 1,
+      "comments": [
+        1
+      ]
     },
     {
       "id": 6,
@@ -5258,6 +5260,16 @@
         "dbbacbeb-e66b-4bab-930c-3d721d4cf4c4"
       ],
       "targetunis": []
+    },
+    {
+      "id": 1,
+      "email": "asd@asd",
+      "password": "688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6",
+      "nameFirst": "ASAD",
+      "nameLast": "ASD",
+      "username": "asd",
+      "tokens": [],
+      "targetunis": []
     }
   ],
   "comments": [
@@ -5268,10 +5280,20 @@
       "title": "Hello",
       "desc": "Hello",
       "rating": 2,
+      "upvotedUsers": [],
+      "downvotedUsers": []
+    },
+    {
+      "id": 1,
+      "username": "asd",
+      "userid": 1,
+      "title": "Good school",
+      "desc": "very friendly :>",
+      "rating": 10,
       "upvotedUsers": [
+        1
       ],
-      "downvotedUsers": [
-      ]
+      "downvotedUsers": []
     }
   ],
   "deletedProfiles": 0,
