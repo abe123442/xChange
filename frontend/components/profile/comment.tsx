@@ -49,7 +49,6 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   const [hasDownvoted, setHasDownvoted] = useState(() =>
     comment.downvotedUsers.includes(userid)
   );
-  console.log("user" + userid  +" saSADSADASDA " + hasLiked + " DOWN " + hasDownvoted);
 
   const handleUpvote = async () => {
     if (!token) return;
@@ -64,12 +63,12 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
 
     if (response.ok) {
       setLikes(likes + (hasLiked ? -1 : 1));
-      setHasLiked(!hasLiked);
 
-      if (hasLiked && hasDownvoted) {
+      if (!hasLiked && hasDownvoted) {
         setDownvotes(downvotes - 1);
         setHasDownvoted(false);
       }
+      setHasLiked(!hasLiked);
     } else {
       const responseData = await response.json();
       console.error('Error upvoting comment:', responseData);
@@ -89,13 +88,12 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
 
     if (response.ok) {
       setDownvotes(downvotes + (hasDownvoted ? -1 : 1));
-      setHasDownvoted(!hasDownvoted);
-      console.log("LIKE " + hasLiked + " DOWN " + hasDownvoted);
 
-      if (hasLiked && hasDownvoted) {
+      if (hasLiked && !hasDownvoted) {
         setLikes(likes - 1);
         setHasLiked(false);
       }
+      setHasDownvoted(!hasDownvoted);
     } else {
       const responseData = await response.json();
       console.error('Error downvoting comment:', responseData);
