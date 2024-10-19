@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from 'react';
-import { ThumbsUp, ThumbsDown } from 'lucide-react';
-import { BACKEND_URL } from '@/lib/utils';
-import { CommentProps, Comment as CommentType } from '@/lib/utils';
-import './comment.css';
-import { useLocalStorage } from 'usehooks-ts';
+import { useEffect, useState } from "react";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { BACKEND_URL } from "@/lib/utils";
+import { CommentProps, Comment as CommentType } from "@/lib/utils";
+import "./comment.css";
+import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 
 export const Comment: React.FC<CommentProps> = ({ comments }) => {
   return (
@@ -26,40 +26,44 @@ interface CommentCardProps {
 }
 
 const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
-  const [token, setToken, removeToken] = useLocalStorage('token', '');
+  const token = useReadLocalStorage<string>("token");
   const [userid, setUserid] = useState(-1);
-  
+
   // Get current user ID
-  if (token) {
-    // useEffect(() => {
-    //   fetch(`${BACKEND_URL}/auth/user`, {
-    //     method: 'PUT',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'token': token
-    //   }}).then(res => res.json()).then(data => setUserid(data.id));
-    // });
-  }
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/auth/user`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        token: token ?? "",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUserid(data.id));
+  }, []);
 
   const [likes, setLikes] = useState(comment.upvotedUsers.length);
   const [downvotes, setDownvotes] = useState(comment.downvotedUsers.length);
   const [hasLiked, setHasLiked] = useState(() =>
-    comment.upvotedUsers.includes(userid)
+    comment.upvotedUsers.includes(userid),
   );
   const [hasDownvoted, setHasDownvoted] = useState(() =>
-    comment.downvotedUsers.includes(userid)
+    comment.downvotedUsers.includes(userid),
   );
 
   const handleUpvote = async () => {
     if (!token) return;
 
-    const response = await fetch(`${BACKEND_URL}/comment/${comment.id}/upvote`, {
-      method: hasLiked ? 'DELETE' : 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'token': token
+    const response = await fetch(
+      `${BACKEND_URL}/comment/${comment.id}/upvote`,
+      {
+        method: hasLiked ? "DELETE" : "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          token: token,
+        },
       },
-    });
+    );
 
     if (response.ok) {
       setLikes(likes + (hasLiked ? -1 : 1));
@@ -71,20 +75,23 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
       setHasLiked(!hasLiked);
     } else {
       const responseData = await response.json();
-      console.error('Error upvoting comment:', responseData);
+      console.error("Error upvoting comment:", responseData);
     }
   };
 
   const handleDownvote = async () => {
     if (!token) return;
 
-    const response = await fetch(`${BACKEND_URL}/comment/${comment.id}/downvote`, {
-      method: hasDownvoted ? 'DELETE' : 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'token': token
+    const response = await fetch(
+      `${BACKEND_URL}/comment/${comment.id}/downvote`,
+      {
+        method: hasDownvoted ? "DELETE" : "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          token: token,
+        },
       },
-    });
+    );
 
     if (response.ok) {
       setDownvotes(downvotes + (hasDownvoted ? -1 : 1));
@@ -96,7 +103,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
       setHasDownvoted(!hasDownvoted);
     } else {
       const responseData = await response.json();
-      console.error('Error downvoting comment:', responseData);
+      console.error("Error downvoting comment:", responseData);
     }
   };
 
@@ -107,15 +114,15 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
       </div>
       <div className="comment-desc">{comment.desc}</div>
       <div className="comment-rating">Rating: {comment.rating}/10</div>
-      
+
       <div className="comment-votes">
         <div className="comment-upvote" onClick={handleUpvote}>
-          <ThumbsUp className={hasLiked ? 'thumbs-up-liked' : ''} />
+          <ThumbsUp className={hasLiked ? "thumbs-up-liked" : ""} />
           <div>{likes}</div>
         </div>
 
         <div className="comment-downvote" onClick={handleDownvote}>
-          <ThumbsDown className={hasDownvoted ? 'thumbs-down-disliked' : ''} />
+          <ThumbsDown className={hasDownvoted ? "thumbs-down-disliked" : ""} />
           <div>{downvotes}</div>
         </div>
       </div>

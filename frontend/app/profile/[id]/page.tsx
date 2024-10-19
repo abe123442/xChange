@@ -1,15 +1,16 @@
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar/NavBar";
-import { Profile } from '@/components/profile/profile';
-import { Comment } from '@/components/profile/comment';
-import { BACKEND_URL } from '@/lib/utils';
-import { CommentForm } from '@/components/profile/commentForm';
+import { Profile } from "@/components/profile/profile";
+import { Comment } from "@/components/profile/comment";
+import { BACKEND_URL } from "@/lib/utils";
+import { CommentForm } from "@/components/profile/commentForm";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
 
   // Fetch profile data
   const profileData = await fetch(`${BACKEND_URL}/profile/${id}`);
+  console.log(profileData);
   const profile = await profileData.json();
 
   // Fetch comments for this profile
@@ -18,7 +19,6 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <NavBar />
       <div className={styles.page}>
         <main className={styles.main}>
           {/* Render Comments with profileId */}
@@ -31,9 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               </div>
             </div>
             <div className={styles.frame}>
-              <div className={styles.title}>
-                Comments
-              </div>
+              <div className={styles.title}>Comments</div>
               <div className="sticky max-h-[calc(100vh-4rem)] overflow-y-scroll scrollbar-none">
                 <Comment comments={comments.comments} />
               </div>
