@@ -62,12 +62,12 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
     });
 
     if (response.ok) {
-      setLikes(likes + hasLiked ? -1 : 1);
+      setLikes(likes + (hasLiked ? -1 : 1));
       setHasLiked(!hasLiked);
 
       if (hasLiked && hasDownvoted) {
         setDownvotes(downvotes - 1);
-        setDownvotes(false);
+        setHasDownvoted(false);
       }
     } else {
       const responseData = await response.json();
@@ -87,12 +87,12 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
     });
 
     if (response.ok) {
-      setDownvotes(downvotes + hasDownvoted ? -1 : 1);
+      setDownvotes(downvotes + (hasDownvoted ? -1 : 1));
       setHasDownvoted(!hasDownvoted);
 
       if (hasLiked && hasDownvoted) {
         setLikes(likes - 1);
-        setLikes(false);
+        setHasLiked(false);
       }
     } else {
       const responseData = await response.json();

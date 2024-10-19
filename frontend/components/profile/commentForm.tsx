@@ -18,7 +18,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(''); 
+    setError('');
     setSuccess(false); 
 
     // Basic validation
@@ -27,8 +27,6 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       return;
     }
 
-    const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb"; // Static token for testing
-    // const [token, setToken, removeToken] = useLocalStorage('token', '');
     const response = await fetch(`${BACKEND_URL}/profile/${profileId}/comments`, {
       method: 'POST',
       headers: {
