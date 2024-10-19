@@ -1226,9 +1226,11 @@
       ],
       "link": "https://sisu.it.su.se/en/educations#?q=",
       "img": "",
-      "rating": 0,
-      "numRates": 0,
-      "comments": []
+      "rating": 10,
+      "numRates": 1,
+      "comments": [
+        3
+      ]
     },
     {
       "id": 68,
@@ -5259,8 +5261,7 @@
       "nameLast": "b",
       "username": "ASD",
       "tokens": [
-        "dbbacbeb-e66b-4bab-930c-3d721d4cf4c4",
-        "e6976b65-0d7e-4028-aad1-eee9c8efb97a"
+        "dbbacbeb-e66b-4bab-930c-3d721d4cf4c4"
       ],
       "targetunis": []
     },
@@ -5282,6 +5283,18 @@
       "nameLast": "Admin",
       "username": "Fake Admin",
       "tokens": [],
+      "targetunis": []
+    },
+    {
+      "id": 3,
+      "email": "stockholm.syndrome@gmail.com",
+      "password": "a76b338874117acd5c4151e0f532cb7bd4d84764d818a52d61acdb44aa7a4a16",
+      "nameFirst": "Stockholm",
+      "nameLast": "Syndrome",
+      "username": "SS",
+      "tokens": [
+        "9fe9d2c5-9a4b-42c4-a3a3-004f716b3402"
+      ],
       "targetunis": []
     }
   ],
@@ -5319,6 +5332,19 @@
       "downvotedUsers": [
         2
       ]
+    },
+    {
+      "id": 3,
+      "username": "ASD",
+      "userid": 0,
+      "title": "Stockholm Syndrome",
+      "desc": "Pls come here lul",
+      "rating": 10,
+      "upvotedUsers": [
+        0,
+        3
+      ],
+      "downvotedUsers": []
     }
   ],
   "deletedProfiles": 0,
