@@ -1852,10 +1852,11 @@
       ],
       "link": "https://admission-is.bnu.edu.cn/english/admissionprogram/bachelordegreeprogram/admissionbrochure/index.html",
       "img": "",
-      "rating": 2,
-      "numRates": 1,
+      "rating": 12,
+      "numRates": 2,
       "comments": [
-        0
+        0,
+        4
       ]
     },
     {
@@ -5292,9 +5293,7 @@
       "nameFirst": "Stockholm",
       "nameLast": "Syndrome",
       "username": "SS",
-      "tokens": [
-        "9fe9d2c5-9a4b-42c4-a3a3-004f716b3402"
-      ],
+      "tokens": [],
       "targetunis": []
     }
   ],
@@ -5307,7 +5306,9 @@
       "desc": "Hello",
       "rating": 2,
       "upvotedUsers": [],
-      "downvotedUsers": []
+      "downvotedUsers": [
+        3
+      ]
     },
     {
       "id": 1,
@@ -5342,6 +5343,18 @@
       "rating": 10,
       "upvotedUsers": [
         0,
+        3
+      ],
+      "downvotedUsers": []
+    },
+    {
+      "id": 4,
+      "username": "SS",
+      "userid": 3,
+      "title": "I love this uni",
+      "desc": "This uni is great bing chillin'",
+      "rating": 10,
+      "upvotedUsers": [
         3
       ],
       "downvotedUsers": []
