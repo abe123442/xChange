@@ -7,11 +7,9 @@ export default async function Home() {
 
   return (
     <>
-      <div className="my-24">
-        <ClientOnly>
-          <Search />
-        </ClientOnly>
-      </div>
+      <ClientOnly>
+        <Search />
+      </ClientOnly>
     </>
   );
 }
