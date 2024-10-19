@@ -5303,9 +5303,7 @@
       "desc": "I this uni <3",
       "rating": 5,
       "upvotedUsers": [],
-      "downvotedUsers": [
-        1
-      ]
+      "downvotedUsers": []
     },
     {
       "id": 1,
@@ -5358,7 +5356,9 @@
       "title": "sigmaUni",
       "desc": "this is sigma",
       "rating": 1,
-      "upvotedUsers": [],
+      "upvotedUsers": [
+        1
+      ],
       "downvotedUsers": []
     },
     {
