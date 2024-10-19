@@ -207,9 +207,11 @@ app.get('/auth/user', (req: Request, res: Response) => {
 });
 
 app.get('/auth/user/:userid', (req: Request, res: Response) => {
+  const token = req.header('token') as string;
   const userid = parseInt(req.params.userid);
 
   try {
+    validateToken(token);
     const response = viewUser(userid);
     res.status(200).json(response);
   } catch (e) {
@@ -247,7 +249,7 @@ app.post('/profile/:profileid/comments', (req: Request, res: Response) => {
   }
 });
 
-app.put('/comments/:commentid/upvote', (req: Request, res: Response) => {
+app.put('/comment/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -262,7 +264,7 @@ app.put('/comments/:commentid/upvote', (req: Request, res: Response) => {
   }
 });
 
-app.put('/comments/:commentid/downvote', (req: Request, res: Response) => {
+app.put('/comment/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -277,7 +279,7 @@ app.put('/comments/:commentid/downvote', (req: Request, res: Response) => {
   }
 });
 
-app.delete('/comments/:commentid/upvote', (req: Request, res: Response) => {
+app.delete('/comment/:commentid/upvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -292,7 +294,7 @@ app.delete('/comments/:commentid/upvote', (req: Request, res: Response) => {
   }
 });
 
-app.delete('/comments/:commentid/downvote', (req: Request, res: Response) => {
+app.delete('/comment/:commentid/downvote', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 
@@ -307,7 +309,7 @@ app.delete('/comments/:commentid/downvote', (req: Request, res: Response) => {
   }
 });
 
-app.delete('/profile/comments/:commentid/delete', (req: Request, res: Response) => {
+app.delete('/comment/:commentid', (req: Request, res: Response) => {
   const token = req.header('token') as string;
   const commentid = parseInt(req.params.commentid);
 

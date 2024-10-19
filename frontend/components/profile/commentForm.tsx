@@ -6,7 +6,6 @@ import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
 import { Input } from '../ui/input';
 import { useLocalStorage } from 'usehooks-ts';
-import { Button } from "@/components/ui/button";  // Import your custom button component
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');
@@ -18,7 +17,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(''); 
+    setError('');
     setSuccess(false); 
 
     // Basic validation
@@ -27,8 +26,6 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       return;
     }
 
-    const token = "faf85f27-f0a3-4a2b-a117-dcacc25313eb"; // Static token for testing
-    // const [token, setToken, removeToken] = useLocalStorage('token', '');
     const response = await fetch(`${BACKEND_URL}/profile/${profileId}/comments`, {
       method: 'POST',
       headers: {
@@ -47,6 +44,7 @@ export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
       setTitle('');
       setDesc('');
       setRating(undefined);
+      window.location.href = window.location.href;
     } else {
       const responseData = await response.json();
       setError(responseData.error || 'Error posting the comment.');

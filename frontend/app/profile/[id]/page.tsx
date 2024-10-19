@@ -5,8 +5,6 @@ import { Comment } from '@/components/profile/comment';
 import { BACKEND_URL } from '@/lib/utils';
 import { CommentForm } from '@/components/profile/commentForm';
 
-export const revalidate = 0;
-
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
 
@@ -37,7 +35,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 Comments
               </div>
               <div className="sticky max-h-[calc(100vh-4rem)] overflow-y-scroll scrollbar-none">
-                <Comment comments={comments.comments} userid={profile.profile.id} />
+                <Comment comments={comments.comments} />
               </div>
             </div>
           </div>

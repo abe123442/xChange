@@ -36,7 +36,6 @@ export interface ProfileProps {
 
 export interface CommentProps {
   comments: Comment[];
-  userid: number;
 }
 
 export interface CommentFormProps {
