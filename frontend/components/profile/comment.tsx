@@ -49,6 +49,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   const [hasDownvoted, setHasDownvoted] = useState(() =>
     comment.downvotedUsers.includes(userid)
   );
+  console.log("user" + userid  +" saSADSADASDA " + hasLiked + " DOWN " + hasDownvoted);
 
   const handleUpvote = async () => {
     if (!token) return;
@@ -89,6 +90,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
     if (response.ok) {
       setDownvotes(downvotes + (hasDownvoted ? -1 : 1));
       setHasDownvoted(!hasDownvoted);
+      console.log("LIKE " + hasLiked + " DOWN " + hasDownvoted);
 
       if (hasLiked && hasDownvoted) {
         setLikes(likes - 1);
