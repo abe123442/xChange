@@ -31,14 +31,14 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   
   // Get current user ID
   if (token) {
-    useEffect(() => {
-      fetch(`${BACKEND_URL}/auth/user`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'token': token
-      }}).then(res => res.json()).then(data => setUserid(data.id));
-    });
+    // useEffect(() => {
+    //   fetch(`${BACKEND_URL}/auth/user`, {
+    //     method: 'PUT',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'token': token
+    //   }}).then(res => res.json()).then(data => setUserid(data.id));
+    // });
   }
 
   const [likes, setLikes] = useState(comment.upvotedUsers.length);

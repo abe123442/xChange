@@ -6,7 +6,6 @@ import './commentForm.css';
 import { BACKEND_URL } from '@/lib/utils'; 
 import { Input } from '../ui/input';
 import { useLocalStorage } from 'usehooks-ts';
-import { Button } from "@/components/ui/button";  // Import your custom button component
 
 export const CommentForm: React.FC<CommentFormProps> = ({ profileId }) => {
   const [title, setTitle] = useState('');

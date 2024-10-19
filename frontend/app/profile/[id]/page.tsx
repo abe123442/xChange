@@ -1,15 +1,11 @@
-"use client"
-
 import styles from "./page.module.css";
 import NavBar from "@/components/navbar/NavBar";
 import { Profile } from '@/components/profile/profile';
 import { Comment } from '@/components/profile/comment';
 import { BACKEND_URL } from '@/lib/utils';
 import { CommentForm } from '@/components/profile/commentForm';
-import { useLocalStorage } from "usehooks-ts";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const [token, setToken, removeToken] = useLocalStorage('token', '');
   const { id } = params;
 
   // Fetch profile data
