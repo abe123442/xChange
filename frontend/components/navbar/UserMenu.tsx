@@ -147,6 +147,11 @@ const UserMenu: React.FC<{}> = () => {
             <div className="text-center">Logged in</div>
             <Separator className="w-auto" />
             <MenuItem
+              label="Upload EXCEL"
+              onClick={() => window.location.href = '/auth/upload'}
+            />
+            <Separator className="w-auto" />
+            <MenuItem
               label="Logout"
               onClick={logout}
             />

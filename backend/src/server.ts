@@ -36,6 +36,7 @@ app.post('/auth/upload', (req: Request, res: Response) => {
   const { file, header } = req.body;
 
   try {
+    console.log(file);
     res.status(200).json(tryUploadExcelToDatabase(token, file ? file : 'Partner Placement Guide.xlsx', header));
   } catch (e) {
     const error = e as Error;

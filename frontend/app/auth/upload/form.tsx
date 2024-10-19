@@ -26,7 +26,7 @@ export default function Form() {
         token: token ?? "",
       },
       body: JSON.stringify({
-        file: file?.name ?? "",
+        file: file?.name ?? "Partner Placement Guide.xlsx",
       }),
     });
 
