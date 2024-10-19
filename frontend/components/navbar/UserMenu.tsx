@@ -26,10 +26,8 @@ const UserMenu: React.FC<{}> = () => {
       }
     });
 
-    if (response.ok) {
-      removeToken();
-      window.location.href = window.location.href;
-    }
+    removeToken();
+    window.location.href = window.location.href;
   };
 
   // const getCurrUser = async () => {
