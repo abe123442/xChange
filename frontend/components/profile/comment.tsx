@@ -5,7 +5,7 @@ import { ThumbsUp, ThumbsDown } from "lucide-react";
 import { BACKEND_URL } from "@/lib/utils";
 import { CommentProps, Comment as CommentType } from "@/lib/utils";
 import "./comment.css";
-import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { useLocalStorage } from "usehooks-ts";
 
 export const Comment: React.FC<CommentProps> = ({ comments }) => {
   return (
@@ -26,16 +26,16 @@ interface CommentCardProps {
 }
 
 const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
-  const token = useReadLocalStorage<string>("token");
+  const [token, setToken, removeToken] = useLocalStorage('token', '');
   const [userid, setUserid] = useState(-1);
 
   // Get current user ID
   useEffect(() => {
     fetch(`${BACKEND_URL}/auth/user`, {
-      method: "PUT",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        token: token ?? "",
+        token: token,
       },
     })
       .then((res) => res.json())
@@ -44,12 +44,8 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
 
   const [likes, setLikes] = useState(comment.upvotedUsers.length);
   const [downvotes, setDownvotes] = useState(comment.downvotedUsers.length);
-  const [hasLiked, setHasLiked] = useState(() =>
-    comment.upvotedUsers.includes(userid),
-  );
-  const [hasDownvoted, setHasDownvoted] = useState(() =>
-    comment.downvotedUsers.includes(userid),
-  );
+  const [hasLiked, setHasLiked] = useState(comment.upvotedUsers.includes(userid));
+  const [hasDownvoted, setHasDownvoted] = useState(comment.downvotedUsers.includes(userid));
 
   const handleUpvote = async () => {
     if (!token) return;
@@ -106,7 +102,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
       console.error("Error downvoting comment:", responseData);
     }
   };
-
+  
   return (
     <div className="comment-card">
       <div className="comment-title">

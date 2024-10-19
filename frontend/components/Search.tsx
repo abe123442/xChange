@@ -50,7 +50,6 @@ export default function Search() {
       degLevels: isUndergraduate ? "UG" : "" + isPostgraduate ? "PG" : "",
       load,
     }).then(({ profiles: _profiles }) => {
-      console.log("here");
       setProfiles(_profiles);
     });
   };

@@ -5281,7 +5281,8 @@
       "tokens": [
         "c6b32fa2-4d06-4acf-8a9c-cbe4631be38a",
         "04162b01-3e0a-4744-b10a-4b5fa7d4518c",
-        "8e5fb43e-9827-49dd-bd08-2eb03893ff17"
+        "8e5fb43e-9827-49dd-bd08-2eb03893ff17",
+        "b80a6e7f-d910-4df7-895b-190903c3fbef"
       ]
     },
     {
@@ -5303,7 +5304,9 @@
       "title": "My comment 3",
       "desc": "I this uni <3",
       "rating": 5,
-      "upvotedUsers": [],
+      "upvotedUsers": [
+        1
+      ],
       "downvotedUsers": []
     },
     {
