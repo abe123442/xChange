@@ -6,16 +6,16 @@ Honourable mention as 6th place for 2024 DevSoc Blueprint hackathon.
 
 # Images
 ## Home page
-[Home page](home.png)
+![Home page](images/home.png)
 
 ## University profile page
-[University profile page](profile.png)
+![University profile page](images/profile.png)
 
 ## Register page
-[Register](register.png)
+![Register](images/register.png)
 
 ## Reviews and likes
-[Reviews and likes](reviews.png)
+![Reviews and likes](images/reviews.png)
 
 ## Post a review
-[Post a review](comment.png)
+![Post a review](images/comment.png)
