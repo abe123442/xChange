@@ -2,7 +2,7 @@
 Submitted for 2024 DevSoc Blueprint hackathon.
 
 ## Update
-Honourable mention as 6th place for 2024 DevSoc Blueprint hackathon.
+Honourable mention as 4th place for 2024 DevSoc Blueprint hackathon.
 
 # Images
 ## Home page
